@@ -404,14 +404,17 @@ nav .links a.active:after {
 }
 
 #duration {
-    color: lightskyblue;
+    color: #0080ff;
     font-weight: bold;
 }
 
 hr {
     width: 100%;
     background: #e6e6e6;
-    margin-bottom: 15px;
+}
+
+#updates-row {
+    margin-bottom: 10%;
 }
 
 /* Screens */
@@ -557,11 +560,12 @@ hr {
 }
 
 .btwn {
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .screen .cat.green {
     background-color: #74b49b;
+    margin-top: 2%;
 }
 
 .screen .cat.pink {
@@ -706,3 +710,11 @@ footer {
 }
 
 
+
+
+
+
+
+.fa-check {
+    margin: auto;
+}
