@@ -31,7 +31,7 @@ a:focus {
 h1,
 h2,
 h3 {
-    color: #215f8a;
+    color: #000000;
     font-weight: 700;
     margin: 0;
 }
@@ -384,6 +384,36 @@ nav .links a.active:after {
     width: 305px;
 }
 
+#updated,
+#lecturer {
+    color: grey;
+}
+
+#update {
+    color: #218721;
+    font-weight: bold;
+}
+
+.fa-download {
+    padding-right: 5px;
+}
+
+#date {
+    color: #000000;
+    font-weight: bold;
+}
+
+#duration {
+    color: lightskyblue;
+    font-weight: bold;
+}
+
+hr {
+    width: 100%;
+    background: #e6e6e6;
+    margin-bottom: 15px;
+}
+
 /* Screens */
 .screen header {
     background-color: #6f2377;
@@ -666,4 +696,8 @@ footer {
 
 .btt:hover {
     color: #6a2eb8;
+}
+
+.demo p {
+    color: #000;
 }
