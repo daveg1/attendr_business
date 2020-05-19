@@ -556,6 +556,10 @@ hr {
     align-items: center;
 }
 
+.btwn {
+    justify-content: space-between;
+}
+
 .screen .cat.green {
     background-color: #74b49b;
 }
@@ -565,7 +569,6 @@ hr {
 }
 
 .screen .cat.grey {
-    background-color: #f1f1f1;
     color: #333;
 }
 
@@ -701,3 +704,5 @@ footer {
 .demo p {
     color: #000;
 }
+
+
