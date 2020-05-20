@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+/* Generic */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    color: #333;
+    font: 14px/1 "Roboto", sans-serif;
+    margin: 0;
+    min-height: 100%;
+}
+
+main {
+
+}
+
+/*=================================================================*/
+/*                           Phone Code                            */
+/*=================================================================*/
+
+.phone {
+    height: 681px;
+    margin: 2em auto;
+    overflow: hidden;
+    padding: 25px 27px;
+    position: relative;
+    width: 346px;
+}
+
+.phone-graphic {
+    background: url('../images/iphone.png') no-repeat center / cover;
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.phone-viewport {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+.phone-screen {
+    flex-shrink: 0;
+    height: 631px;
+    width: 292px;
+}
+
+/*=================================================================*/
+/*                           Login Screen                          */
+/*=================================================================*/
+
+/* test */
+.phone-screen h2 {
+    margin-top: 5em;
+    user-select: none;
+    text-align: center;
+}
