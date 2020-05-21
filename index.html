@@ -33,74 +33,54 @@
                             </div>
                         </div>
                     </div>
-                    <div class="phone-screen">
-                        <div class="screen" data-screen="attendance">
-                            <header class="flex vAlign hAlign">
-                                <div class="options flex split">
-                                    <i onclick="screen('login')" class="fa fa-sign-out-alt"></i>
-                                    <i onclick="screen('tips')" class="fa fa-question"></i>
-                                </div>
+                    <div class="phone-screen header-top">
+                        <header class="student-header">
+                            <div class="flex-container">
+                                <i onclick="setPage(1)" class="fa fa-sign-out-alt"></i>
                                 <h3>Student Profile</h3>
-                            </header>
-                            <div class="page">
-                                <h3 class="text-center name">Wednesday <time datetime="2020-04-01">April 01, 2020</time></h3>
-                                <div id="updates-row" class="flex-container">
-                                    <p id="updated">Updated Just Now</p>
-                                    <p id="update"><i class="fas fa-download"></i>UPDATE NOW</p>
+                                <i class="fa fa-question"></i>
+                            </div>
+                        </header>
+                        <div class="page">
+                            <h3 class="text-center">Wednesday <time datetime="2020-04-01">April 01, 2020</time></h3>
+                            <div class="flex-container">
+                                <p id="updated">Updated Just Now</p>
+                                <p id="update"><i class="fas fa-download"></i>UPDATE NOW</p>
+                            </div>
+                            <div class="card">
+                                <div class="flex-container">
+                                    <p id="date"><time datetime="2020-04-02">April 2<sup>nd</sup></time></p>
+                                    <p id="duration">10h</p>
                                 </div>
-                                <div class=" bubble flex col" onclick="mark(this);">
-                                    <div class="flex-container">
-                                        <p id="date"><time datetime="2020-04-02">April 2<sup>nd</sup></time></p>
-                                        <p id="duration">10h</p>
-                                    </div>
+                                <hr>
+                                <div class="cat-header green">Teaching - Lecture</div>
+                                <div class="flex-container btwn">
+                                    <h3>CMM517 - Information Security Management</h3>
+                                    <p id="lecturer">Dr Hatem Ahriz</p>
+                                    <i class="fas fa-2x fa-check purple"></i>
                                     <hr>
-                                    <div class="cat green">Teaching - Lecture</div>
-                                    <div class="flex-container btwn">
-                                        <h3>CMM517 - Information Security Management</h3>
-                                        <p id="lecturer">Dr Hatem Ahriz</p>
-                                        <i class="fas fa-2x fa-check purple"></i>
-                                        <hr>
-                                    </div>
-                                    <div class="flex cats">
-                                        <div class="item hAlign vAlign cat">
-                                            <i class="fa fa-2x fa-clock purple"></i>
-                                            <p>10:00 12:00</p>
-                                        </div>
-                                        <div class="item hAlign vAlign cat">
-                                            <i class="fa fa-2x fa-map-marker-alt purple"></i>
-                                            <p>N105 (31 cap) - SIWB</p>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div id="second-card" class="bubble flex col" onclick="mark(this);">
-                                    <div class="cat pink">Teaching - Laboratory/Practical</div>
-                                    <h3>Physical Activity and Exercise Prescription</h3>
-                                    <div class="class-id cats flex split vAlign">
-                                        <div class="item cat">
-                                            <span>HS3071-SEM1-A</span>
-                                        </div>
-                                        <div class="item cat flex hAlign">
-                                            <i class="marker far fa-square"></i>
-                                        </div>
-                                    </div>
-                                    <div class="flex cats">
-                                        <div class="item hAlign cat grey">
-                                            <i class="fa fa-clock"></i>
-                                            <span>9:00am</span>
-                                        </div>
-                                        <div class="item hAlign cat grey">
-                                            <i class="fa fa-map-marker-alt"></i>
-                                            <span>552 » ABS</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <i class="fa fa-2x fa-clock purple"></i>
+                                <p>10:00 12:00</p>
+                                <i class="fa fa-2x fa-map-marker-alt purple"></i>
+                                <p>N105 (31 cap) - SIWB</p>
                             </div>
                         </div>
+                        <div class="card">
+                            <div class="cat-header pink">Teaching - Laboratory/Practical</div>
+                            <h3>Physical Activity and Exercise Prescription</h3>
+                            <span>HS3071-SEM1-A</span>
+                            <i class="marker far fa-square"></i>
+                        </div>
+                        <i class="fa fa-clock"></i>
+                        <span>9:00am</span>
                     </div>
-                    <div class="phone-screen">
-                        <h2>Screen 3</h2>
-                    </div>
+                    <i class="fa fa-map-marker-alt"></i>
+                    <span>552 » ABS</span>
                 </div>
+            </div>
+            <div class="phone-screen">
+                <h2>Screen 3</h2>
             </div>
         </section>
         <div class="screen" data-screen="tips">

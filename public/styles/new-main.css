@@ -231,3 +231,13 @@ body {
     text-align: center;
     padding-top: 24px;
 }
+
+.flex-container {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
