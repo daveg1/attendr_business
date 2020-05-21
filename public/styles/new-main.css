@@ -10,14 +10,13 @@ html {
 }
 
 body {
-    color: #333;
     font: 14px/1 "Roboto", sans-serif;
     margin: 0;
     min-height: 100%;
 }
 
 main {
-
+    overflow: auto;
 }
 
 /*=================================================================*/
@@ -26,7 +25,7 @@ main {
 
 .phone {
     height: 681px;
-    margin: 2em auto;
+    margin: 2em auto; /* Testing. */
     overflow: hidden;
     padding: 25px 27px;
     position: relative;
@@ -53,16 +52,84 @@ main {
 .phone-screen {
     flex-shrink: 0;
     height: 631px;
+    padding-top: 24px;
     width: 292px;
+}
+
+.phone-screen:first-child {
+    transition: margin .25s ease-in-out;
+}
+
+/* Testing. */
+.phone-screen h2 {
+    margin-top: 5em;
+    user-select: none;
+    text-align: center;
+}
+
+.phone-screen .wrap {
+    padding: 0 24px;
 }
 
 /*=================================================================*/
 /*                           Login Screen                          */
 /*=================================================================*/
 
-/* test */
-.phone-screen h2 {
-    margin-top: 5em;
-    user-select: none;
+.phone-screen .logo {
+    border: 2px dashed #000;
+    line-height: 64px;
+    font-size: 16px;
+    margin: 3em 0;
+    opacity: .4;
     text-align: center;
+    user-select: none;
 }
+
+/* Input Boxes */
+.phone-screen input {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-bottom: 1em;
+    padding: .75em 1em;
+    width: 100%;
+}
+
+.phone-screen input::placeholder {
+    color: #ccc;
+}
+
+.phone-screen input:focus {
+    border-color: #6f2377;
+    outline: 0;
+}
+
+.phone-screen input:focus::placeholder {
+    color: #7a7a7a;
+}
+
+/* Buttons */
+.phone-screen button {
+    background-color: #81288a;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 1.5em;
+    padding: .75em 1em;
+    width: 100%;
+}
+
+.phone-screen button:focus { outline: 0; }
+
+.phone-screen button:hover {
+    background-color: #932e9e;
+}
+
+.phone-screen button:active {
+    background-color: #6e2277;
+}
+
+/*=================================================================*/
+/*                        Lecture List Screen                      */
+/*=================================================================*/
+

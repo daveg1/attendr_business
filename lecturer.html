@@ -15,12 +15,22 @@
             <div class="phone">
                 <div class="phone-graphic"></div>
                 <div id="viewport" class="phone-viewport">
+                    <!-- Screen 1: Login -->
                     <div class="phone-screen">
-                        <h2>Screen 1</h2>
+                        <div class="wrap">
+                            <div class="logo">Your institution logo here</div>
+                            <input autocomplete="false" spellcheck="off" type="text" placeholder="Username" autofocus>
+                            <input autocomplete="false" spellcheck="off" type="password" placeholder="Password">
+                            <button onclick="setPage(2)">Sign In</button>
+                        </div>
                     </div>
-                    <div class="phone-screen">
+
+                    <!-- Screen 2: Lectures -->
+                    <div class="phone-screen" onclick="setPage(1)">
                         <h2>Screen 2</h2>
                     </div>
+
+                    <!-- Screen 3: Marking Screen -->
                     <div class="phone-screen">
                         <h2>Screen 3</h2>
                     </div>
