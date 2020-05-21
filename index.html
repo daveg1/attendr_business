@@ -1,77 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="en-GB">
+    <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Attendr</title>
 
-    <link rel="stylesheet" href="./public/styles/main.css">
+    <link rel="stylesheet" href="./public/styles/new-main.css">
     <link rel="shortcut icon" href="./favicon.ico">
     <script src="https://kit.fontawesome.com/59dd3e37d5.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 </head>
 
 <body dir="ltr">
-    <header>
-        <nav>
-            <div class="wrap flex split vAlign">
-                <a href="#">
-                    <img src="./public/images/logo-white.png" height="32">
-                </a>
-                <div id="links" class="flex links">
-                    <a href="#features">Features</a>
-                    <a href="#demo">Demo</a>
-                    <a href="#case-study">RGU Pilot</a>
-                    <a href="#user-reviews">Reviews</a>
-                    <a href="#contact">Contact Us</a>
-                </div>
-            </div>
-        </nav>
-    </header>
     <main>
-        <section id="intro" class="intro">
-            <div class="wrap flex">
-                <div class="item">
-                    <h1>An innovative solution for<br>real-time, secure<br>attendance recording<br>and analytics</h1>
-                    <p>Attendr is an innovative low-cost student attendance monitoring solution which seamlessly integrates student attendance with an analytics and automation platform without the need for any additional hardware beyond personal mobile phones.</p>
-                    <div class="flex button-holder">
-                        <a class="button blue" href="#features">Learn More</a>
-                        <a class="button purple" href="#case-study">About RGU Pilot Study</a>
+        <section id="new-phone">
+            <div class="phone">
+                <div class="phone-graphic"></div>
+                <div id="viewport" class="phone-viewport">
+                    <!-- Screen 1: Login -->
+                    <div class="phone-screen">
+                        <div class="wrap">
+                            <div class="v-center">
+                                <img id="rgu-logo" src="./public/images/rgu.png">
+                                <input id="username" type="text" placeholder="Username" autocomplete="off" spellcheck="false" value="123123123">
+                                <input id="password" type="password" placeholder="Password" value="123123123">
+                                <button id="login" class="button" onclick="validateLogin();">Log In</button>
+                                <p id="warning-message"></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="bubbles">
-                    <img src="./public/images/bubbles.png" height="480">
-                    <img class="hand" src="./public/images/mobile-in-hand.png" width="256">
-                </div>
-            </div>
-        </section>
-        <section id="features" class="flex hAlign nav-section">
-            <div class="wrap">
-                <div class="flex">
-                    <div class="item feature">
-                        <img class="icon" src="https://attendr.app/assets/img/icons/service-icon-4.png">
-                        <h3>Super Secure</h3>
-                        <p>Attendr was born to become the secure and efficient replacement for manual attendance.</p>
+                    <div class="phone-screen">
+                        <h2>Screen 2</h2>
                     </div>
-                    <div class="item feature">
-                        <img src="https://attendr.app/assets/img/icons/service-icon-5.png">
-                        <h3>Easy to Use</h3>
-                        <p>Attendr was built from scratch with the brainstorming of both students and staff.</p>
-                    </div>
-                    <div class="item feature">
-                        <img src="https://attendr.app/assets/img/icons/service-icon-1.png">
-                        <h3>Integrations</h3>
-                        <p>We support integration with existing time-tabling and authentication system.</p>
+                    <div class="phone-screen">
+                        <h2>Screen 3</h2>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="demo" class="nav-section">
+
+
+        <section id="old-phone">
             <div class="wrap">
-                <h2>What We Offer</h2>
-                <p>For universities who want to improve the student experience in attendance compliant monitoring, we offer an automated real-time attendance solution that integrates with their university life.</p>
+                <h1 class="text-center">App Demo</h1>
                 <div class="grid">
                     <div class="col">
                         <div class="bubble"></div>
@@ -84,15 +56,15 @@
                                         <header class="home-header">
                                             <h3>RGU Attend</h3>
                                         </header>
-                                        <section>
-                                            <img src="./public/images/rgu.png">
+                                        <div class="page">
+                                            <img src="./public/images/rgu.png" alt="RGU Logo">
                                             <div class="form">
-                                                <input id="username" type="text" placeholder="Username">
-                                                <input id="password" type="password" placeholder="Password">
+                                                <input id="username" type="text" placeholder="Username" autocomplete="off" spellcheck="false" value="123123123">
+                                                <input id="password" type="password" placeholder="Password" value="123123123">
                                                 <button class="button" onclick="validateLogin();">Log In</button>
                                                 <p id="warning-message"></p>
                                             </div>
-                                        </section>
+                                        </div>
                                     </div>
                                     <div class="screen" data-screen="attendance">
                                         <header class="flex vAlign hAlign">
@@ -102,15 +74,15 @@
                                             </div>
                                             <h3>Student Profile</h3>
                                         </header>
-                                        <section>
-                                            <h3 class="text-center name"><time>Wed Apr 01 2020</time></h3>
+                                        <div class="page">
+                                            <h3 class="text-center name">Wednesday <time datetime="2020-04-01">April 01, 2020</time></h3>
                                             <div id="updates-row" class="flex-container">
                                                 <p id="updated">Updated Just Now</p>
                                                 <p id="update"><i class="fas fa-download"></i>UPDATE NOW</p>
                                             </div>
                                             <div class=" bubble flex col" onclick="mark(this);">
                                                 <div class="flex-container">
-                                                    <p id="date"><time>Thu Apr 02</time></p>
+                                                    <p id="date"><time datetime="2020-04-02">April 2<sup>nd</sup></time></p>
                                                     <p id="duration">10h</p>
                                                 </div>
                                                 <hr>
@@ -154,13 +126,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </section>
+                                        </div>
                                     </div>
                                     <div class="screen" data-screen="tips">
                                         <header>
                                             <h3>About RGU Attend</h3>
                                         </header>
-                                        <main class="wrap">
+                                        <div class="wrap">
                                             <p class="content">RGU Attend is a student attendence app from Attendr. Simplifying register taking across universities. </p>
 
                                             <p>RGU Attend consists of two apps, one for students and one for lecturers.</p>
@@ -170,123 +142,18 @@
                                             <p>This makes signing into classes easier for students since they don't have to fumble around for a pen and saves time for lecturers who don't have spend time finding the sheet of paper.</p>
 
                                             <div class="flex-container">
-                                                <i class="fas fa-arrow-circle-left purple" onclick="goBack()"></i>
+                                                <i class="fas fa-arrow-circle-left purple" onclick="screen('attendance')"></i>
                                             </div>
-                                        </main>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="case-study" class="nav-section">
-            <div class="wrap text-center">
-                <h2>RGU Attend</h2>
-                <p style="margin: 0 auto; max-width: 70%;">The Attendr MVP was built for RGU for a pilot study with the computing school from the 2nd week of Nov. and with the nursing school from the last week of Nov. Both apps for lecturers and students are downloadable from the Google Play and Apple App stores.</p>
-                <div class="flex split" style="margin: 0 auto; max-width: 35%;">
-                    <div>
-                        <h3>Students</h3>
-                        <div class="button-holder">
-                            <a href="https://play.google.com/store/apps/details?id=uk.ac.rgu.attend.student&hl=en" class="button icon google">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <a href="https://apps.apple.com/gb/app/rgu-attend-student/id1482187428" class="button icon apple">
-                                <i class="fab fa-apple"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <h3>Lecturers</h3>
-                        <div class="button-holder">
-                            <a href="https://play.google.com/store/apps/details?id=uk.ac.rgu.attend.lecture" class="button icon google">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <a href="https://apps.apple.com/gb/app/rgu-attend-lecturer/id1481851522" class="button icon apple">
-                                <i class="fab fa-apple"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="screenshot-list">
-                    <img src="./public/images/screen-1.jpg">
-                    <img src="./public/images/screen-2.jpg">
-                    <img src="./public/images/screen-3.jpg">
-                    <img src="./public/images/screen-4.jpg">
-                    <img src="./public/images/screen-5.jpg">
-                    <img src="./public/images/screen-6.jpg">
-                </div>
-            </div>
-        </section>
-        <section id="user-reviews" class="nav-section">
-            <div class="wrap">
-                <div class="text-center">
-                    <h2>User Reviews</h2>
-                    <p style="margin: 2em auto; max-width: 50%;">We've already received (through a student questionnaire) very favourable feedback suggesting the idea is viable (e.g., an average rating of 4.86 out of 5 for ease of use) and received several positive comments, such as:</p>
-                </div>
-                <div class="grid">
-                    <div class="flex col">
-                        <div class="bubble green">
-                            <p>Using the app is easier since I don't have to worry about not having a pen nor do i have to worry about whether I signed it or not.</p>
-                        </div>
-                        <div class="bubble grey">
-                            <p>It’s great to see new technologies entering the classroom. The same paper-based method has been in place for the 20 years I have been involved in teaching at RGU and has remained unchanged since I was a student. The paper-based approach is unreliable because students can sign in friends and for multiple classes at once; as a lecturer I haven’t an easy way to check accuracy and don’t really see it as my job to check. Attendr sorts these problems with an apparently simple solution, certainly simple to use in class.</p>
-                        </div>
-                    </div>
-                    <div class="flex col">
-                        <div class="bubble purple">
-                            <p>The registration was quick and intuitive, I liked that it took live registration I could observe. I was also happy with the manual registration, helping me mark students in who either didn’t have the app or that where apprehensive about using Bluetooth in this manner. Overall - a positive experience with a few things to consider moving forward.</p>
-                        </div>
-                        <div class="bubble blue">
-                            <p>Using the app makes sure that you dont waste time in the lab looking for the register.</p>
-                        </div>
-                    </div>
-                    <div class="flex col">
-                        <div class="bubble blue">
-                            <p>Using the app is easier since I don't have to worry about not having a pen nor do i have to worry about whether I signed it or not.</p>
-                        </div>
-                        <div class="bubble green">
-                            <p>Layout of app made it easy to visually check once students had confirmed attendance.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="contact">
-            <div class="wrap flex col vAlign">
-                <h2>Contact Us</h2>
-                <p class="text-center">Have any suggestions or improvements for the app?
-                    <br>Feel free to send an email or drop a message on our Facebook page</p>
-                <div class="button-holder">
-                    <a href="mailto:hello@attendr.app" class="button icon mail">
-                        <i class="fa fa-envelope"></i>
-                    </a>
-                    <a href="https://www.facebook.com/attendrattendance/" class="button icon fb">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
-        <div class="wrap flex vAlign">
-            <div class="item">
-                &copy; 2020 Attendr
-            </div>
-            <div class="item vAlign">
-                <a href="#" class="btt">
-                    <i class="fa fa-angle-up"></i>
-                    Go to Top
-                </a>
-            </div>
-            <div class="item text-right">
-                <p>Made by some nerds</p>
-            </div>
-        </div>
-    </footer>
     <script src="./public/site.js"></script>
+    <script src="./public/new-site.js"></script>
 </body></html>

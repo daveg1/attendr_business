@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lecturer Demo</title>
+        <link rel="stylesheet" href="./public/styles/new-main.css">
+        <link rel="shortcut icon" href="./favicon.ico">
+        <script src="https://kit.fontawesome.com/59dd3e37d5.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    </head>
+    <body dir="ltr">
+        <main>
+            <section class="demo">
+                <div class="annotations">
+                    <div class="annotations-list" data-screen="1" rel="focused">
+                        <div class="note">
+                            <p>Attendr allows you customise your application with your insitution's logo.</p>
+                        </div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div class="note">
+                            <p>The colour scheme of the app is also totally customisable.</p>
+                        </div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="annotations-list" data-screen="2">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div class="note">
+                            <p>The colour scheme of the app is also totally customisable.</p>
+                        </div>
+                        <div></div>
+                        <div></div>
+                        <div class="note">
+                            <p>Attendr allows you customise your application with your insitution's logo.</p>
+                        </div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="phone">
+                    <div class="phone-graphic"></div>
+                    <div id="viewport" class="phone-viewport">
+                        <!-- Screen 1: Login -->
+                        <div class="phone-screen">
+                            <div class="wrap">
+                                <div class="logo">Your institution logo here</div>
+                                <input autocomplete="false" spellcheck="off" type="text" placeholder="Username" autofocus>
+                                <input autocomplete="false" spellcheck="off" type="password" placeholder="Password">
+                                <button onclick="setPage(2)">Sign In</button>
+                            </div>
+                        </div>
+
+                        <!-- Screen 2: Lectures -->
+                        <div class="phone-screen" onclick="setPage(1)">
+                            <h2>Screen 2</h2>
+                        </div>
+
+                        <!-- Screen 3: Marking Screen -->
+                        <div class="phone-screen">
+                            <h2>Screen 3</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="annotations"></div>
+            </section>
+        </main>
+        <script src="./public/new-site.js"></script>
+    </body>
+</html>

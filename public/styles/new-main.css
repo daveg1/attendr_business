@@ -1,0 +1,219 @@
+@charset "utf-8";
+
+/* Generic */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font: 14px/1 "Roboto", sans-serif;
+    margin: 0;
+    min-height: 100%;
+}
+
+.demo {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 3em 0;
+    position: relative;
+}
+
+/*=================================================================*/
+/*                           Annotations                           */
+/*=================================================================*/
+
+.annotations {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.annotations-list {
+    display: grid;
+    height: 100%;
+    grid-column-gap: 346px;
+    grid-template-columns: 384px 384px;
+    grid-template-rows: repeat(6, 113px);
+    justify-content: space-between;
+    position: absolute;
+    transition: opacity .5s ease-in-out;
+    width: 100%;
+}
+
+.annotations-list:not([rel]) {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.note {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: 0 2px 12px transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 2em;
+    position: relative;
+    transition: .3s ease-in-out;
+    width: 384px;
+    z-index: 3;
+}
+
+.note:hover {
+    border-color: #1074e7;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .25);
+}
+
+.note:nth-child(2n-1) {
+    text-align: right;
+}
+
+.note p {
+    font-size: 16px;
+    line-height: 1.42;
+    margin: 0;
+}
+
+/*=================================================================*/
+/*                           Phone Code                            */
+/*=================================================================*/
+
+.phone {
+    height: 681px;
+    overflow: hidden;
+    padding: 25px 27px;
+    position: relative;
+    width: 346px;
+}
+
+.phone-graphic {
+    background: url('../images/iphone.png') no-repeat center / cover;
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.phone-viewport {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+.phone-screen {
+    flex-shrink: 0;
+    height: 631px;
+    padding-top: 24px;
+    width: 292px;
+}
+
+.phone-screen:first-child {
+    transition: margin .25s ease-in-out;
+}
+
+/* Testing. */
+.phone-screen h2 {
+    margin-top: 5em;
+    user-select: none;
+    text-align: center;
+}
+
+.phone-screen .wrap {
+    padding: 0 24px;
+}
+
+/*=================================================================*/
+/*                           Login Screen                          */
+/*=================================================================*/
+
+.phone-screen .logo {
+    border: 2px dashed #000;
+    line-height: 64px;
+    font-size: 16px;
+    margin: 3em 0;
+    opacity: .4;
+    text-align: center;
+    user-select: none;
+}
+
+/* Input Boxes */
+.phone-screen input {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    padding: 1em 1em;
+    width: 85%;
+}
+
+.phone-screen input::placeholder {
+    color: #ccc;
+}
+
+.phone-screen input:focus {
+    border-color: #6f2377;
+    outline: 0;
+}
+
+.phone-screen input:focus::placeholder {
+    color: #7a7a7a;
+}
+
+/* Buttons */
+.phone-screen button {
+    background-color: #81288a;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 1.5em;
+    padding: .75em 1em;
+    width: 100%;
+}
+
+.phone-screen button:focus {
+    outline: 0;
+}
+
+.phone-screen button:hover {
+    background-color: #932e9e;
+}
+
+.phone-screen button:active {
+    background-color: #6e2277;
+}
+
+/*=================================================================*/
+/*                        Lecture List Screen                      */
+/*=================================================================*/
+
+
+/*================================================================*/
+/*                        Student App Styling                     */
+/*================================================================*/
+
+.v-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#rgu-logo {
+    margin-bottom: 10vh;
+}
+
+#login {
+    width: 85%;
+    margin-top: 10vh;
+    border-radius: 4px;
+    font-weight: bold;
+}
