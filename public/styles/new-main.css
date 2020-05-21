@@ -217,3 +217,17 @@ body {
     border-radius: 4px;
     font-weight: bold;
 }
+
+.header-top {
+    padding: 0;
+}
+
+.student-header {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    background: #6f2377;
+    color: #fff;
+    text-align: center;
+    padding-top: 24px;
+}
