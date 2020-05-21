@@ -259,3 +259,11 @@ body {
 .fa-download {
     padding-right: 5px;
 }
+
+.card {
+    width: 80%;
+    margin: 10%;
+    padding: 5%;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .25);
+    border-radius: 10px;
+}
