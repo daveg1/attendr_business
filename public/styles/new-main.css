@@ -277,3 +277,28 @@ body {
     color: #0080ff;
     font-weight: bold;
 }
+
+.cat-header {
+    border-radius: 7px;
+    font-size: 12px;
+    flex-direction: row;
+    margin-bottom: .5em;
+    padding: .5em .75em;
+}
+
+.green {
+    background-color: #74b49b;
+    margin-top: 2%;
+}
+
+.fa-sign-out-alt {
+    cursor: pointer;
+}
+
+.flex-btwn {
+    justify-content: space-between
+}
+
+.fa-check {
+    margin: 0 auto;
+}
