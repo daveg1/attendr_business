@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    font: 14px/1 "Roboto", sans-serif;
+    font: 14px/1 "Segoe UI", sans-serif;
     margin: 0;
     min-height: 100%;
 }
@@ -120,13 +120,6 @@ body {
     transition: margin .25s ease-in-out;
 }
 
-/* Testing. */
-.phone-screen h2 {
-    margin-top: 5em;
-    user-select: none;
-    text-align: center;
-}
-
 .phone-screen .wrap {
     padding: 0 24px;
 }
@@ -193,3 +186,111 @@ body {
 /*                        Lecture List Screen                      */
 /*=================================================================*/
 
+.phone-screen.lectures {
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-screen.lectures header {
+    flex-shrink: 0;
+}
+
+.phone-screen h2 {
+    font-size: 1.25em;
+}
+
+.phone-screen .option-bar {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.phone-screen .split {
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone-screen i[onclick] {
+    cursor: pointer;
+}
+
+.phone-screen h2 {
+    margin: 0;
+    user-select: none;
+    text-align: center;
+}
+
+.sync-message {
+    color: #888;
+}
+
+.phone-screen .lecture-list {
+    overflow-y: auto;
+    padding-right: 20px;
+    padding-bottom: .15em;
+}
+
+.phone-screen .lecture-list::-webkit-scrollbar {
+    background-color: #e6e6e6;
+    width: 4px;
+}
+
+.phone-screen .lecture-list::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+}
+
+.phone-screen .lecture-item {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 1.5em;
+    user-select: none;
+}
+
+.phone-screen .lecture-item:active {
+    /* background-color: #fafafa; */
+    border-color: #000;
+}
+
+.lecture-item .wrap {
+    padding: 0 14px;
+}
+
+.lecture-item h3 {
+    font-size: 1em;
+    margin: 0;
+}
+
+.lecture-item .day {
+    color: #1074e6;
+}
+
+.lecture-type {
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 22px;
+    text-align: center;
+}
+
+.lecture-type.lecture { background-color: #74b49b; }
+.lecture-type.lab { background-color: #df7699; }
+
+.lecture-info {
+    padding: 1em 0;
+}
+
+.lecture-info .teacher {
+    color: #888;
+    font-weight: 400;
+    margin: .5em 0 0;
+}
+
+.lecture-waw { /* When and Where */
+    background-color: #fafafa;
+    border-top: inherit;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 1em;
+}
