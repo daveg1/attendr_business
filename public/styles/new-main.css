@@ -230,6 +230,7 @@ body {
     color: #fff;
     text-align: center;
     padding-top: 24px;
+    margin-bottom: 5vh;
 }
 
 .flex-container {
@@ -301,4 +302,12 @@ body {
 
 .fa-check {
     margin: 0 auto;
+}
+
+.purple {
+    color: #6f2377;
+}
+
+.pink {
+    background-color: #df7699;
 }
