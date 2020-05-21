@@ -241,3 +241,21 @@ body {
     justify-content: space-around;
     align-items: center;
 }
+
+.text-center {
+    text-align: center;
+}
+
+#updated,
+#lecturer {
+    color: grey;
+}
+
+#update {
+    color: #218721;
+    font-weight: bold;
+}
+
+.fa-download {
+    padding-right: 5px;
+}
