@@ -1,35 +1,29 @@
-// Margin values for CSS.
-const screens = {
-    'login': 0,
-    'attendance': 305,
-    'tips': 610
+// Total available pages.
+const MAX = 3;
+
+function setPage(n){
+    if(n < 1 || n > MAX){
+        console.log('Invalid page number.');
+        return;
+    }
+
+    // Do note, that the first screen is receiving the margin style, not the viewport itself.
+    // Else, it falls out of view completely.
+    document.getElementById('viewport').firstElementChild.style.marginLeft = `calc(-292px * ${n-1})`; // Subtract one to avoid an extra page shift.
+    focusAnnotations(n);
 }
 
-// Swipe the phone screen.
-function screen(scr){
-    document.getElementById('screens').style.marginLeft = `-${screens[scr]}px`;
-}
+function focusAnnotations(n){
+    const noteLists = document.getElementsByClassName('annotations-list');
+    let screen;
 
-// Mark attendance (student's app).
-function mark(el){
-    let i = el.getElementsByClassName('marker')[0];
+    for(let list of noteLists){
+        screen = +list.dataset.screen;
 
-    if(i.classList.contains('fa-check')) return;
-    i.className = 'marker fa fa-paper-plane';
-
-    setTimeout(() => {
-        i.className = 'marker fa fa-check';
-    }, 2500);
-}
-
-function validateLogin(){
-    const warning_message = document.getElementById("warning-message");
-
-    if(document.getElementById("password").value.length >= 5 && document.getElementById("username").value.length >= 1){
-        warning_message.removeAttribute('rel');
-        screen('attendance');
-    } else {
-        warning_message.innerHTML = "Sorry, your password must be more than 5 characters and your username can't be blank.";
-        warning_message.setAttribute('rel', 'visible');
+        if(screen === n){
+            list.setAttribute('rel', 'focused');
+        } else if(screen !== n && list.getAttribute('rel')){
+            list.removeAttribute('rel');
+        }
     }
 }
