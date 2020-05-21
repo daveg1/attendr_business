@@ -168,6 +168,10 @@ body {
     color: #7a7a7a;
 }
 
+#wide-inputs input {
+    width: 100%;
+}
+
 /* Buttons */
 .phone-screen button {
     background-color: #81288a;
