@@ -15,8 +15,69 @@ body {
     min-height: 100%;
 }
 
-main {
-    overflow: auto;
+.demo {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 3em 0;
+    position: relative;
+}
+
+/*=================================================================*/
+/*                           Annotations                           */
+/*=================================================================*/
+
+.annotations {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.annotations-list {
+    display: grid;
+    height: 100%;
+    grid-column-gap: 346px;
+    grid-template-columns: 384px 384px;
+    grid-template-rows: repeat(6, 113px);
+    justify-content: space-between;
+    position: absolute;
+    transition: opacity .5s ease-in-out;
+    width: 100%;
+}
+
+.annotations-list:not([rel]){
+    opacity: 0;
+    pointer-events: none;
+}
+
+.note {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: 0 2px 12px transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 2em;
+    position: relative;
+    transition: .3s ease-in-out;
+    width: 384px;
+    z-index: 3;
+}
+
+.note:hover {
+    border-color: #1074e7;
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+
+.note:nth-child(2n-1) {
+    text-align: right;
+}
+
+.note p {
+    font-size: 16px;
+    line-height: 1.42;
+    margin: 0;
 }
 
 /*=================================================================*/
@@ -25,7 +86,6 @@ main {
 
 .phone {
     height: 681px;
-    margin: 2em auto; /* Testing. */
     overflow: hidden;
     padding: 25px 27px;
     position: relative;
