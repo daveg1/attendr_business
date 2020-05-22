@@ -266,8 +266,8 @@ body {
 }
 
 .card {
-    width: 80%;
-    margin: 10%;
+    width: 90%;
+    margin: 5%;
     padding: 5%;
     box-shadow: 0 2px 12px rgba(0, 0, 0, .25);
     border-radius: 10px;
@@ -287,13 +287,12 @@ body {
     border-radius: 7px;
     font-size: 12px;
     flex-direction: row;
-    margin-bottom: .5em;
+    margin-top: 5%;
     padding: .5em .75em;
 }
 
 .green {
     background-color: #74b49b;
-    margin-top: 2%;
 }
 
 .fa-sign-out-alt,
@@ -332,4 +331,8 @@ p {
 
 .fa-arrow-circle-left {
     margin-top: 10vh;
+}
+
+.half {
+    width: 50%;
 }
