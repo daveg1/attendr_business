@@ -241,7 +241,8 @@ body {
     margin-bottom: 5vh;
 }
 
-.flex-container {
+.flex-container,
+.flex-list {
     width: 100%;
     height: auto;
     overflow: auto;
@@ -249,6 +250,10 @@ body {
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
+}
+
+.flex-list .flex-container {
+    margin: 2.5% 0;
 }
 
 .text-center {
@@ -362,6 +367,7 @@ p {
     margin: 3vw 0;
 }
 
+.warning h3,
 .warning p {
     color: #ffffff;
 }
@@ -400,7 +406,6 @@ li {
 }
 
 .box {
-    display: inline-block;
     width: 20px;
     height: 20px;
     border: 2px solid red;
