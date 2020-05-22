@@ -296,7 +296,9 @@ body {
     margin-top: 2%;
 }
 
-.fa-sign-out-alt {
+.fa-sign-out-alt,
+fa-question,
+fa-arrow-circle-left {
     cursor: pointer;
 }
 
@@ -314,4 +316,20 @@ body {
 
 .pink {
     background-color: #df7699;
+}
+
+.content-container {
+    width: 75%;
+}
+
+.relative {
+    position: relative;
+}
+
+p {
+    line-height: 140%;
+}
+
+.fa-arrow-circle-left {
+    margin-top: 10vh;
 }
