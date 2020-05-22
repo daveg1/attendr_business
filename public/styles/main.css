@@ -373,6 +373,10 @@ p {
     background: #6f2377;
 }
 
+li {
+    list-style-type: none;
+}
+
 .inactive-tab {
     background: #f5f0f0;
 }
