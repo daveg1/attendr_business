@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="tabs flex-container">
-                                <div class="half inactive-tab">
+                                <div class="half inactive-tab" onclick="setPage(4)">
                                     <div class="flex-container">
                                         <i class="fas fa-2x fa-user purple"></i>
                                         <p class="purple">Profile</p>
@@ -113,6 +113,24 @@
                                 <p>Through Bluetooth Low Energy (BLE), the Student app connects to the Lecturer app to record your attendance in lectures and labs.</p>
 
                                 <p>This makes signing into classes easier for students since they don't have to fumble around for a pen and saves time for lecturers who don't have spend time finding the sheet of paper.</p>
+                                <div class="flex-container">
+                                    <i class="fas fa-3x fa-arrow-circle-left purple" onclick="setPage(2)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-screen header-top">
+                        <div class="wrap">
+                            <div class="content-container v-center">
+                                <div class="flex-container flex-center">
+                                    <i class="fab fa-5x fa-bluetooth-b"></i>
+                                    <i class="fas fa-2x fa-exclamation-circle align-bottom"></i>
+                                </div>
+                                <div class="warning">
+                                    <h3 class="text-center">No Signal</h3>
+
+                                    <p>Your device cannot detect any attendance signals. Please ensure that the lecturer is currently transmitting, and that you have Bluetooth and location permissions enabled.</p>
+                                </div>
                                 <div class="flex-container">
                                     <i class="fas fa-3x fa-arrow-circle-left purple" onclick="setPage(2)"></i>
                                 </div>
