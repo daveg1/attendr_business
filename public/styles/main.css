@@ -131,6 +131,10 @@ body {
     padding: 0 24px;
 }
 
+.wrap-right {
+    padding-right: 24px;
+}
+
 /*=================================================================*/
 /*                           Login Screen                          */
 /*=================================================================*/
@@ -237,7 +241,8 @@ body {
     margin-bottom: 5vh;
 }
 
-.flex-container {
+.flex-container,
+.flex-list {
     width: 100%;
     height: auto;
     overflow: auto;
@@ -245,6 +250,10 @@ body {
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
+}
+
+.flex-list .flex-container {
+    margin: 2.5% 0;
 }
 
 .text-center {
@@ -266,8 +275,8 @@ body {
 }
 
 .card {
-    width: 80%;
-    margin: 10%;
+    width: 90%;
+    margin: 5%;
     padding: 5%;
     box-shadow: 0 2px 12px rgba(0, 0, 0, .25);
     border-radius: 10px;
@@ -287,21 +296,32 @@ body {
     border-radius: 7px;
     font-size: 12px;
     flex-direction: row;
-    margin-bottom: .5em;
-    padding: .5em .75em;
+    margin-top: 5%;
+    padding: 2.5%;
+    color: #ffffff;
 }
 
 .green {
     background-color: #74b49b;
-    margin-top: 2%;
 }
 
-.fa-sign-out-alt {
+.fa-sign-out-alt,
+fa-question,
+fa-arrow-circle-left,
+.tabs {
     cursor: pointer;
 }
 
+.flex-center {
+    justify-content: center;
+}
+
+.align-bottom {
+    align-self: flex-end;
+}
+
 .flex-btwn {
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .fa-check {
@@ -314,4 +334,79 @@ body {
 
 .pink {
     background-color: #df7699;
+}
+
+.content-container {
+    width: 75%;
+}
+
+.relative {
+    position: relative;
+}
+
+p {
+    line-height: 140%;
+}
+
+.fa-arrow-circle-left {
+    margin-top: 5vh;
+}
+
+.fa-bluetooth-b {
+    color: #007FF6;
+}
+
+.fa-exclamation-circle,
+.fa-times {
+    color: red;
+}
+
+.warning {
+    background: red;
+    padding: 5%;
+    margin: 3vw 0;
+}
+
+.warning h3,
+.warning p {
+    color: #ffffff;
+}
+
+.half {
+    width: 50%;
+}
+
+.tabs {
+    width: 90%;
+    margin: 5%;
+    border-radius: 4px;
+}
+
+.active-tab {
+    background: #6f2377;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    list-style-type: none;
+}
+
+.inactive-tab {
+    background: #f5f0f0;
+}
+
+.active-tab i,
+.active-tab p {
+    color: #ffffff;
+}
+
+.box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid red;
 }

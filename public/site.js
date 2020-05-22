@@ -1,8 +1,8 @@
 // Total available pages.
-const MAX = 3;
+const MAX = 4;
 
-function setPage(n){
-    if(n < 1 || n > MAX){
+function setPage(n) {
+    if (n < 1 || n > MAX) {
         console.log('Invalid page number.');
         return;
     }
@@ -13,16 +13,16 @@ function setPage(n){
     focusAnnotations(n);
 }
 
-function focusAnnotations(n){
+function focusAnnotations(n) {
     const noteLists = document.getElementsByClassName('annotations-list');
     let screen;
 
-    for(let list of noteLists){
+    for (let list of noteLists) {
         screen = +list.dataset.screen;
 
-        if(screen === n){
+        if (screen === n) {
             list.setAttribute('rel', 'focused');
-        } else if(screen !== n && list.getAttribute('rel')){
+        } else if (screen !== n && list.getAttribute('rel')) {
             list.removeAttribute('rel');
         }
     }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-GB">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Attendr</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendr</title>
 
     <title>Attendr</title>
 
@@ -15,7 +15,7 @@
 
 <body dir="ltr">
     <main>
-        <section id="new-phone">
+        <section id="student-app">
             <div class="phone">
                 <div class="phone-graphic"></div>
                 <div id="viewport" class="phone-viewport">
@@ -39,7 +39,7 @@
                             <div class="flex-container">
                                 <i onclick="setPage(1)" class="fa fa-sign-out-alt"></i>
                                 <h3>Student Profile</h3>
-                                <i class="fa fa-question"></i>
+                                <i onclick="setPage(3)" class="fa fa-question"></i>
                             </div>
                         </header>
                         <div class="page">
@@ -50,7 +50,7 @@
                             </div>
                             <div class="card">
                                 <div class="flex-container">
-                                    <p id="date"><time datetime="2020-04-02">April 2<sup>nd</sup></time></p>
+                                    <p id="date"><time datetime="2020-04-02">Thu April 2<sup>nd</sup></time></p>
                                     <p id="duration">10h</p>
                                 </div>
                                 <hr>
@@ -59,18 +59,32 @@
                                     <h3>CMM517 - Information Security Management</h3>
                                     <div class="flex-container flex-btwn">
                                         <p id="lecturer">Dr Hatem Ahriz</p>
-                                        <i class="fas fa-2x fa-check purple"></i>
+                                        <i class="fas fa-3x fa-check purple"></i>
                                     </div>
                                     <hr>
                                 </div>
-                                <div class="flex-container">
-                                    <div class="flex-container">
+                                <div class="flex-container flex-btwn">
+                                    <div class="flex-container half">
                                         <i class="fa fa-2x fa-clock purple"></i>
-                                        <p>10:00 12:00</p>
+                                        <p>10:00 - 12:00</p>
                                     </div>
-                                    <div class="flex-container">
+                                    <div class="flex-container half">
                                         <i class="fa fa-2x fa-map-marker-alt purple"></i>
-                                        <p>N105 (31 cap) - SIWB</p>
+                                        <p>N105 - SIWB</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tabs flex-container">
+                                <div class="half inactive-tab" onclick="setPage(4)">
+                                    <div class="flex-container">
+                                        <i class="fas fa-2x fa-user purple"></i>
+                                        <p class="purple">Profile</p>
+                                    </div>
+                                </div>
+                                <div class="half active-tab">
+                                    <div class="flex-container">
+                                        <i class="fas fa-2x fa-calendar-day"></i>
+                                        <p>Timetable</p>
                                     </div>
                                 </div>
                             </div>
@@ -86,30 +100,59 @@
                         <i class="fa fa-map-marker-alt"></i>
                         <span>552 » ABS</span>
                     </div>
-                </div>
-                <div class="phone-screen">
-                    <h2>Screen 3</h2>
+                    <div class="phone-screen header-top">
+                        <header class="student-header">
+                            <h3>RGU Attend</h3>
+                        </header>
+                        <div class="wrap">
+                            <div class="content-container v-center">
+                                <p>RGU Attend is a student attendence app from Attendr. Simplifying register taking across universities. </p>
+
+                                <p>RGU Attend consists of two apps, one for students and one for lecturers.</p>
+
+                                <p>Through Bluetooth Low Energy (BLE), the Student app connects to the Lecturer app to record your attendance in lectures and labs.</p>
+
+                                <p>This makes signing into classes easier for students since they don't have to fumble around for a pen and saves time for lecturers who don't have spend time finding the sheet of paper.</p>
+                                <div class="flex-container">
+                                    <i class="fas fa-3x fa-arrow-circle-left purple" onclick="setPage(2)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-screen header-top">
+                        <div class="v-center wrap-right">
+                            <div class="flex-container flex-center">
+                                <i class="fab fa-5x fa-bluetooth-b"></i>
+                                <i class="fas fa-2x fa-exclamation-circle align-bottom"></i>
+                            </div>
+                            <div class="warning">
+                                <h3 class="text-center">No Signal</h3>
+                                <p>Your device cannot detect any attendance signals. Please ensure that the lecturer is currently transmitting, and that you have Bluetooth and location permissions enabled.</p>
+                            </div>
+                            <div class="flex-container">
+                                <ul class="flex-list">
+                                    <div class="flex-container">
+                                        <li>Listening for Signal</li>
+                                        <i class="fas fa-2x fa-times"></i>
+                                    </div>
+                                    <div class="flex-container">
+                                        <li>Collecting Data</li>
+                                        <div class="box"></div>
+                                    </div>
+                                    <div class="flex-container">
+                                        <li>Attendance Sent</li>
+                                        <div class="box"></div>
+                                    </div>
+                                </ul>
+                            </div>
+                            <div class="flex-container">
+                                <i class="fas fa-3x fa-arrow-circle-left purple" onclick="setPage(2)"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <div class="screen" data-screen="tips">
-            <header>
-                <h3>About RGU Attend</h3>
-            </header>
-            <div class="wrap">
-                <p class="content">RGU Attend is a student attendence app from Attendr. Simplifying register taking across universities. </p>
-
-                <p>RGU Attend consists of two apps, one for students and one for lecturers.</p>
-
-                <p>Through Bluetooth Low Energy (BLE), the Student app connects to the Lecturer app to record your attendance in lectures and labs.</p>
-
-                <p>This makes signing into classes easier for students since they don't have to fumble around for a pen and saves time for lecturers who don't have spend time finding the sheet of paper.</p>
-
-                <div class="flex-container">
-                    <i class="fas fa-arrow-circle-left purple" onclick="screen('attendance')"></i>
-                </div>
-            </div>
-        </div>
     </main>
     <script src="./public/site.js"></script>
 </body></html>
