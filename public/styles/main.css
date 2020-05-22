@@ -337,3 +337,22 @@ p {
 .half {
     width: 50%;
 }
+
+.tabs {
+    width: 90%;
+    margin: 5%;
+    border-radius: 4px;
+}
+
+.active-tab {
+    background: #6f2377;
+}
+
+.inactive-tab {
+    background: #f5f0f0;
+}
+
+.active-tab i,
+.active-tab p {
+    color: #ffffff;
+}
