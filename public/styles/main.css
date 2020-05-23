@@ -502,6 +502,10 @@ For example:
     border-radius: 10px;
 }
 
+#activities-card {
+    margin-top: 10%;
+}
+
 .date {
     color: #000000;
     font-weight: bold;
@@ -643,6 +647,11 @@ li {
     width: 90%;
     padding: 5%;
     margin: 5%;
+    margin-top: 0;
     border-radius: 10px;
     font-weight: bold;
+}
+
+#student-profile-header {
+    margin-bottom: 2.5%;
 }
