@@ -52,22 +52,6 @@ function setPage(n){
 //    Page-specific Functions   //
 // ---------------------------- //
 
-// Lecturer's Marking Page --------------------------------------------------------------------------------- Fix
-function toggleMarking(el){
-    const list = document.querySelector('.marking .attendee-list');
-    const markBtn = el;
-
-    if(list.getAttribute('rel')){
-        markBtn.innerText = "Stop Marking";
-        list.removeAttribute('rel');
-    } else {
-        markBtn.innerText = "Start Marking";
-        list.setAttribute('rel', 'locked');
-    }
-
-    setPage(4);
-}
-
 // Signal page attendee items.
 function markStudent(e){
     e.preventDefault();

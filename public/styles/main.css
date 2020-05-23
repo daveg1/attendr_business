@@ -170,13 +170,26 @@ For example:
 /*=================================================================*/
 
 .phone-screen .logo {
-    border: 2px dashed #000;
+    border: 2px dashed #9a9a9a;
+    color: #9a9a9a;
     line-height: 64px;
     font-size: 16px;
     margin: 3em 0;
-    opacity: .4;
+    /* opacity: .4; */
+    position: relative;
     text-align: center;
     user-select: none;
+}
+
+/* To differentiate from the lecturers' app. */
+.phone-screen .logo .grad-cap {
+    background-color: #fff;
+    color: #000;
+    font-size: 24px;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -65%) rotate(15deg);
+    position: absolute;
 }
 
 /* Input Boxes */
@@ -212,9 +225,12 @@ For example:
     border-radius: 20px;
     cursor: pointer;
     color: #fff;
-    margin-top: 1.5em;
     padding: .75em 1em;
     width: 100%;
+}
+
+.phone-screen input + button {
+    margin-top: 1.5em;
 }
 
 .phone-screen button:focus {
@@ -330,7 +346,7 @@ For example:
 .marking .lecture-waw {
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
-    margin: 1.5em 0 0;
+    margin: 2em 0 0;
     padding: 1em 2em;
 }
 
