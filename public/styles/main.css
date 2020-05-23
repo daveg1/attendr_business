@@ -434,14 +434,8 @@ For example:
 /*                        Student App Styling                     */
 /*================================================================*/
 
-.v-center {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 #rgu-logo {
-    margin-bottom: 10vh;
+    margin: 10vh 0;
 }
 
 #login {
