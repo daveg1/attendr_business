@@ -189,6 +189,11 @@ For example:
     width: 100%;
 }
 
+.phone-screen input,
+.phone-screen button {
+    -webkit-appearance: none;
+}
+
 .phone-screen input::placeholder {
     color: #ccc;
 }
