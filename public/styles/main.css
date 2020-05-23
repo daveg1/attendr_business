@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    font: 14px/1 "Roboto", sans-serif;
+    font: 14px/1 "Segoe UI", sans-serif;
     margin: 0;
     min-height: 100%;
 }
@@ -120,19 +120,49 @@ body {
     transition: margin .25s ease-in-out;
 }
 
-/* Testing. */
-.phone-screen h2 {
-    margin-top: 5em;
-    user-select: none;
-    text-align: center;
-}
-
 .phone-screen .wrap {
     padding: 0 24px;
 }
 
 .wrap-right {
     padding-right: 24px;
+}
+
+.phone-screen.bottomless {
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-screen .button-holder {
+    margin: 1em 0;
+    padding: .75em 2em;
+}
+
+.bottomless .bottomless-list {
+    box-shadow: inset 0 -2px 12px rgba(255,255,255,.5);
+    overflow-y: auto;
+    padding: 0 20px .15em 24px;
+}
+
+.bottomless-list::-webkit-scrollbar {
+    background-color: #e6e6e6;
+    width: 4px;
+}
+
+.bottomless-list::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+}
+
+/* Applied to the element previous to the list (using JS).
+
+For example:
+
+<div class="option-bar scroll-shadow"></div>
+<div class="bottomless-list"></div>
+
+*/
+.scroll-shadow {
+    box-shadow: 0 12px 12px -10px #ccc;
 }
 
 /*=================================================================*/
@@ -150,20 +180,19 @@ body {
 }
 
 /* Input Boxes */
-.phone-screen input {
+.phone-screen input:not([type="checkbox"]) { /* Avoid checkboxes. */
     border: 1px solid #ccc;
     border-radius: 20px;
-    margin-top: 1.5em;
     margin-bottom: 1em;
-    padding: 1em 1em;
-    width: 85%;
+    padding: .75em 1em;
+    width: 100%;
 }
 
 .phone-screen input::placeholder {
     color: #ccc;
 }
 
-.phone-screen input:focus {
+.phone-screen input:not([type="checkbox"]):focus {
     border-color: #6f2377;
     outline: 0;
 }
@@ -204,6 +233,182 @@ body {
 /*                        Lecture List Screen                      */
 /*=================================================================*/
 
+
+.phone-screen h2 {
+    font-size: 1.25em;
+}
+
+.phone-screen .option-bar {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.phone-screen .split {
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone-screen i[onclick] {
+    cursor: pointer;
+}
+
+.phone-screen h2 {
+    margin: 0;
+    user-select: none;
+    text-align: center;
+}
+
+.sync-message {
+    color: #888;
+}
+
+.phone-screen .lecture-item {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 1.5em;
+    user-select: none;
+}
+
+.phone-screen .lecture-item:hover {
+    border-color: #7a7a7a;
+}
+
+.phone-screen .lecture-item:active {
+    border-color: #7a7a7a;
+    opacity: .6;
+}
+
+.lecture-item .wrap {
+    padding: 0 14px;
+}
+
+.lecture-item h3 {
+    font-size: 1em;
+    margin: 0;
+}
+
+.lecture-item .day {
+    color: #1074e6;
+}
+
+.lecture-type {
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 22px;
+    text-align: center;
+}
+
+.lecture-type.lecture { background-color: #74b49b; }
+.lecture-type.lab { background-color: #df7699; }
+
+.lecture-info {
+    padding: 1em 0;
+}
+
+.lecture-info .teacher {
+    color: #888;
+    font-weight: 400;
+    margin: .5em 0 0;
+}
+
+.lecture-waw { /* When and Where */
+    background-color: #fafafa;
+    border-top: inherit;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 1em;
+}
+
+/*=================================================================*/
+/*                          Marking Screen                         */
+/*=================================================================*/
+
+.marking .lecture-waw {
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    margin: 1.5em 0 0;
+    padding: 1em 2em;
+}
+
+.marking .attendee-list {
+    padding: 0 0 2em;
+    transition: color .2s ease-in-out;
+}
+
+.attendee-list .attendee {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: .5em 2em;
+    user-select: none;
+}
+
+.attendee-list .attendee:hover {
+    background-color: #fafafa;
+}
+
+.marking .attendee-list .attendee {
+    pointer-events: none;
+}
+
+.attendee input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid currentColor;
+    border-radius: 3px;
+    color: inherit;
+    cursor: pointer;
+    height: 15px;
+    line-height: 9px;
+    outline: 0;
+    text-align: center;
+    width: 15px;
+}
+
+.attendee input:checked {
+    color: #6f2377;
+}
+
+.attendee input::after {
+    color: #fff;
+    content: '✔';
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.attendee input:checked::after {
+    color: currentColor;
+}
+
+/*=================================================================*/
+/*                         "Signal" Screen                         */
+/*=================================================================*/
+
+.icon-holder {
+    padding: 2em 0;
+    text-align: center;
+}
+
+.signal-icon {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: flicker infinite 1.5s;
+    background-image: linear-gradient(to bottom,
+        #0c54a7, #2c6abb, #4380ce, #5a97e2, #70aef5);
+    font-size: 4em;
+}
+
+@keyframes flicker {
+    0%   { opacity: 1;  }
+    50%  { opacity: .6; }
+    100% { opacity: 1;  }
+}
 
 /*================================================================*/
 /*                        Student App Styling                     */

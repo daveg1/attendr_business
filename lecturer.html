@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,12 +36,14 @@
                         <div></div>
                         <div></div>
                         <div class="note">
-                            <p>The colour scheme of the app is also totally customisable.</p>
+                            <p>Resync your lectures list at the touch of a button.</p>
+                        </div>
+                        <div class="note">
+                            <p>Your lectures appear in a list ordered by the closest upcoming lectures.</p>
                         </div>
                         <div></div>
-                        <div></div>
                         <div class="note">
-                            <p>Attendr allows you customise your application with your insitution's logo.</p>
+                            <p>These neat, concise bubbles tell you at a glance exactly what you need to know.</p>
                         </div>
                         <div></div>
                         <div></div>
@@ -49,22 +51,46 @@
                         <div></div>
                         <div></div>
                     </div>
+                    <div class="annotations-list" data-screen="3">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div class="note">
+                            <p>SAMPLE TEXT</p>
+                        </div>
+                        <div></div>
+                        <div></div>
+                        <div class="note">
+                            <p>SAMPLE TEXT</p>
+                        </div>
+                        <div class="note">
+                            <p>SAMPLE TEXT</p>
+                        </div>
+                        <div class="note">
+                            <p>SAMPLE TEXT</p>
+                        </div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
                 <div class="phone">
                     <div class="phone-graphic"></div>
-                    <div id="viewport" class="phone-viewport">
+                    <div id="viewport" class="phone-viewport" data-max-pages="4">
                         <!-- Screen 1: Login -->
                         <div class="phone-screen">
-                            <div class="wrap">
+                            <header class="wrap">
                                 <div class="logo">Your institution logo here</div>
-                                <input autocomplete="false" spellcheck="off" type="text" placeholder="Username" autofocus>
-                                <input autocomplete="false" spellcheck="off" type="password" placeholder="Password">
+                            </header>
+                            <div class="wrap">
+                                <input autocomplete="off" spellcheck="false" type="text" placeholder="Username" autofocus>
+                                <input autocomplete="off" spellcheck="false" type="password" placeholder="Password">
                                 <button onclick="setPage(2)">Sign In</button>
                             </div>
                         </div>
 
                         <!-- Screen 2: Lectures -->
-                        <div class="phone-screen lectures">
+                        <div class="phone-screen lectures bottomless">
                             <header>
                                 <div class="option-bar wrap">
                                     <i onclick="setPage(1)" class="fa fa-sign-out-alt fa-flip-horizontal" aria-hidden="true"></i>
@@ -77,8 +103,8 @@
                                     <i class="fas fa-sync" onclick></i>
                                 </div>
                             </header>
-                            <div class="lecture-list wrap">
-                                <div class="lecture-item">
+                            <div class="lecture-list bottomless-list">
+                                <div class="lecture-item" onclick="setPage(3)">
                                     <div class="wrap">
                                         <div class="option-bar split">
                                             <h3>May 11</h3>
@@ -101,7 +127,7 @@
                                         </span>
                                     </aside>
                                 </div>
-                                <div class="lecture-item">
+                                <div class="lecture-item" onclick="setPage(3)">
                                     <div class="wrap">
                                         <div class="option-bar split">
                                             <h3>May 12</h3>
@@ -124,7 +150,7 @@
                                         </span>
                                     </aside>
                                 </div>
-                                <div class="lecture-item">
+                                <div class="lecture-item" onclick="setPage(3)">
                                     <div class="wrap">
                                         <div class="option-bar split">
                                             <h3>May 15</h3>
@@ -151,8 +177,152 @@
                         </div>
 
                         <!-- Screen 3: Marking Screen -->
-                        <div class="phone-screen">
-                            <h2>Screen 3</h2>
+                        <div class="phone-screen marking bottomless">
+                            <header>
+                                <div class="option-bar wrap">
+                                    <i class="fas fa-arrow-left" onclick="setPage(2)"></i>
+                                </div>
+                                <h2>CM1100 Introduction to Computing</h2>
+                                <aside class="lecture-waw split">
+                                    <span class="when">
+                                        <i class="fas fa-clock"></i>
+                                        16:00–17:00
+                                    </span>
+                                    <span class="where">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        No room
+                                    </span>
+                                </aside>
+                            </header>
+                            <div class="button-holder">
+                                <button onclick="toggleMarking(this)">Start Marking</button>
+                            </div>
+                            <div class="attendee-list bottomless-list">
+                                <label class="attendee">
+                                    <span>1907001</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907002</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907003</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907004</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907005</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907006</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907007</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907008</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907009</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907010</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907011</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907012</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907013</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907014</span>
+                                    <input type="checkbox">
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Screen 4:  -->
+                        <div class="phone-screen signal bottomless">
+                            <header class="icon-holder">
+                                <i class="fas fa-wifi signal-icon"></i>
+                            </header>
+                            <div class="attendee-list bottomless-list">
+                                <label class="attendee">
+                                    <span>1907001</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907002</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907003</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907004</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907005</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907006</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907007</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907008</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907009</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907010</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907011</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907012</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907013</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907014</span>
+                                    <input type="checkbox">
+                                </label>
+                            </div>
+                            <div class="button-holder">
+                                <button onclick="setPage(3)">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
