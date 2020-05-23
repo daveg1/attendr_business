@@ -537,7 +537,6 @@ For example:
 }
 
 .fa-sign-out-alt,
-fa-question,
 fa-arrow-circle-left,
 .tabs {
     cursor: pointer;
@@ -557,6 +556,10 @@ fa-arrow-circle-left,
 
 .fa-check {
     margin: 0 auto;
+}
+
+.fa-question {
+    visibility: hidden;
 }
 
 .purple {
