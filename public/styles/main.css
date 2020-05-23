@@ -481,7 +481,7 @@ For example:
 }
 
 #updated,
-#lecturer {
+.lecturer {
     color: grey;
 }
 
@@ -502,7 +502,7 @@ For example:
     border-radius: 10px;
 }
 
-#date {
+.date {
     color: #000000;
     font-weight: bold;
 }
