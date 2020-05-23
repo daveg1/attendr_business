@@ -139,7 +139,7 @@ body {
 }
 
 .bottomless .bottomless-list {
-    box-shadow: inset 0 -2px 12px rgba(255,255,255,.5);
+    box-shadow: inset 0 -2px 12px rgba(255, 255, 255, .5);
     overflow-y: auto;
     padding: 0 20px .15em 24px;
 }
@@ -180,7 +180,8 @@ For example:
 }
 
 /* Input Boxes */
-.phone-screen input:not([type="checkbox"]) { /* Avoid checkboxes. */
+.phone-screen input:not([type="checkbox"]) {
+    /* Avoid checkboxes. */
     border: 1px solid #ccc;
     border-radius: 20px;
     margin-bottom: 1em;
@@ -301,8 +302,13 @@ For example:
     text-align: center;
 }
 
-.lecture-type.lecture { background-color: #74b49b; }
-.lecture-type.lab { background-color: #df7699; }
+.lecture-type.lecture {
+    background-color: #74b49b;
+}
+
+.lecture-type.lab {
+    background-color: #df7699;
+}
 
 .lecture-info {
     padding: 1em 0;
@@ -314,7 +320,8 @@ For example:
     margin: .5em 0 0;
 }
 
-.lecture-waw { /* When and Where */
+.lecture-waw {
+    /* When and Where */
     background-color: #fafafa;
     border-top: inherit;
     font-family: monospace;
@@ -400,14 +407,22 @@ For example:
     -webkit-text-fill-color: transparent;
     animation: flicker infinite 1.5s;
     background-image: linear-gradient(to bottom,
-        #0c54a7, #2c6abb, #4380ce, #5a97e2, #70aef5);
+            #0c54a7, #2c6abb, #4380ce, #5a97e2, #70aef5);
     font-size: 4em;
 }
 
 @keyframes flicker {
-    0%   { opacity: 1;  }
-    50%  { opacity: .6; }
-    100% { opacity: 1;  }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .6;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /*================================================================*/
@@ -614,4 +629,11 @@ li {
     width: 20px;
     height: 20px;
     border: 2px solid red;
+}
+
+#submit-attendance {
+    width: 90%;
+    padding: 5%;
+    margin: 5%;
+    border-radius: 10px;
 }
