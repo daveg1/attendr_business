@@ -35,9 +35,9 @@
                     <div class="phone-screen header-top">
                         <header class="student-header">
                             <div class="flex-container">
-                                <i onclick="setPage(1)" class="fa fa-sign-out-alt"></i>
+                                <i class="fa fa-question"></i>
                                 <h3>Student Timetable</h3>
-                                <i onclick="setPage(3)" class="fa fa-question"></i>
+                                <i onclick="setPage(1)" class="fa fa-sign-out-alt"></i>
                             </div>
                         </header>
                         <div class="page">
@@ -54,9 +54,9 @@
                                 <hr>
                                 <div class="cat-header green">Teaching - Lecture</div>
                                 <div class="flex-container btwn">
-                                    <h3>CMM517 - Information Security Management</h3>
+                                    <h3 class="semibold">CMM517 - Information Security Management</h3>
                                     <div class="flex-container flex-btwn">
-                                        <p class="lecturer">Dr Hatem Ahriz</p>
+                                        <p class="semi-bold">Dr Hatem Ahriz</p>
                                         <i class="fas fa-3x fa-check purple"></i>
                                     </div>
                                     <hr>
@@ -64,150 +64,103 @@
                                 <div class="flex-container flex-btwn">
                                     <div class="flex-container half">
                                         <i class="fa fa-2x fa-clock purple"></i>
-                                        <p>10:00 - 12:00</p>
+                                        <p class="semibold">10:00 - 12:00</p>
                                     </div>
                                     <div class="flex-container half">
                                         <i class="fa fa-2x fa-map-marker-alt purple"></i>
-                                        <p>N105 - SIWB</p>
+                                        <p class="semibold">N105 - SIWB</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="tabs flex-container">
-                                <div class="half inactive-tab" onclick="setPage(4)">
+                                <div class="half inactive-tab" onclick="setPage(3)">
                                     <div class="flex-container">
                                         <i class="fas fa-2x fa-user purple"></i>
-                                        <p class="purple bold">Profile</p>
+                                        <p class="purple semi-bold">Profile</p>
                                     </div>
                                 </div>
                                 <div class="half active-tab">
                                     <div class="flex-container">
                                         <i class="fas fa-2x fa-calendar-day"></i>
-                                        <p class="bold">Timetable</p>
+                                        <p class="semi-bold">Timetable</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Screen 3: About -->
+                    <!-- Screen 3: Student Profile -->
                     <div class="phone-screen header-top">
-                        <header class="student-header">
-                            <h3>RGU Attend</h3>
-                        </header>
-                        <div class="wrap">
-                            <div class="content-container">
-                                <p>RGU Attend is a student attendence app from Attendr. Simplifying register taking across universities. </p>
-
-                                <p>RGU Attend consists of two apps, one for students and one for lecturers.</p>
-
-                                <p>Through Bluetooth Low Energy (BLE), the Student app connects to the Lecturer app to record your attendance in lectures and labs.</p>
-
-                                <p>This makes signing into classes easier for students since they don't have to fumble around for a pen and saves time for lecturers who don't have spend time finding the sheet of paper.</p>
-                                <div class="flex-container">
-                                    <i class="fas fa-3x fa-arrow-circle-left purple" onclick="setPage(2)"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Screen 4: Student Profile -->
-                    <div class="phone-screen header-top">
-                        <header class="student-header">
+                        <header id="student-profile-header" class="student-header">
                             <div class="flex-container">
-                                <i onclick="setPage(1)" class="fa fa-sign-out-alt"></i>
+                                <i class="fa fa-question"></i>
                                 <h3>Student Profile</h3>
-                                <i onclick="setPage(3)" class="fa fa-question"></i>
+                                <i onclick="setPage(1)" class="fa fa-sign-out-alt"></i>
                             </div>
                         </header>
                         <div class="page">
                             <h3 class="text-center">Hello, User</h3>
                             <h3 class="text-center">Student ID: <span class="normal-font">T564537</span></h3>
-                            <div class="card">
-                                <p class="bold text-center">Recent Activity</p>
+                            <div id="activities-card" class="card">
+                                <h3 class="text-center">Recent Activity</h3>
                                 <hr>
                                 <div class="cat-header green">Teaching - Lecture</div>
                                 <div class="flex-container">
                                     <p class="date"><time datetime="2020-04-02">Thu April 2<sup>nd</sup></time></p>
                                     <i class="fa fa-2x fa-clock purple"></i>
-                                    <p>10:00 - 12:00</p>
+                                    <p class="bold">10:00 - 12:00</p>
                                 </div>
                                 <div class="flex-container btwn">
-                                    <h3>CMM517 - Information Security Management</h3>
+                                    <h3 class="semibold">CMM517 - Information Security Management</h3>
                                     <div class="flex-container flex-btwn">
-                                        <p class="lecturer">Dr Hatem Ahriz</p>
+                                        <p class="semi-bold">Dr Hatem Ahriz</p>
                                         <i class="fas fa-3x fa-check purple"></i>
                                     </div>
                                     <hr>
                                 </div>
                             </div>
                             <div class="tabs flex-container">
-                                <div class="half active-tab" onclick="setPage(4)">
+                                <div class="half active-tab">
                                     <div class="flex-container">
                                         <i class="fas fa-2x fa-user"></i>
-                                        <p class="purple bold">Profile</p>
+                                        <p class="purple semi-bold">Profile</p>
                                     </div>
                                 </div>
                                 <div class="half inactive-tab" onclick="setPage(2)">
                                     <div class="flex-container">
                                         <i class="fas fa-2x fa-calendar-day purple"></i>
-                                        <p class="bold">Timetable</p>
+                                        <p class="semi-bold">Timetable</p>
                                     </div>
                                 </div>
                             </div>
-                            <button id="submit-attendance" type="button" value="Submit Attendance" onclick="setPage(5)">Submit Attendance</button>
+                            <button id="submit-attendance" type="button" value="Submit Attendance" onclick="setPage(4)">Submit Attendance</button>
                         </div>
                     </div>
-                    <!-- Screen 3: Student Timetable -->
-                    <div class="phone-screen header-top">
-                        <header class="student-header">
-                            <h3>RGU Attend</h3>
-                        </header>
-                        <div class="wrap">
-                            <div class="content-container">
-                                <p>RGU Attend is a student attendence app from Attendr. Simplifying register taking across universities. </p>
-
-                                <p>RGU Attend consists of two apps, one for students and one for lecturers.</p>
-
-                                <p>Through Bluetooth Low Energy (BLE), the Student app connects to the Lecturer app to record your attendance in lectures and labs.</p>
-
-                                <p>This makes signing into classes easier for students since they don't have to fumble around for a pen and saves time for lecturers who don't have spend time finding the sheet of paper.</p>
-                                <div class="flex-container">
-                                    <i class="fas fa-3x fa-arrow-circle-left purple" onclick="setPage(2)"></i>
-                                </div>
-                            </div>
+                    <!-- Screen 4: Submitting Attendance: No Signal -->
+                    <div id="submit-attendance-header" class="phone-screen header-top">
+                        <div class="flex-container flex-center">
+                            <i class="fab fa-5x fa-bluetooth-b"></i>
+                            <i class="fas fa-2x fa-exclamation-circle align-bottom"></i>
                         </div>
-                    </div>
-
-                    <!-- Screen 5: Submitting Attendance: No Signal -->
-                    <div class="phone-screen header-top">
-                        <div class="v-center wrap-right">
-                            <div class="flex-container flex-center">
-                                <i class="fab fa-5x fa-bluetooth-b"></i>
-                                <i class="fas fa-2x fa-exclamation-circle align-bottom"></i>
-                            </div>
-                            <div class="warning">
-                                <h3 class="text-center">No Signal</h3>
-                                <p>Your device cannot detect any attendance signals. Please ensure that the lecturer is currently transmitting, and that you have Bluetooth and location permissions enabled.</p>
+                        <div class="warning">
+                            <h3 class="text-center">No Signal</h3>
+                            <p>Your device cannot detect any attendance signals. Please ensure that the lecturer is currently transmitting, and that you have Bluetooth and location permissions enabled.</p>
+                        </div>
+                        <ul class="flex-list">
+                            <div class="flex-container">
+                                <li>Listening for Signal</li>
+                                <i class="fas fa-2x fa-times"></i>
                             </div>
                             <div class="flex-container">
-                                <ul class="flex-list">
-                                    <div class="flex-container">
-                                        <li>Listening for Signal</li>
-                                        <i class="fas fa-2x fa-times"></i>
-                                    </div>
-                                    <div class="flex-container">
-                                        <li>Collecting Data</li>
-                                        <input type="checkbox">
-                                        <div class="box"></div>
-                                    </div>
-                                    <div class="flex-container">
-                                        <li>Attendance Sent</li>
-                                        <input type="checkbox">
-                                        <div class="box"></div>
-                                    </div>
-                                </ul>
+                                <li>Collecting Data</li>
+                                <input class="status-check" type="checkbox">
                             </div>
                             <div class="flex-container">
-                                <i class="fas fa-3x fa-arrow-circle-left purple" onclick="setPage(2)"></i>
+                                <li>Attendance Sent</li>
+                                <input class="status-check" type="checkbox">
                             </div>
+                        </ul>
+                        <div class="flex-container">
+                            <i id="submit-attendance-back-btn" class="fas fa-3x fa-arrow-circle-left purple" onclick="setPage(2)"></i>
                         </div>
                     </div>
                 </div>
