@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lecturer Demo</title>
+    <title>Student Demo</title>
     <link rel="stylesheet" href="./public/styles/main.css">
     <link rel="shortcut icon" href="./favicon.ico">
     <script src="https://kit.fontawesome.com/59dd3e37d5.js" crossorigin="anonymous"></script>
@@ -76,13 +76,13 @@
                                 <div class="half inactive-tab" onclick="setPage(4)">
                                     <div class="flex-container">
                                         <i class="fas fa-2x fa-user purple"></i>
-                                        <p class="purple">Profile</p>
+                                        <p class="purple bold">Profile</p>
                                     </div>
                                 </div>
                                 <div class="half active-tab">
                                     <div class="flex-container">
                                         <i class="fas fa-2x fa-calendar-day"></i>
-                                        <p>Timetable</p>
+                                        <p class="bold">Timetable</p>
                                     </div>
                                 </div>
                             </div>
@@ -129,15 +129,13 @@
                         </header>
                         <div class="page">
                             <h3 class="text-center">Hello, User</h3>
-                            <h3 class="text-center">Student ID: T564537</h3>
+                            <h3 class="text-center">Student ID: <span class="normal-font">T564537</span></h3>
                             <div class="card">
-                                <p class="text-center">Recent Activity</p>
+                                <p class="bold text-center">Recent Activity</p>
                                 <hr>
                                 <div class="cat-header green">Teaching - Lecture</div>
-                                <div class="flex-container half">
+                                <div class="flex-container">
                                     <p id="date"><time datetime="2020-04-02">Thu April 2<sup>nd</sup></time></p>
-                                </div>
-                                <div class="flex-container half">
                                     <i class="fa fa-2x fa-clock purple"></i>
                                     <p>10:00 - 12:00</p>
                                 </div>
@@ -154,17 +152,17 @@
                                 <div class="half active-tab" onclick="setPage(4)">
                                     <div class="flex-container">
                                         <i class="fas fa-2x fa-user"></i>
-                                        <p class="purple">Profile</p>
+                                        <p class="purple bold">Profile</p>
                                     </div>
                                 </div>
                                 <div class="half inactive-tab" onclick="setPage(2)">
                                     <div class="flex-container">
                                         <i class="fas fa-2x fa-calendar-day purple"></i>
-                                        <p>Timetable</p>
+                                        <p class="bold">Timetable</p>
                                     </div>
                                 </div>
                             </div>
-                            <button id="submit-attendance" type="button" value="Submit Attendance">Submit Attendance</button>
+                            <button id="submit-attendance" type="button" value="Submit Attendance" onclick="setPage(5)">Submit Attendance</button>
                         </div>
                     </div>
                     <!-- Screen 3: Student Timetable -->

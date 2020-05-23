@@ -512,6 +512,14 @@ For example:
     font-weight: bold;
 }
 
+.normal-font {
+    font-weight: normal;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 .cat-header {
     border-radius: 7px;
     font-size: 12px;
@@ -636,4 +644,5 @@ li {
     padding: 5%;
     margin: 5%;
     border-radius: 10px;
+    font-weight: bold;
 }
