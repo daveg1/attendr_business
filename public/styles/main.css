@@ -523,6 +523,12 @@ For example:
     font-weight: bold;
 }
 
+.semi-bold,
+h3.semibold,
+p.semibold {
+    font-weight: 500;
+}
+
 .cat-header {
     border-radius: 7px;
     font-size: 12px;
@@ -530,6 +536,7 @@ For example:
     margin-top: 5%;
     padding: 2.5%;
     color: #ffffff;
+    font-weight: 500;
 }
 
 .green {
