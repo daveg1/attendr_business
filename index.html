@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en-GB">
-    <head>
+    <html lang="en-GB">
+        <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -14,13 +14,14 @@
             <section class="demo">
                 <div class="phone">
                     <div class="phone-graphic"></div>
-                    <div id="viewport" class="phone-viewport" data-max-pages="3">
+                    <div class="phone-colour-bar"></div>
+                    <div id="viewport" class="phone-viewport" data-max-pages="4" class="students">
                         <!-- Screen 1: Login -->
                         <div class="phone-screen">
                             <header class="wrap">
-                                <div class="logo">
-                                    Your institution logo here
-                                    <i class="fas fa-graduation-cap grad-cap"></i>
+                                <div class="logo img">
+                                    <img src="./public/images/rgu.png">
+                                    <!-- <i class="fas fa-graduation-cap grad-cap"></i> -->
                                 </div>
                             </header>
                             <div class="wrap">
@@ -30,103 +31,110 @@
                             </div>
                         </div>
 
-                        <!-- Screen 2: Recent Activity -->
-                        <div class="phone-screen header-top">
-                            <header class="student-header">
-                                <div class="flex-container">
-                                    <i onclick="setPage(1)" class="fa fa-sign-out-alt"></i>
-                                    <h3>Student Profile</h3>
+                        <!-- Screen 2: Student Profile and Timetable -->
+                        <div class="phone-screen bottomless">
+                            <header class="header-title">
+                                <div class="option-bar wrap">
+                                    <i onclick="setPage(1)" class="fa fa-sign-out-alt fa-flip-horizontal" aria-hidden="true"></i>
                                 </div>
+                                <h3>Attend Student</h3>
                             </header>
-                            <div class="page">
-                                <h3 class="text-center">Wednesday <time datetime="2020-04-01">April 01, 2020</time></h3>
-                                <div class="flex-container">
-                                    <p id="updated">Updated Just Now</p>
-                                    <p id="update"><i class="fas fa-download"></i>UPDATE NOW</p>
-                                </div>
-                                <div class="card">
-                                    <div class="flex-container">
-                                        <p id="date"><time datetime="2020-04-02">Thu April 2<sup>nd</sup></time></p>
-                                        <p id="duration">10h</p>
-                                    </div>
-                                    <hr>
-                                    <div class="cat-header green">Teaching - Lecture</div>
-                                    <div class="flex-container btwn">
-                                        <h3>CMM517 - Information Security Management</h3>
-                                        <div class="flex-container flex-btwn">
-                                            <p id="lecturer">Dr Hatem Ahriz</p>
-                                            <i class="fas fa-3x fa-check purple"></i>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                    <div class="flex-container flex-btwn">
-                                        <div class="flex-container half">
-                                            <i class="fa fa-2x fa-clock purple"></i>
-                                            <p>10:00 - 12:00</p>
-                                        </div>
-                                        <div class="flex-container half">
-                                            <i class="fa fa-2x fa-map-marker-alt purple"></i>
-                                            <p>N105 - SIWB</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tabs flex-container">
-                                    <div class="half inactive-tab" onclick="setPage(3)">
-                                        <div class="flex-container">
-                                            <i class="fas fa-2x fa-user purple"></i>
-                                            <p class="purple">Profile</p>
-                                        </div>
-                                    </div>
-                                    <div class="half active-tab">
-                                        <div class="flex-container">
-                                            <i class="fas fa-2x fa-calendar-day"></i>
-                                            <p>Timetable</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="cat-header pink">Teaching - Laboratory/Practical</div>
-                                    <h3>Physical Activity and Exercise Prescription</h3>
-                                    <span>HS3071-SEM1-A</span>
-                                    <i class="marker far fa-square"></i>
-                                </div>
-                                <i class="fa fa-clock"></i>
-                                <span>9:00am</span>
+                            <h2>
+                                <time datetime="2020-04-11">May 11, 2020</time>
+                            </h2>
+                            <div class="option-bar split wrap">
+                                <div class="sync-message">Lectures synced</div>
+                                <i class="fas fa-sync" onclick="" aria-hidden="true"></i>
                             </div>
-                            <i class="fa fa-map-marker-alt"></i>
-                            <span>552 » ABS</span>
+                            <div class="tabs bottomless-list">
+                                <div class="tabs-screen" data-tab="recent">
+                                    <div class="lecture-item">
+                                        <div class="wrap">
+                                            <div class="option-bar split">
+                                                <h3>May 10</h3>
+                                                <b class="day">Yesterday</b>
+                                            </div>
+                                            <div class="lecture-type lecture">Lecture</div>
+                                            <div class="lecture-info">
+                                                <h3>CM1100 Introduction to Computing</h3>
+                                                <h4 class="teacher">Wiratunga, Nirmalie</h4>
+                                            </div>
+                                        </div>
+                                        <aside class="lecture-waw split">
+                                            <span class="when">
+                                                <i class="fas fa-clock" aria-hidden="true"></i>
+                                                09:00–11:30
+                                            </span>
+                                            <span class="where">
+                                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                                N519
+                                            </span>
+                                        </aside>
+                                    </div>
+                                </div>
+                                <div class="tabs-screen" data-tab="schedule" rel="visible">
+                                    <div class="lecture-item" onclick="setPage(3)">
+                                        <div class="wrap">
+                                            <div class="option-bar split">
+                                                <h3>May 11</h3>
+                                                <b class="day">Today</b>
+                                            </div>
+                                            <div class="lecture-type lab">Laboratory</div>
+                                            <div class="lecture-info">
+                                                <h3>CM1100 Introduction to Computing</h3>
+                                                <h4 class="teacher">Wiratunga, Nirmalie</h4>
+                                            </div>
+                                        </div>
+                                        <aside class="lecture-waw split">
+                                            <span class="when">
+                                                <i class="fas fa-clock" aria-hidden="true"></i>
+                                                16:00–17:00
+                                            </span>
+                                            <span class="where">
+                                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                                No room
+                                            </span>
+                                        </aside>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tabs-menu wrap">
+                                <div class="tabs-option" onclick="selectTab(this, 'recent')">
+                                    <i class="fas fa-user-clock"></i>
+                                    Recent
+                                </div>
+                                <div class="tabs-option" onclick="selectTab(this, 'schedule')" rel="selected">
+                                    <i class="fas fa-calendar-day"></i>
+                                    Schedule
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Screen 3:  -->
-                        <div class="phone-screen header-top">
-                            <div class="v-center wrap-right">
-                                <div class="flex-container flex-center">
-                                    <i class="fab fa-5x fa-bluetooth-b"></i>
-                                    <i class="fas fa-2x fa-exclamation-circle align-bottom"></i>
+                        <!-- Screen 3: Lecture Attendance -->
+                        <div class="phone-screen bottomless">
+                            <div class="attendance-status">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="attendance-banner wrap" rel="show">
+                                <h3>No Signal</h3>
+                                <p>Make sure you have enabled Bluetooth and your lecturer has opened for sign-ins.</p>
+                            </div>
+                            <div class="attendance-messages">
+                                <div class="message split" data-status="listening">
+                                    Listening for signal
+                                    <i class="fas fa-hourglass-half okay" rel="waiting"></i>
                                 </div>
-                                <div class="warning">
-                                    <h3 class="text-center">No Signal</h3>
-                                    <p>Your device cannot detect any attendance signals. Please ensure that the lecturer is currently transmitting, and that you have Bluetooth and location permissions enabled.</p>
+                                <div class="message split" data-status="collecting">
+                                    Collecting data
+                                    <i class="far fa-square bad"></i>
                                 </div>
-                                <div class="flex-container">
-                                    <ul class="flex-list">
-                                        <div class="flex-container">
-                                            <li>Listening for Signal</li>
-                                            <i class="fas fa-2x fa-times"></i>
-                                        </div>
-                                        <div class="flex-container">
-                                            <li>Collecting Data</li>
-                                            <div class="box"></div>
-                                        </div>
-                                        <div class="flex-container">
-                                            <li>Attendance Sent</li>
-                                            <div class="box"></div>
-                                        </div>
-                                    </ul>
+                                <div class="message split" data-status="sending">
+                                    Sending Attendance
+                                    <i class="fas fa-check-square good"></i>
                                 </div>
-                                <div class="flex-container">
-                                    <i class="fas fa-3x fa-arrow-circle-left purple" onclick="setPage(2)"></i>
-                                </div>
+                            </div>
+                            <div class="button-holder">
+                                <button onclick="setPage(2)">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -134,5 +142,6 @@
             </section>
         </main>
         <script src="./public/site.js"></script>
+        <!-- <script>setPage(3)</script> -->
     </body>
 </html>

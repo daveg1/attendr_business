@@ -52,6 +52,16 @@ function setPage(n){
 //    Page-specific Functions   //
 // ---------------------------- //
 
+// Student profile tabs
+function selectTab(button, tab){
+    document.querySelector('.tabs-option[rel]').removeAttribute('rel');
+    // The button clicked.
+    button.setAttribute('rel', 'selected');
+
+    document.querySelector('.tabs-screen[rel]').removeAttribute('rel');
+    document.querySelector(`.tabs-screen[data-tab="${tab}"]`).setAttribute('rel', 'visible');
+}
+
 // Signal page attendee items.
 function markStudent(e){
     e.preventDefault();
@@ -67,8 +77,9 @@ function markStudent(e){
 
 // Runs when page is rendered and sets necessary global variables.
 window.addEventListener('DOMContentLoaded', (e) => {
-    // Signal page items.
-    markingItems     = document.querySelectorAll('.marking .attendee');
+    // Assign global variable.
+    markingItems = document.querySelectorAll('.marking .attendee');
+
     let studentItems = document.querySelectorAll('.signal .attendee');
 
     // Index, counter.
