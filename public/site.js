@@ -52,20 +52,14 @@ function setPage(n){
 //    Page-specific Functions   //
 // ---------------------------- //
 
-// Lecturer's Marking Page --------------------------------------------------------------------------------- Fix
-function toggleMarking(el){
-    const list = document.querySelector('.marking .attendee-list');
-    const markBtn = el;
+// Student profile tabs
+function selectTab(button, tab){
+    document.querySelector('.tabs-option[rel]').removeAttribute('rel');
+    // The button clicked.
+    button.setAttribute('rel', 'selected');
 
-    if(list.getAttribute('rel')){
-        markBtn.innerText = "Stop Marking";
-        list.removeAttribute('rel');
-    } else {
-        markBtn.innerText = "Start Marking";
-        list.setAttribute('rel', 'locked');
-    }
-
-    setPage(4);
+    document.querySelector('.tabs-screen[rel]').removeAttribute('rel');
+    document.querySelector(`.tabs-screen[data-tab="${tab}"]`).setAttribute('rel', 'visible');
 }
 
 // Signal page attendee items.
@@ -83,8 +77,9 @@ function markStudent(e){
 
 // Runs when page is rendered and sets necessary global variables.
 window.addEventListener('DOMContentLoaded', (e) => {
-    // Signal page items.
-    markingItems     = document.querySelectorAll('.marking .attendee');
+    // Assign global variable.
+    markingItems = document.querySelectorAll('.marking .attendee');
+
     let studentItems = document.querySelectorAll('.signal .attendee');
 
     // Index, counter.
