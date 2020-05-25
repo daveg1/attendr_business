@@ -12,8 +12,391 @@
     <body dir="ltr">
         <main>
             <section class="demo">
-                
+                <div class="phone">
+                    <div class="phone-graphic"></div>
+                    <div class="phone-viewport" data-app="student">
+                        <!-- Screen 1: Login -->
+                        <div class="phone-screen">
+                            <header class="wrap">
+                                <div class="logo img">
+                                    <img src="./public/images/rgu.png" alt="RGU Logo">
+                                    <!-- <i class="fas fa-graduation-cap grad-cap"></i> -->
+                                </div>
+                            </header>
+                            <div class="wrap">
+                                <input autocomplete="off" spellcheck="false" type="text" placeholder="Username" autofocus>
+                                <input autocomplete="off" spellcheck="false" type="password" placeholder="Password">
+                                <button onclick="setPage(this, 2)">Sign In</button>
+                            </div>
+                            <p id="warning-message"></p>
+                        </div>
+
+                        <!-- Screen 2: Student Profile and Timetable -->
+                        <div class="phone-screen bottomless">
+                            <header class="header-title">
+                                <div class="option-bar wrap">
+                                    <i onclick="setPage(this, 1)" class="fa fa-sign-out-alt fa-flip-horizontal" aria-hidden="true"></i>
+                                </div>
+                                <h3>Attend Student</h3>
+                            </header>
+                            <h2>
+                                <time datetime="2020-04-11">May 11, 2020</time>
+                            </h2>
+                            <div class="option-bar split wrap space">
+                                <div class="sync-message">Lectures synced</div>
+                                <i class="fas fa-sync" onclick="" aria-hidden="true"></i>
+                            </div>
+                            <div class="tabs bottomless-list">
+                                <div class="tabs-screen" data-tab="recent">
+                                    <div class="lecture-item">
+                                        <div class="wrap">
+                                            <div class="option-bar split">
+                                                <h3>May 10</h3>
+                                                <b class="day">Yesterday</b>
+                                            </div>
+                                            <div class="lecture-type lecture">Lecture</div>
+                                            <div class="lecture-info">
+                                                <h3>CM1100 Introduction to Computing</h3>
+                                                <h4 class="teacher">Wiratunga, Nirmalie</h4>
+                                            </div>
+                                        </div>
+                                        <aside class="lecture-waw split">
+                                            <span class="when">
+                                                <i class="fas fa-clock" aria-hidden="true"></i>
+                                                09:00–11:30
+                                            </span>
+                                            <span class="where">
+                                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                                N519
+                                            </span>
+                                        </aside>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="tabs-screen" data-tab="schedule" rel="visible">
+                                    <div class="lecture-item" onclick="setPage(this, 3)">
+                                        <div class="wrap">
+                                            <div class="option-bar split">
+                                                <h3>May 11</h3>
+                                                <b class="day">Today</b>
+                                            </div>
+                                            <div class="lecture-type lab">Laboratory</div>
+                                            <div class="lecture-info">
+                                                <h3>CM1100 Introduction to Computing</h3>
+                                                <h4 class="teacher">Wiratunga, Nirmalie</h4>
+                                            </div>
+                                        </div>
+                                        <aside class="lecture-waw split">
+                                            <span class="when">
+                                                <i class="fas fa-clock" aria-hidden="true"></i>
+                                                16:00–17:00
+                                            </span>
+                                            <span class="where">
+                                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                                No room
+                                            </span>
+                                        </aside>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tabs-menu wrap">
+                                <div class="tabs-option" onclick="selectTab(this, 'recent')">
+                                    <i class="fas fa-user-clock"></i>
+                                    Recent
+                                </div>
+                                <div class="tabs-option" onclick="selectTab(this, 'schedule')" rel="selected">
+                                    <i class="fas fa-calendar-day"></i>
+                                    Schedule
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Screen 3: Lecture Attendance -->
+                        <div class="phone-screen bottomless">
+                            <div class="attendance-status">
+                                <i class="fab fa-bluetooth-b pulse"></i>
+                            </div>
+                            <div class="attendance-banner wrap" rel="show">
+                                <h3>No Signal</h3>
+                                <p>Make sure you have enabled Bluetooth and your lecturer has opened for sign-ins.</p>
+                            </div>
+                            <div class="attendance-messages">
+                                <div class="message split" data-status="listening">
+                                    Listening for signal
+                                    <i class="fas fa-hourglass-half okay" rel="waiting"></i>
+                                </div>
+                                <div class="message split" data-status="collecting">
+                                    Collecting data
+                                    <i class="far fa-square bad"></i>
+                                </div>
+                                <div class="message split" data-status="sending">
+                                    Sending Attendance
+                                    <i class="fas fa-check-square good"></i>
+                                </div>
+                            </div>
+                            <div class="button-holder">
+                                <button onclick="setPage(this, 2)">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="phone-connection">
+                    <i class="fab fa-bluetooth-b"></i>
+                </div>
+                <div class="phone">
+                    <div class="phone-graphic"></div>
+                    <div class="phone-viewport" data-app="lecturer">
+                        <!-- Screen 1: Login -->
+                        <div class="phone-screen">
+                            <header class="wrap">
+                                <div class="logo">Your institution logo here</div>
+                            </header>
+                            <div class="wrap">
+                                <input autocomplete="off" spellcheck="false" type="text" placeholder="Username" autofocus>
+                                <input autocomplete="off" spellcheck="false" type="password" placeholder="Password">
+                                <button onclick="setPage(this, 2)">Sign In</button>
+                            </div>
+                        </div>
+
+                        <!-- Screen 2: Lectures -->
+                        <div class="phone-screen lectures bottomless">
+                            <header>
+                                <div class="option-bar wrap">
+                                    <i onclick="setPage(this, 1)" class="fa fa-sign-out-alt fa-flip-horizontal" aria-hidden="true"></i>
+                                </div>
+                                <h2>
+                                    <time datetime="2020-04-11">May 11, 2020</time>
+                                </h2>
+                                <div class="option-bar split wrap space">
+                                    <div class="sync-message">Lectures synced</div>
+                                    <i class="fas fa-sync" onclick></i>
+                                </div>
+                            </header>
+                            <div class="lecture-list bottomless-list">
+                                <div class="lecture-item" onclick="setPage(this, 3)">
+                                    <div class="wrap">
+                                        <div class="option-bar split">
+                                            <h3>May 11</h3>
+                                            <b class="day">Today</b>
+                                        </div>
+                                        <div class="lecture-type lab">Laboratory</div>
+                                        <div class="lecture-info">
+                                            <h3>CM1100 Introduction to Computing</h3>
+                                            <h4 class="teacher">Wiratunga, Nirmalie</h4>
+                                        </div>
+                                    </div>
+                                    <aside class="lecture-waw split">
+                                        <span class="when">
+                                            <i class="fas fa-clock"></i>
+                                            16:00–17:00
+                                        </span>
+                                        <span class="where">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            No room
+                                        </span>
+                                    </aside>
+                                </div>
+                                <div class="lecture-item" onclick="setPage(this, 3)">
+                                    <div class="wrap">
+                                        <div class="option-bar split">
+                                            <h3>May 12</h3>
+                                            <b class="day">Tomorrow</b>
+                                        </div>
+                                        <div class="lecture-type lecture">Lecture</div>
+                                        <div class="lecture-info">
+                                            <h3>CM1100 Introduction to Computing</h3>
+                                            <h4 class="teacher">Wiratunga, Nirmalie</h4>
+                                        </div>
+                                    </div>
+                                    <aside class="lecture-waw split">
+                                        <span class="when">
+                                            <i class="fas fa-clock"></i>
+                                            09:00–11:30
+                                        </span>
+                                        <span class="where">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            N519
+                                        </span>
+                                    </aside>
+                                </div>
+                                <div class="lecture-item" onclick="setPage(this, 3)">
+                                    <div class="wrap">
+                                        <div class="option-bar split">
+                                            <h3>May 15</h3>
+                                            <b class="day">4 Days</b>
+                                        </div>
+                                        <div class="lecture-type lecture">Laboratory</div>
+                                        <div class="lecture-info">
+                                            <h3>CM1100 Introduction to Computing</h3>
+                                            <h4 class="teacher">Wiratunga, Nirmalie</h4>
+                                        </div>
+                                    </div>
+                                    <aside class="lecture-waw split">
+                                        <span class="when">
+                                            <i class="fas fa-clock"></i>
+                                            09:00–10:00
+                                        </span>
+                                        <span class="where">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Lecture Hall
+                                        </span>
+                                    </aside>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Screen 3: Marking Screen -->
+                        <div class="phone-screen marking bottomless">
+                            <header>
+                                <div class="option-bar wrap">
+                                    <i class="fas fa-arrow-left" onclick="setPage(this, 2)"></i>
+                                </div>
+                                <h2>CM1100 Introduction to Computing</h2>
+                                <aside class="lecture-waw split">
+                                    <span class="when">
+                                        <i class="fas fa-clock"></i>
+                                        16:00–17:00
+                                    </span>
+                                    <span class="where">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        No room
+                                    </span>
+                                </aside>
+                            </header>
+                            <div class="button-holder">
+                                <button onclick="setPage(this, 4)">Start Marking</button>
+                            </div>
+                            <div class="attendee-list bottomless-list">
+                                <label class="attendee">
+                                    <span>1907001</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907002</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907003</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907004</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907005</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907006</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907007</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907008</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907009</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907010</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907011</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907012</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907013</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907014</span>
+                                    <input type="checkbox">
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Screen 4:  -->
+                        <div class="phone-screen signal bottomless">
+                            <header class="icon-holder">
+                                <i class="fas fa-wifi signal-icon"></i>
+                            </header>
+                            <div class="attendee-list bottomless-list">
+                                <label class="attendee">
+                                    <span>1907001</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907002</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907003</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907004</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907005</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907006</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907007</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907008</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907009</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907010</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907011</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907012</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907013</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label class="attendee">
+                                    <span>1907014</span>
+                                    <input type="checkbox">
+                                </label>
+                            </div>
+                            <div class="button-holder">
+                                <button onclick="setPage(this, 3)">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
+        <script src="./public/site.js"></script>
     </body>
 </html>

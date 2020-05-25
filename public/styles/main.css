@@ -18,10 +18,11 @@ body {
 }
 
 .demo {
+    align-items: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin: 0 auto;
-    max-width: 1280px;
+    max-width: 1024px;
     padding: 3em 0;
     position: relative;
 }
@@ -92,6 +93,33 @@ body {
     padding: 25px 27px;
     position: relative;
     width: 346px;
+}
+
+/* Demo has position: relative; */
+.phone-connection {
+    align-items: center;
+    display: flex;
+    color: #ccc;
+    font-size: 5rem;
+    justify-content: center;
+}
+
+.phone-connection::before {
+    background-color: currentColor;
+    content: '';
+    height: 4px;
+    position: absolute;
+    width: 284px;
+    z-index: -1;
+}
+
+.phone-connection::after {
+    background-color: #fff;
+    content: '';
+    height: 4px;
+    position: absolute;
+    width: 64px;
+    z-index: -1;
 }
 
 .phone-graphic {
