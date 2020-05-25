@@ -1,7 +1,9 @@
 @charset "utf-8";
 
+/* idea: have a .theme on .phone or the body for the colours. */
+
 /* Generic */
-* {
+*, *::before {
     box-sizing: border-box;
 }
 
@@ -100,6 +102,16 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
+    z-index: 20;
+}
+
+.phone-colour-bar {
+    background-color: #81288a;
+    height: 24px;
+    left: 27px;
+    position: absolute;
+    right: 27px;
+    top: 25px;
 }
 
 .phone-viewport {
@@ -113,6 +125,7 @@ body {
     flex-shrink: 0;
     height: 631px;
     padding-top: 24px;
+    position: relative;
     width: 292px;
 }
 
@@ -165,18 +178,53 @@ For example:
     box-shadow: 0 12px 12px -10px #ccc;
 }
 
-/*=================================================================*/
+.phone-screen h2, .phone-screen h3 {
+    margin: 0;
+    user-select: none;
+}
+
+.phone-screen h2 {
+    font-size: 1.25em;
+    text-align: center;
+}
+
+/*===========================[Lecturer]============================*/
 /*                           Login Screen                          */
 /*=================================================================*/
 
 .phone-screen .logo {
-    border: 2px dashed #000;
+    border: 2px dashed #9a9a9a;
+    color: #9a9a9a;
     line-height: 64px;
     font-size: 16px;
     margin: 3em 0;
-    opacity: .4;
+    position: relative;
     text-align: center;
     user-select: none;
+}
+
+.phone-screen .logo.img {
+    border: 0;
+    line-height: 0;
+}
+
+.phone-screen .logo img {
+    width: 100%;
+}
+
+/* To differentiate from the lecturers' app. */
+.phone-screen .logo .grad-cap {
+    background-color: #fff;
+    color: #000;
+    font-size: 24px;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -65%) rotate(15deg);
+    position: absolute;
+}
+
+.logo.img .grad-cap {
+    transform: translate(35%, -65%) rotate(18deg);
 }
 
 /* Input Boxes */
@@ -207,10 +255,6 @@ For example:
     color: #7a7a7a;
 }
 
-#wide-inputs input {
-    width: 100%;
-}
-
 /* Buttons */
 .phone-screen button {
     background-color: #81288a;
@@ -218,9 +262,12 @@ For example:
     border-radius: 20px;
     cursor: pointer;
     color: #fff;
-    margin-top: 1.5em;
     padding: .75em 1em;
     width: 100%;
+}
+
+.phone-screen input + button {
+    margin-top: 1.5em;
 }
 
 .phone-screen button:focus {
@@ -235,18 +282,17 @@ For example:
     background-color: #6e2277;
 }
 
-/*=================================================================*/
+/*===========================[Lecturer]============================*/
 /*                        Lecture List Screen                      */
 /*=================================================================*/
-
-
-.phone-screen h2 {
-    font-size: 1.25em;
-}
 
 .phone-screen .option-bar {
     padding-bottom: 1em;
     padding-top: 1em;
+}
+
+.phone-screen .option-bar.space {
+    margin: .5em 0;
 }
 
 .phone-screen .split {
@@ -256,12 +302,6 @@ For example:
 
 .phone-screen i[onclick] {
     cursor: pointer;
-}
-
-.phone-screen h2 {
-    margin: 0;
-    user-select: none;
-    text-align: center;
 }
 
 .sync-message {
@@ -335,7 +375,7 @@ For example:
     padding: 1em;
 }
 
-/*=================================================================*/
+/*===========================[Lecturer]============================*/
 /*                          Marking Screen                         */
 /*=================================================================*/
 
@@ -398,8 +438,8 @@ For example:
     color: currentColor;
 }
 
-/*=================================================================*/
-/*                         "Signal" Screen                         */
+/*===========================[Lecturer]============================*/
+/*                        "Signal" Screen                          */
 /*=================================================================*/
 
 .icon-holder {
@@ -417,273 +457,157 @@ For example:
 }
 
 @keyframes flicker {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: .6;
-    }
-
-    100% {
-        opacity: 1;
-    }
+      0% { opacity:  1; }
+     50% { opacity: .6; }
+    100% { opacity:  1; }
 }
 
-/*================================================================*/
-/*                        Student App Styling                     */
+/*============================[Student]===========================*/
+/*                        Student Screen                          */
 /*================================================================*/
 
-#rgu-logo {
-    margin: 10vh 0;
-}
-
-#login {
-    width: 85%;
-    margin-top: 10vh;
-    border-radius: 4px;
-    font-weight: bold;
-}
-
-.header-top {
-    padding: 0;
-}
-
-.student-header {
-    width: 100%;
-    height: auto;
-    overflow: auto;
-    background: #6f2377;
-    color: #fff;
-    text-align: center;
-    padding-top: 24px;
-    margin-bottom: 5vh;
-}
-
-.flex-container,
-.flex-list {
-    width: 100%;
-    height: auto;
-    overflow: auto;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+/* For pages with headers. */
+.phone-screen .header-title {
     align-items: center;
-}
-
-.flex-list .flex-container {
-    margin: 2.5% 0;
-}
-
-.text-center {
-    text-align: center;
-}
-
-#updated {
-    color: grey;
-}
-
-#update {
-    color: #218721;
-    font-weight: bold;
-}
-
-.fa-download {
-    padding-right: 5px;
-}
-
-.card {
-    width: 90%;
-    margin: 10% 5%;
-    margin-top: 5%;
-    padding: 5%;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, .25);
-    border-radius: 10px;
-}
-
-#activities-card {
-    margin-top: 10%;
-}
-
-.date {
-    color: #000000;
-    font-weight: bold;
-}
-
-#duration {
-    color: #0080ff;
-    font-weight: bold;
-}
-
-.normal-font {
-    font-weight: normal;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.semi-bold,
-h3.semibold,
-p.semibold {
-    font-weight: 500;
-}
-
-.cat-header {
-    border-radius: 7px;
-    font-size: 12px;
-    flex-direction: row;
-    margin-top: 5%;
-    padding: 2.5%;
-    color: #ffffff;
-    font-weight: 500;
-}
-
-.green {
-    background-color: #74b49b;
-}
-
-.fa-sign-out-alt,
-fa-arrow-circle-left,
-.tabs {
-    cursor: pointer;
-}
-
-.flex-center {
-    justify-content: center;
-}
-
-.align-bottom {
-    align-self: flex-end;
-}
-
-.flex-btwn {
-    justify-content: space-between;
-}
-
-.fa-check {
-    margin: 0 auto;
-}
-
-.fa-question {
-    visibility: hidden;
-}
-
-.purple {
-    color: #6f2377;
-}
-
-.pink {
-    background-color: #df7699;
-}
-
-.content-container {
-    width: 75%;
-}
-
-.relative {
+    background-color: #81288a;
+    color: #fff;
+    display: flex;
+    margin-bottom: 1em;
     position: relative;
 }
 
-p {
-    line-height: 140%;
+.phone-screen .header-title h3 {
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
 }
 
-.fa-arrow-circle-left {
-    margin-top: 5vh;
+.phone-screen .tabs {
+    flex: 1;
 }
 
-.fa-bluetooth-b {
-    color: #007FF6;
+.tabs .tabs-screen:not([rel]) {
+    display: none;
 }
 
-.fa-exclamation-circle,
-.fa-times {
-    color: red;
+.phone-screen .tabs-menu {
+    display: flex;
+    user-select: none;
 }
 
-.warning {
-    background: red;
-    padding: 5%;
-    margin: 3vw 0;
-}
-
-.warning h3,
-.warning p {
-    color: #ffffff;
-}
-
-.half {
-    width: 50%;
-}
-
-.tabs {
-    width: 90%;
-    margin: 10% 5%;
-    border-radius: 4px;
-}
-
-.active-tab {
-    background: #6f2377;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    list-style-type: none;
-}
-
-.inactive-tab {
-    background: #f5f0f0;
-}
-
-.active-tab i,
-.active-tab p {
-    color: #ffffff;
-}
-
-#submit-attendance {
-    width: 90%;
-    padding: 5%;
-    margin: 5%;
-    margin-top: 0;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-#student-profile-header {
-    margin-bottom: 2.5%;
-}
-
-#submit-attendance-header {
-    margin-top: 20%;
-}
-
-#submit-attendance-back-btn {
-    margin-top: 10%;
-}
-
-input.status-check {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: 2px solid red;
-    border-radius: 3px;
-    color: #fff;
+.tabs-menu .tabs-option {
+    color: #888;
     cursor: pointer;
-    height: 20px;
-    width: 20px;
+    flex-grow: 1;
+    font-size: 12px;
+    padding: .5em 0 1.5em;
     text-align: center;
 }
 
-input.status-check:checked {
-    border: 2px solid green;
+.tabs-menu .tabs-option:hover,
+.tabs-menu .tabs-option[rel] {
+    color: #000;
 }
 
-input.status-check:checked::after {
-    color: #000;
-    content: '✔';
-    font-size: 15px;
-    font-weight: bold;
+.tabs-menu .tabs-option i {
+    display: block;
+    font-size: 18px;
+    margin-bottom: .25em;
+}
+
+/*=============================[Student]==========================*/
+/*                         Attendance Screen                      */
+/*================================================================*/
+
+.attendance-status {
+    padding: 8rem 0 4rem;
+    text-align: center;
+}
+
+.attendance-status i {
+    color: #333;
+    font-size: 6rem;
+}
+
+i.okay { color: #4794eb; }
+i.good { color: #39ac60; }
+i.bad  { color: #d85a5a; }
+
+.attendance-banner {
+    background-color: #d85a5a;
+    color: #fff;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 3rem;
+    transition: opacity .2s ease-in-out;
+    user-select: none;
+}
+
+.attendance-banner[rel="show"] {
+    opacity: 1;
+}
+
+.attendance-banner h3 {
+    margin-top: .5em;
+}
+
+.attendance-banner p {
+    font-size: 12px;
+    line-height: 1.2;
+    margin: .5em 0 1.25em;
+}
+
+.attendance-messages {
+    color: #333;
+    font-weight: 700;
+    flex: 1;
+    padding: 0 4em;
+}
+
+.attendance-messages .message {
+    line-height: 1.25rem;
+    padding: .5em 0;
+    text-align: right;
+}
+
+.attendance-messages .message i {
+    font-size: 1.25rem;
+}
+
+.pulse {
+    position: relative;
+    outline:
+}
+
+.pulse::after {
+    animation: pulse 1s infinite ease-in-out;
+    background: #4794eb;
+    border-radius: 50%;
+    content: '';
+    height: 96px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 96px;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1.25);
+        opacity: 0;
+    }
+}
+
+/* Test */
+.students input, .students button {
+    border-radius: 12px!important;
 }
