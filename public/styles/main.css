@@ -3,7 +3,7 @@
 /* idea: have a .theme on .phone or the body for the colours. */
 
 /* Generic */
-* {
+*, *::before {
     box-sizing: border-box;
 }
 
@@ -291,6 +291,10 @@ For example:
     padding-top: 1em;
 }
 
+.phone-screen .option-bar.space {
+    margin: .5em 0;
+}
+
 .phone-screen .split {
     display: flex;
     justify-content: space-between;
@@ -573,13 +577,34 @@ i.bad  { color: #d85a5a; }
     font-size: 1.25rem;
 }
 
-.message i[rel="waiting"] {
-    animation: loading infinite 3s linear;
+.pulse {
+    position: relative;
+    outline:
 }
 
-@keyframes loading {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.pulse::after {
+    animation: pulse 1s infinite ease-in-out;
+    background: #4794eb;
+    border-radius: 50%;
+    content: '';
+    height: 96px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 96px;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1.25);
+        opacity: 0;
+    }
 }
 
 /* Test */
