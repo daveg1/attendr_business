@@ -144,7 +144,6 @@ body {
 
 .phone-colour-bar {
     display: flex;
-    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     background-color: #81288a;
@@ -577,7 +576,6 @@ hr {
 
 .flex-container {
     display: flex;
-    flex-flow: row wrap;
     justify-content: center;
 }
 
@@ -736,7 +734,6 @@ i.bad  { color: #d85a5a; }
 
 .pulse {
     position: relative;
-    outline:
 }
 
 .pulse::after {
