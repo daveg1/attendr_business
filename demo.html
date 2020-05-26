@@ -24,12 +24,12 @@
                                     <!-- <i class="fas fa-graduation-cap grad-cap"></i> -->
                                 </div>
                             </header>
-                            <div class="wrap">
-                                <input autocomplete="off" spellcheck="false" type="text" placeholder="Username" autofocus>
-                                <input autocomplete="off" spellcheck="false" type="password" placeholder="Password">
-                                <button onclick="setPage(this, 2)">Sign In</button>
-                            </div>
-                            <p id="warning-message"></p>
+                            <form class="phone-form wrap">
+                                <input name="username" type="text" autocomplete="off" spellcheck="false" placeholder="Username" autofocus>
+                                <input name="password" type="password" autocomplete="off" spellcheck="false" placeholder="Password">
+                                <button type="submit">Sign In</button>
+                            </form>
+                            <div class="phone-form-output">The username cannot be blank.</div>
                         </div>
 
                         <!-- Screen 2: Student Profile and Timetable -->
@@ -72,7 +72,6 @@
                                             </span>
                                         </aside>
                                     </div>
-                                    <hr>
                                 </div>
                                 <div class="tabs-screen" data-tab="schedule" rel="visible">
                                     <div class="lecture-item" onclick="setPage(this, 3)">
@@ -117,31 +116,33 @@
                             <div class="attendance-status">
                                 <i class="fab fa-bluetooth-b pulse"></i>
                             </div>
-                            <div class="attendance-banner wrap" rel="show">
+                            <div class="attendance-banner wrap">
                                 <h3>No Signal</h3>
                                 <p>Make sure you have enabled Bluetooth and your lecturer has opened for sign-ins.</p>
                             </div>
                             <div class="attendance-messages">
-                                <div class="message split" data-status="listening">
+                                <div class="message split active" data-status="listening">
                                     Listening for signal
-                                    <i class="fas fa-hourglass-half okay" rel="waiting"></i>
+                                    <i class="far fa-square" rel="waiting"></i>
                                 </div>
                                 <div class="message split" data-status="collecting">
                                     Collecting data
-                                    <i class="far fa-square bad"></i>
+                                    <i class="far fa-square"></i>
                                 </div>
                                 <div class="message split" data-status="sending">
                                     Sending Attendance
-                                    <i class="fas fa-check-square good"></i>
+                                    <i class="far fa-square"></i>
                                 </div>
                             </div>
                             <div class="button-holder">
-                                <button onclick="setPage(this, 2)">Cancel</button>
+                                <!-- <button onclick="setPage(this, 2)">Cancel</button> -->
+                                <button onclick="simulateMark();">Cancel</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="phone-connection">
+                <div class="phone-signal">
+                    <div class="phone-signal-dot"></div>
                     <i class="fab fa-bluetooth-b"></i>
                 </div>
                 <div class="phone">
@@ -152,11 +153,12 @@
                             <header class="wrap">
                                 <div class="logo">Your institution logo here</div>
                             </header>
-                            <div class="wrap">
-                                <input autocomplete="off" spellcheck="false" type="text" placeholder="Username" autofocus>
-                                <input autocomplete="off" spellcheck="false" type="password" placeholder="Password">
-                                <button onclick="setPage(this, 2)">Sign In</button>
-                            </div>
+                            <form class="phone-form wrap">
+                                <input name="username" type="text" autocomplete="off" spellcheck="false" placeholder="Username" autofocus>
+                                <input name="password" type="password" autocomplete="off" spellcheck="false" placeholder="Password">
+                                <button type="submit">Sign In</button>
+                            </form>
+                            <div class="phone-form-output">The username cannot be blank.</div>
                         </div>
 
                         <!-- Screen 2: Lectures -->
@@ -399,5 +401,6 @@
             </section>
         </main>
         <script src="./public/site.js"></script>
+        <script src="./public/student.js"></script>
     </body>
 </html>

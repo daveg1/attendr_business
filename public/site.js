@@ -41,6 +41,26 @@ function setPage(el, n){
 //    Page-specific Functions   //
 // ---------------------------- //
 
+// Validates user signing.
+function validateSignin(e){
+    e.preventDefault();
+
+    const form = new FormData(this);
+    const output = this.nextElementSibling;
+
+    output.removeAttribute('rel');
+
+    for(let v of form.entries()){
+        if(!v[1]){
+            output.innerText = `The ${v[0]} cannot be blank.`;
+            output.setAttribute('rel', 'visible');
+            return;
+        }
+    }
+
+    setPage(this, 2);
+}
+
 // Student profile tabs
 function selectTab(button, tab){
     document.querySelector('.tabs-option[rel]').removeAttribute('rel');
@@ -77,5 +97,10 @@ window.addEventListener('DOMContentLoaded', (e) => {
         i._count = c; // Custom property to hold index of each item.
         i.onchange = markStudent;
         c++;
+    }
+
+    // Add input validation on forms.
+    for(let form of document.getElementsByClassName('phone-form')){
+        form.onsubmit = validateSignin;
     }
 });
