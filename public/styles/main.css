@@ -143,8 +143,12 @@ body {
 }
 
 .phone-colour-bar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
     background-color: #81288a;
-    height: 24px;
+    height: 40px;
     left: 27px;
     position: absolute;
     right: 27px;
@@ -528,6 +532,7 @@ For example:
     background-color: #81288a;
     color: #fff;
     display: flex;
+    margin-top: 0.8em;
     margin-bottom: 1em;
     position: relative;
 }
@@ -536,6 +541,98 @@ For example:
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
+}
+
+.phone-colour-bar i {
+    position: relative;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.phone-colour-bar i:first-of-type {
+    margin-left: 30px;
+}
+
+.phone-colour-bar i:last-of-type {
+    margin-right: 20px;
+}
+
+hr {
+    position: absolute;
+    color: red;
+    height: 25px;
+    border: 2px solid red;
+    transform: rotate(50deg);
+    bottom: 0;
+}
+
+#bluetooth-disable {
+    left: 35px;
+}
+
+#wifi-disable {
+    right: 30px;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#tooltip-line-1 {
+    width: 0;
+    height: 0;
+    animation: line-down 1s;
+    animation-fill-mode: forwards;
+}
+
+#tooltip-line-2 {
+    position: absolute;
+    left: 120px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    animation: line-right 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes line-down {
+    100% {
+        height: 50px;
+        border-right: 2px solid #000;
+    }
+}
+
+@keyframes line-right {
+    100% {
+        width: 150px;
+        border-bottom: 2px solid #000;
+    }
+}
+
+.tooltip-box {
+    position: absolute;
+    width: 20%;
+    height: auto;
+    overflow: auto;
+    border: 3px solid #000;
+    margin: 2%;
+    padding: 1%;
+    top: 150px;
+    left: 350px;
+    opacity: 0;
+    animation: show 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes show {
+    100% {
+        opacity: 1;
+    }
 }
 
 .phone-screen .tabs {

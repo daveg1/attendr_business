@@ -1,6 +1,6 @@
 const signalDot = document.getElementsByClassName('phone-signal-dot')[0];
 
-function simulateMark(){
+function simulateMark() {
     // Signal swipes from left to right.
     signalDot.style.cssText = "left: 102px; opacity: 1";
 
@@ -20,5 +20,13 @@ function simulateMark(){
     }, 1250);
 
     setTimeout(() => signalDot.removeAttribute('style'), 3000);
-    
+
+}
+
+function disableConnections(id) {
+    var e = document.getElementById(id);
+    if (e.style.display == 'block')
+        e.style.display = 'none';
+    else
+        e.style.display = 'block';
 }

@@ -14,13 +14,22 @@
             <section class="demo">
                 <div class="phone">
                     <div class="phone-graphic"></div>
-                    <div class="phone-colour-bar"></div>
+                    <div class="phone-colour-bar">
+                        <i class="fab fa-bluetooth-b" onclick="disableConnections('bluetooth-disable');"></i>
+                        <hr id="bluetooth-disable" onclick="disableConnections('bluetooth-disable');" >
+                        <i class="fas fa-wifi" onclick="disableConnections('wifi-disable');" ></i>
+                        <hr id="wifi-disable" onclick="disableConnections('wifi-disable');" >
+                    </div>
                     <div class="phone-viewport" data-app="student">
                         <!-- Screen 1: Login -->
                         <div class="phone-screen">
                             <header class="wrap">
                                 <div class="logo img">
                                     <img src="./public/images/rgu.png" alt="RGU Logo">
+                                    <div class="flex-container">
+                                    <div id="tooltip-line-1"></div>
+                                    <div id="tooltip-line-2"></div>
+                                    </div>
                                     <!-- <i class="fas fa-graduation-cap grad-cap"></i> -->
                                 </div>
                             </header>
@@ -140,6 +149,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="tooltip-box">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus eros dolor, a pellentesque sapien varius in. Sed elementum sit amet eros.</p>
                 </div>
                 <div class="phone-signal">
                     <div class="phone-signal-dot"></div>
