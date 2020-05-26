@@ -96,30 +96,39 @@ body {
 }
 
 /* Demo has position: relative; */
-.phone-connection {
+.phone-signal {
     align-items: center;
     display: flex;
     color: #ccc;
     font-size: 5rem;
     justify-content: center;
-}
-
-.phone-connection::before {
-    background-color: currentColor;
-    content: '';
-    height: 4px;
-    position: absolute;
+    position: relative;
     width: 284px;
-    z-index: -1;
 }
 
-.phone-connection::after {
-    background-color: #fff;
+.phone-signal::before {
+    background-image: linear-gradient(90deg, #ccc 110px, transparent 110px, transparent 174px, #ccc 174px);
     content: '';
     height: 4px;
     position: absolute;
-    width: 64px;
+    width: 100%;
     z-index: -1;
+}
+
+.phone-signal-dot {
+    background-color: #4794eb;
+    content: '';
+    height: 4px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    transition: 1s ease-in-out;
+    width: 8px;
+    z-index: -1;
+}
+
+.phone-signal i {
+    transition: .3s ease-in;
 }
 
 .phone-graphic {
@@ -308,6 +317,25 @@ For example:
 
 .phone-screen button:active {
     background-color: #6e2277;
+}
+
+/* Error output */
+.phone-form-output {
+    background-color: #d85a5a;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 32px;
+    margin: 2em 24px;
+    opacity: 0;
+    pointer-events: none;
+    text-align: center;
+    transition: opacity .2s ease-in-out;
+    user-select: none;
+}
+
+.phone-form-output[rel] {
+    opacity: 1;
 }
 
 /*===========================[Lecturer]============================*/
@@ -599,6 +627,10 @@ i.bad  { color: #d85a5a; }
     line-height: 1.25rem;
     padding: .5em 0;
     text-align: right;
+}
+
+.attendance-messages .message.active ~ .message {
+    color: #ccc;
 }
 
 .attendance-messages .message i {
