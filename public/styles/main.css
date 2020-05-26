@@ -144,7 +144,6 @@ body {
 
 .phone-colour-bar {
     display: flex;
-    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     background-color: #81288a;
@@ -544,7 +543,7 @@ For example:
 }
 
 .phone-colour-bar i {
-    position: relative;
+    position: absolute;
     color: #fff;
     font-size: 1.5em;
     cursor: pointer;
@@ -555,7 +554,7 @@ For example:
 }
 
 .phone-colour-bar i:last-of-type {
-    margin-right: 20px;
+    margin-left: 250px;
 }
 
 hr {
@@ -572,12 +571,11 @@ hr {
 }
 
 #wifi-disable {
-    right: 30px;
+    right: 26px;
 }
 
 .flex-container {
     display: flex;
-    flex-flow: row wrap;
     justify-content: center;
 }
 
@@ -736,7 +734,6 @@ i.bad  { color: #d85a5a; }
 
 .pulse {
     position: relative;
-    outline:
 }
 
 .pulse::after {
