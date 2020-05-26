@@ -575,53 +575,64 @@ hr {
     right: 30px;
 }
 
-#tooltip-line {
-  width:300px;
-  height:100px;
-  background-image:
-   linear-gradient(#000,#000),
-   linear-gradient(#000,#000),
-   linear-gradient(#000,#000);
-  background-size:
-    0 5px,
-    5px 0,
-    0 5px;
-  background-position:
-    top left,
-    top center,
-    150px 100%;
-  background-repeat:no-repeat;
-  animation: increase 3s;
-  animation-fill-mode: forwards;
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#tooltip-line-1 {
+    width: 0;
+    height: 0;
+    animation: line-down 1s;
+    animation-fill-mode: forwards;
+}
+
+#tooltip-line-2 {
+    position: absolute;
+    left: 120px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    animation: line-right 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes line-down {
+    100% {
+        height: 50px;
+        border-right: 2px solid #000;
+    }
+}
+
+@keyframes line-right {
+    100% {
+        width: 150px;
+        border-bottom: 2px solid #000;
+    }
 }
 
 .tooltip-box {
+    position: absolute;
+    width: 20%;
+    height: auto;
+    overflow: auto;
     border: 3px solid #000;
     margin: 2%;
-    padding: 2%;
+    padding: 1%;
+    top: 150px;
+    left: 350px;
+    opacity: 0;
+    animation: show 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
 }
 
-@keyframes increase {
-  30% {
-    background-size:
-    50% 5px,
-    5px 0,
-    0 5px;
-  }
-  /*load down*/
-  60% {
-    background-size:
-    50% 5px,
-    5px 100%,
-    0 5px;
-  }
-  /*load to left*/
-  100% {
-    background-size:
-    50% 5px,
-    5px 100%,
-    50% 5px;
-  }
+@keyframes show {
+    100% {
+        opacity: 1;
+    }
 }
 
 .phone-screen .tabs {
