@@ -143,8 +143,12 @@ body {
 }
 
 .phone-colour-bar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
     background-color: #81288a;
-    height: 24px;
+    height: 35px;
     left: 27px;
     position: absolute;
     right: 27px;
@@ -536,6 +540,19 @@ For example:
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
+}
+
+.phone-colour-bar i {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.phone-colour-bar i:first-of-type {
+    margin-left: 30px;
+}
+
+.phone-colour-bar i:last-of-type {
+    margin-right: 20px;
 }
 
 .phone-screen .tabs {
