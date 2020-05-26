@@ -15,9 +15,10 @@
                 <div class="phone">
                     <div class="phone-graphic"></div>
                     <div class="phone-colour-bar">
-                        <i class="fab fa-bluetooth-b" onclick="bluetoothIcon()"></i>
-                        <hr id="bluetooth-disable">
-                        <i class="fas fa-wifi"></i>
+                        <i class="fab fa-bluetooth-b" onclick="disableConnections('bluetooth-disable');"></i>
+                        <hr id="bluetooth-disable" onclick="disableConnections('bluetooth-disable');" >
+                        <i class="fas fa-wifi" onclick="disableConnections('wifi-disable');" ></i>
+                        <hr id="wifi-disable" onclick="disableConnections('wifi-disable');" >
                     </div>
                     <div class="phone-viewport" data-app="student">
                         <!-- Screen 1: Login -->

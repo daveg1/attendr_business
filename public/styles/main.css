@@ -547,6 +547,7 @@ For example:
     position: relative;
     color: #fff;
     font-size: 1.5em;
+    cursor: pointer;
 }
 
 .phone-colour-bar i:first-of-type {
@@ -564,7 +565,14 @@ hr {
     border: 2px solid red;
     transform: rotate(50deg);
     bottom: 0;
+}
+
+#bluetooth-disable {
     left: 35px;
+}
+
+#wifi-disable {
+    right: 30px;
 }
 
 .phone-screen .tabs {
