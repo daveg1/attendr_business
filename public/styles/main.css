@@ -148,7 +148,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #81288a;
-    height: 35px;
+    height: 40px;
     left: 27px;
     position: absolute;
     right: 27px;
@@ -532,6 +532,7 @@ For example:
     background-color: #81288a;
     color: #fff;
     display: flex;
+    margin-top: 0.8em;
     margin-bottom: 1em;
     position: relative;
 }
@@ -543,6 +544,7 @@ For example:
 }
 
 .phone-colour-bar i {
+    position: relative;
     color: #fff;
     font-size: 1.5em;
 }
@@ -553,6 +555,16 @@ For example:
 
 .phone-colour-bar i:last-of-type {
     margin-right: 20px;
+}
+
+hr {
+    position: absolute;
+    color: red;
+    height: 25px;
+    border: 2px solid red;
+    transform: rotate(50deg);
+    bottom: 0;
+    left: 35px;
 }
 
 .phone-screen .tabs {
