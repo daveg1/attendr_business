@@ -543,7 +543,7 @@ For example:
 }
 
 .phone-colour-bar i {
-    position: absolute;
+    position: relative;
     color: #fff;
     font-size: 1.5em;
     cursor: pointer;
@@ -554,7 +554,7 @@ For example:
 }
 
 .phone-colour-bar i:last-of-type {
-    margin-left: 250px;
+    margin-right: 20px;
 }
 
 hr {
@@ -571,7 +571,7 @@ hr {
 }
 
 #wifi-disable {
-    right: 26px;
+    right: 30px;
 }
 
 .flex-container {
