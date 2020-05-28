@@ -428,7 +428,7 @@ For example:
     /* When and Where */
     background-color: #fafafa;
     border-top: inherit;
-    font-family: monospace;
+    font-family: 'Fira Code', monospace;
     font-size: 12px;
     line-height: 16px;
     padding: 1em;
