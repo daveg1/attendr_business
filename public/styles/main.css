@@ -646,10 +646,12 @@ hr {
 .phone-screen .tabs-menu {
     display: flex;
     user-select: none;
+    background: #81288a;
+    padding-top: 10px;
 }
 
 .tabs-menu .tabs-option {
-    color: #888;
+    color: #ccc;
     cursor: pointer;
     flex-grow: 1;
     font-size: 12px;
@@ -659,7 +661,7 @@ hr {
 
 .tabs-menu .tabs-option:hover,
 .tabs-menu .tabs-option[rel] {
-    color: #000;
+    color: #fff;
 }
 
 .tabs-menu .tabs-option i {
