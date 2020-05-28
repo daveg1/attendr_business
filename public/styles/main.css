@@ -304,6 +304,7 @@ For example:
     color: #fff;
     padding: .75em 1em;
     width: 100%;
+    font-weight: 600;
 }
 
 .phone-screen input + button {

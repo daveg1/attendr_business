@@ -1,3 +1,5 @@
+// Lecturer Marking
+
 const signalDot = document.getElementsByClassName('phone-signal-dot')[0];
 
 function simulateMark() {
@@ -23,10 +25,25 @@ function simulateMark() {
 
 }
 
+// Disable/Enable Connections (WiFi and Bluetooth)
+
 function disableConnections(id) {
     var e = document.getElementById(id);
     if (e.style.display == 'block')
         e.style.display = 'none';
     else
         e.style.display = 'block';
+}
+
+// Animate spinner
+
+function addSpinner() {
+    var spin = document.getElementById("spinner");
+    spin.classList.add("fa-spin");
+    setTimeout(removeSpinner, 3000);
+}
+
+function removeSpinner() {
+    var spin = document.getElementById("spinner");
+    spin.classList.remove("fa-spin");
 }

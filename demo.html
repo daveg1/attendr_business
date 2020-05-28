@@ -61,7 +61,7 @@
                             </h2>
                             <div class="option-bar split wrap space">
                                 <div class="sync-message">Lectures synced</div>
-                                <i class="fas fa-sync" onclick="" aria-hidden="true"></i>
+                                <i id="spinner" class="fas fa-sync" onclick="addSpinner();" aria-hidden="true"></i>
                             </div>
                             <div class="tabs bottomless-list">
                                 <div class="tabs-screen" data-tab="recent">
@@ -138,11 +138,11 @@
                             </div>
                             <div class="attendance-messages">
                                 <div class="message split active" data-status="listening">
-                                    Listening for signal
+                                    Listening for Signal
                                     <i class="far fa-square" rel="waiting"></i>
                                 </div>
                                 <div class="message split" data-status="collecting">
-                                    Collecting data
+                                    Collecting Data
                                     <i class="far fa-square"></i>
                                 </div>
                                 <div class="message split" data-status="sending">
