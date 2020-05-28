@@ -47,3 +47,21 @@ function removeSpinner() {
     var spin = document.getElementById("spinner");
     spin.classList.remove("fa-spin");
 }
+
+// No Signal - Student
+
+function noSignal() {
+    var bluetoothStatus = document.getElementById("bluetooth-disable");
+    var style = window.getComputedStyle(bluetoothStatus);
+    if (style.display == "block") {
+        console.log("Signal Disabled");
+        var bluetoothLogo = document.getElementById("bluetooth-send");
+        bluetoothLogo.classList.add("bad");
+        document.getElementsByClassName("active")[0].classList.add("bad");
+        bluetoothLogo.classList.remove("pulse");
+        document.getElementsByClassName('attendance-banner')[0].style.opacity = "1";
+    } else {
+        console.log(bluetoothStatus.style.display);
+        console.log("Signal Enabled");
+    }
+}

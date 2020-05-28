@@ -544,6 +544,7 @@ For example:
 }
 
 .phone-colour-bar i {
+    display: block;
     position: relative;
     color: #fff;
     font-size: 1.5em;
@@ -568,6 +569,7 @@ hr {
 }
 
 #bluetooth-disable {
+    display: block;
     left: 35px;
 }
 
@@ -674,23 +676,18 @@ hr {
 /*                         Attendance Screen                      */
 /*================================================================*/
 
-#bluetooth-send {
-    color: #1074e7;
-}
-
 .attendance-status {
     padding: 8rem 0 4rem;
     text-align: center;
 }
 
 .attendance-status i {
-    color: #333;
     font-size: 6rem;
 }
 
 i.okay { color: #4794eb; }
 i.good { color: #39ac60; }
-i.bad  { color: #d85a5a; }
+.bad  { color: #d85a5a; }
 
 .attendance-banner {
     background-color: #d85a5a;
