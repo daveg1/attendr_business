@@ -671,6 +671,10 @@ hr {
 /*                         Attendance Screen                      */
 /*================================================================*/
 
+#bluetooth-send {
+    color: #1074e7;
+}
+
 .attendance-status {
     padding: 8rem 0 4rem;
     text-align: center;
