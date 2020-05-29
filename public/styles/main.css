@@ -528,19 +528,14 @@ For example:
 
 /* For pages with headers. */
 .phone-screen .header-title {
+    display: flex;
+    justify-content: space-around;
     align-items: center;
     background-color: #81288a;
     color: #fff;
-    display: flex;
     margin-top: 0.8em;
     margin-bottom: 1em;
     position: relative;
-}
-
-.phone-screen .header-title h3 {
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
 }
 
 .phone-colour-bar i {
