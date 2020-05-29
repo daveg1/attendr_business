@@ -1,12 +1,16 @@
 "use strict";
 
 // ---------------------------- //
-//      Important Functions     //
+//            Globals           //
 // ---------------------------- //
 
 // Holds a nodelist of attendees on marking screen.
 // I.e. <div class="attendee"></div>
 var markingItems;
+
+// ---------------------------- //
+//           Tooltips           //
+// ---------------------------- //
 
 // Shows and hides tooltips based on the page.
 function tooltipPage(app, n){
@@ -21,6 +25,29 @@ function tooltipPage(app, n){
         }
     }
 }
+
+const tips = document.getElementsByClassName('tooltip-indicator');
+
+function closeTooltip(){
+    closeTooltip._s.classList.remove('active');
+    closeTooltip._s = null;
+    window.removeEventListener('click', closeTooltip, true);
+}
+
+function revealTooltip(){
+    this.classList.add('active');
+
+    closeTooltip._s = this;
+    window.addEventListener('click', closeTooltip, true);
+}
+
+for(let t of tips){
+    t.onclick = revealTooltip;
+}
+
+// ---------------------------- //
+//      Important Functions     //
+// ---------------------------- //
 
 // Recursively discovers in which app the function is being called.
 function getApp(el){
