@@ -36,16 +36,17 @@ function disableConnections(id) {
 }
 
 function switchConnections(id) {
-    var e = document.getElementById("bluetooth-switch");
+    var e = document.getElementById(id);
     if (e.classList.contains("good")) {
         console.log("bad added");
-        //console.log(e);
+        console.log(e);
         e.classList.add("bad");
         e.classList.remove("good");
-    } else
+    } else if (e.classList.contains("bad")) {
         console.log("good added");
-    // e.classList.remove("bad");
-    // e.classList.add("good");
+        e.classList.add("good");
+        e.classList.remove("bad");
+    }
 }
 
 // Animate spinner
