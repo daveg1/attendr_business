@@ -35,6 +35,19 @@ function disableConnections(id) {
         e.style.display = 'block';
 }
 
+function switchConnections(id) {
+    var e = document.getElementById("bluetooth-switch");
+    if (e.classList.contains("good")) {
+        console.log("bad added");
+        //console.log(e);
+        e.classList.add("bad");
+        e.classList.remove("good");
+    } else
+        console.log("good added");
+    // e.classList.remove("bad");
+    // e.classList.add("good");
+}
+
 // Animate spinner
 
 function addSpinner() {

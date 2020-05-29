@@ -555,6 +555,7 @@ For example:
 }
 
 hr {
+    display: none;
     position: absolute;
     color: red;
     height: 25px;
@@ -564,7 +565,6 @@ hr {
 }
 
 #bluetooth-disable {
-    display: block;
     left: 35px;
 }
 

@@ -22,10 +22,10 @@
                 <div class="phone">
                     <div class="phone-graphic"></div>
                     <div class="phone-colour-bar">
-                        <i class="fab fa-bluetooth-b" onclick="disableConnections('bluetooth-disable');"></i>
-                        <hr id="bluetooth-disable" onclick="disableConnections('bluetooth-disable');" >
-                        <i class="fas fa-wifi" onclick="disableConnections('wifi-disable');" ></i>
-                        <hr id="wifi-disable" onclick="disableConnections('wifi-disable');" >
+                        <i class="fab fa-bluetooth-b"></i>
+                        <hr id="bluetooth-disable" >
+                        <i class="fas fa-wifi"></i>
+                        <hr id="wifi-disable">
                     </div>
                     <div class="phone-viewport" data-app="student">
                         <!-- Screen 1: Login -->
@@ -165,13 +165,14 @@
                             <div class="signal-switches">
                                 <div class="switch split">
                                     <p>Bluetooth Status</p>
-                                    <i class="fas fa-toggle-on"></i>
+                                    <i id="bluetooth-switch" onclick="disableConnections('bluetooth-disable');switchConnections('bluetooth-switch');" class="fas fa-toggle-on good"></i>
                                 </div>
                                 <div class="switch split">
                                     <p>WiFi Status</p>
-                                    <i class="fas fa-toggle-on"></i>
+                                    <i id="wifi-switch" onclick="disableConnections('wifi-disable');switchConnections('bluetooth-switch');" class="fas fa-toggle-on good"></i>
                                 </div>
                             </div>
+                            <button onclick="setPage(this, 2)">Cancel</button>
                         </div>
                     </div>
                 </div>
