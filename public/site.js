@@ -8,6 +8,20 @@
 // I.e. <div class="attendee"></div>
 var markingItems;
 
+// Shows and hides tooltips based on the page.
+function tooltipPage(app, n){
+    let pages = document.querySelector(`.tooltip-app[data-app="${app}"]`).children;
+
+    for(let p of pages){
+        console.log(p);
+        if(+p.dataset.page === n){
+            p.setAttribute('rel', 'visible');
+        } else {
+            p.removeAttribute('rel');
+        }
+    }
+}
+
 // Recursively discovers in which app the function is being called.
 function getApp(el){
 
@@ -35,6 +49,8 @@ function setPage(el, n){
     // Do note, that the first screen is receiving the margin style, not the viewport itself.
     // Else, it falls out of view completely.
     document.querySelector(`.phone-viewport[data-app="${app}"]`).firstElementChild.style.marginLeft = `calc(-292px * ${n-1})`; // Subtract one to avoid an extra page shift.
+
+    tooltipPage(app, n);
 }
 
 // ---------------------------- //

@@ -12,13 +12,36 @@
     <body dir="ltr">
         <main>
             <section class="demo">
+                <div class="tooltip-holder">
+                    <div class="tooltip-app" data-app="student">
+
+                    </div>
+                    <div class="tooltip-app" data-app="lecturer">
+                        <div class="tooltip-page" data-page="1" rel="visible">
+                            <div class="tooltip-indicator" style="left: 960px;top: 154px;"></div>
+                            <div class="tooltip-box" style="left: 994px;top: 144px;">Attendr lets you customise your app with your institution's logo—have a go uploading your own now!</div>
+                        </div>
+                        <div class="tooltip-page" data-page="2">
+                            <div class="tooltip-indicator" style="left: 960px;top: 196px;"></div>
+                            <div class="tooltip-box" style="left: 994px;top: 186px;">Your upcoming classes will appear here. Tapping one will begin the marking phase.</div>
+                        </div>
+                        <div class="tooltip-page" data-page="3">
+                            <div class="tooltip-indicator" style="left: 960px;top: 246px;"></div>
+                            <div class="tooltip-box" style="left: 994px;top: 236px;">A list of your students is placed below. Tapping this button will allow your students to begin signing in.</div>
+                        </div>
+                        <div class="tooltip-page" data-page="4">
+                            <div class="tooltip-indicator" style="left: 890px;top: 124px;"></div>
+                            <div class="tooltip-box" style="left: 924px;top: 114px;">Now that marking is open, your students will be able to connect to your device and effectively mark themselves present.</div>
+                            <div class="tooltip-indicator" style="left: 960px;top: 632px;"></div>
+                            <div class="tooltip-box" style="left: 994px;top: 622px;">Your attendees are reflected on the previous page.<br>Tap this button to return to take a look!</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="phone">
                     <div class="phone-graphic"></div>
                     <div class="phone-colour-bar">
-                        <i class="fab fa-bluetooth-b" onclick="disableConnections('bluetooth-disable');"></i>
-                        <hr id="bluetooth-disable" onclick="disableConnections('bluetooth-disable');" >
-                        <i class="fas fa-wifi" onclick="disableConnections('wifi-disable');" ></i>
-                        <hr id="wifi-disable" onclick="disableConnections('wifi-disable');" >
+                        <i class="fab fa-bluetooth-b" onclick="toggleConn('bluetooth');"></i>
+                        <i class="fas fa-wifi" onclick="toggleConn('wifi');" ></i>
                     </div>
                     <div class="phone-viewport" data-app="student">
                         <!-- Screen 1: Login -->
@@ -26,10 +49,6 @@
                             <header class="wrap">
                                 <div class="logo img">
                                     <img src="./public/images/rgu.png" alt="RGU Logo">
-                                    <div class="flex-container">
-                                    <div id="tooltip-line-1"></div>
-                                    <div id="tooltip-line-2"></div>
-                                    </div>
                                     <!-- <i class="fas fa-graduation-cap grad-cap"></i> -->
                                 </div>
                             </header>
@@ -414,5 +433,6 @@
         </main>
         <script src="./public/site.js"></script>
         <script src="./public/student.js"></script>
+        <script src="./public/lecturer.js"></script>
     </body>
 </html>
