@@ -40,12 +40,12 @@ function switchConnections(id) {
     if (e.classList.contains("good")) {
         console.log("bad added");
         console.log(e);
-        e.classList.add("bad");
+        e.classList.add("bad", "fa-flip-horizontal");
         e.classList.remove("good");
     } else if (e.classList.contains("bad")) {
         console.log("good added");
         e.classList.add("good");
-        e.classList.remove("bad");
+        e.classList.remove("bad", "fa-flip-horizontal");
     }
 }
 
