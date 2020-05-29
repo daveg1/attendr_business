@@ -711,14 +711,14 @@ i.good { color: #39ac60; }
     margin: .5em 0 1.25em;
 }
 
-.attendance-messages {
+.attendance-messages, .signal-switches {
     color: #333;
     font-weight: 700;
     flex: 1;
     padding: 0 4em;
 }
 
-.attendance-messages .message {
+.attendance-messages .message, .signal-switches .switch {
     line-height: 1.25rem;
     padding: .5em 0;
     text-align: right;
@@ -728,8 +728,16 @@ i.good { color: #39ac60; }
     color: #ccc;
 }
 
-.attendance-messages .message i {
+.attendance-messages .message i, .signal-switches .switch i {
     font-size: 1.25rem;
+}
+
+.signal-switches {
+    margin-top: 10vh;
+}
+
+.signal-switches .switch i {
+    margin-top: .5em;
 }
 
 .pulse {
@@ -764,4 +772,13 @@ i.good { color: #39ac60; }
 /* Test */
 .students input, .students button {
     border-radius: 12px!important;
+}
+
+/*=============================[Student]========================*/
+/*                         Settings Screen                      */
+/*==============================================================*/
+
+#settings-heading {
+    margin-top: 10vh;
+    text-align: center;
 }

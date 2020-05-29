@@ -56,7 +56,7 @@
                                 </div>
                                 <h3>Attend RGU Student</h3>
                                 <div class="option-bar wrap">
-                                <i class="fas fa-cog"></i>
+                                <i onclick="setPage(this, 4)" class="fas fa-cog"></i>
                                 </div>
                             </header>
                             <h2>
@@ -156,6 +156,21 @@
                             <div class="button-holder">
                                 <!-- <button onclick="setPage(this, 2)">Cancel</button> -->
                                 <button onclick="simulateMark();">Cancel</button>
+                            </div>
+                        </div>
+
+                        <!-- Screen 4: Settings -->
+                        <div class="phone-screen bottomless">
+                            <h3 id="settings-heading">Settings</h3>
+                            <div class="signal-switches">
+                                <div class="switch split">
+                                    <p>Bluetooth Status</p>
+                                    <i class="fas fa-toggle-on"></i>
+                                </div>
+                                <div class="switch split">
+                                    <p>WiFi Status</p>
+                                    <i class="fas fa-toggle-on"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
