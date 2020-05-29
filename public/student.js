@@ -62,7 +62,7 @@ function removeSpinner() {
     spin.classList.remove("fa-spin");
 }
 
-// No Signal - Student
+// No Bluetooth Signal
 
 function noSignal() {
     var e = document.getElementById("bluetooth-switch");
@@ -75,5 +75,12 @@ function noSignal() {
         document.getElementsByClassName('attendance-banner')[0].style.opacity = "1";
     } else if (e.classList.contains("good")) {
         console.log("Signal Enabled");
+        setTimeout(hasSignal, 3000);
     }
+}
+
+// Has Bluetooth Signal
+
+function hasSignal() {
+    document.getElementsByClassName("active")[0].classList.add("good");
 }

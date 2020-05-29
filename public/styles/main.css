@@ -681,7 +681,7 @@ hr {
 }
 
 i.okay { color: #4794eb; }
-i.good { color: #39ac60; }
+.good { color: #39ac60; }
 .bad  { color: #d85a5a; }
 
 .attendance-banner {
