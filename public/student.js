@@ -65,17 +65,15 @@ function removeSpinner() {
 // No Signal - Student
 
 function noSignal() {
-    var bluetoothStatus = document.getElementById("bluetooth-disable");
-    var style = window.getComputedStyle(bluetoothStatus);
-    if (style.display == "block") {
+    var e = document.getElementById("bluetooth-switch");
+    if (e.classList.contains("bad")) {
         console.log("Signal Disabled");
         var bluetoothLogo = document.getElementById("bluetooth-send");
         bluetoothLogo.classList.add("bad");
         document.getElementsByClassName("active")[0].classList.add("bad");
         bluetoothLogo.classList.remove("pulse");
         document.getElementsByClassName('attendance-banner')[0].style.opacity = "1";
-    } else {
-        console.log(bluetoothStatus.style.display);
+    } else if (e.classList.contains("good")) {
         console.log("Signal Enabled");
     }
 }
