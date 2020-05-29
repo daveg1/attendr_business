@@ -93,7 +93,7 @@
                                     </div>
                                 </div>
                                 <div class="tabs-screen" data-tab="schedule" rel="visible">
-                                    <div class="lecture-item" onclick="setPage(this, 3);noSignal();">
+                                    <div class="lecture-item" onclick="setPage(this, 3);noSignal();simulateMark();">
                                         <div class="wrap">
                                             <div class="option-bar split">
                                                 <h3>May 11</h3>
@@ -154,8 +154,7 @@
                                 </div>
                             </div>
                             <div class="button-holder">
-                                <!-- <button onclick="setPage(this, 2)">Cancel</button> -->
-                                <button onclick="simulateMark();">Cancel</button>
+                                <button onclick="setPage(this, 2)">Cancel</button>
                             </div>
                         </div>
 
@@ -172,7 +171,9 @@
                                     <i id="wifi-switch" onclick="disableConnections('wifi-disable');switchConnections('wifi-switch');" class="fas fa-toggle-on good"></i>
                                 </div>
                             </div>
-                            <button onclick="setPage(this, 2)">Cancel</button>
+                            <div class="button-holder">
+                                <button onclick="setPage(this, 2)">Cancel</button>
+                            </div>
                         </div>
                     </div>
                 </div>
