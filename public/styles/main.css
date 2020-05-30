@@ -3,7 +3,8 @@
 /* idea: have a .theme on .phone or the body for the colours. */
 
 /* Generic */
-*, *::before {
+*,
+*::before {
     box-sizing: border-box;
 }
 
@@ -218,7 +219,8 @@ For example:
     box-shadow: 0 12px 12px -10px #ccc;
 }
 
-.phone-screen h2, .phone-screen h3 {
+.phone-screen h2,
+.phone-screen h3 {
     margin: 0;
     user-select: none;
 }
@@ -304,6 +306,7 @@ For example:
     color: #fff;
     padding: .75em 1em;
     width: 100%;
+    font-weight: 600;
 }
 
 .phone-screen input + button {
@@ -351,7 +354,7 @@ For example:
 }
 
 .phone-screen .option-bar.space {
-    margin: .5em 0;
+    margin: 1em 0;
 }
 
 .phone-screen .split {
@@ -428,7 +431,7 @@ For example:
     /* When and Where */
     background-color: #fafafa;
     border-top: inherit;
-    font-family: monospace;
+    font-family: 'Fira Code', monospace;
     font-size: 12px;
     line-height: 16px;
     padding: 1em;
@@ -516,9 +519,17 @@ For example:
 }
 
 @keyframes flicker {
-      0% { opacity:  1; }
-     50% { opacity: .6; }
-    100% { opacity:  1; }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .6;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /*============================[Student]===========================*/
@@ -527,22 +538,18 @@ For example:
 
 /* For pages with headers. */
 .phone-screen .header-title {
+    display: flex;
+    justify-content: space-around;
     align-items: center;
     background-color: #81288a;
     color: #fff;
-    display: flex;
     margin-top: 0.8em;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     position: relative;
 }
 
-.phone-screen .header-title h3 {
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-}
-
 .phone-colour-bar i {
+    display: block;
     position: relative;
     color: #fff;
     font-size: 1.5em;
@@ -558,6 +565,7 @@ For example:
 }
 
 hr {
+    display: none;
     position: absolute;
     color: red;
     height: 25px;
@@ -645,10 +653,12 @@ hr {
 .phone-screen .tabs-menu {
     display: flex;
     user-select: none;
+    background: #81288a;
+    padding-top: 10px;
 }
 
 .tabs-menu .tabs-option {
-    color: #888;
+    color: #ccc;
     cursor: pointer;
     flex-grow: 1;
     font-size: 12px;
@@ -658,7 +668,7 @@ hr {
 
 .tabs-menu .tabs-option:hover,
 .tabs-menu .tabs-option[rel] {
-    color: #000;
+    color: #fff;
 }
 
 .tabs-menu .tabs-option i {
@@ -672,18 +682,47 @@ hr {
 /*================================================================*/
 
 .attendance-status {
-    padding: 8rem 0 4rem;
+    padding: 12.5rem 0 4rem;
     text-align: center;
 }
 
 .attendance-status i {
-    color: #333;
     font-size: 6rem;
 }
 
-i.okay { color: #4794eb; }
-i.good { color: #39ac60; }
-i.bad  { color: #d85a5a; }
+.okay {
+    color: #F0C756;
+}
+
+.good {
+    color: #39ac60;
+}
+
+.good input {
+    border-color: #39ac60;
+}
+
+.good input::after {
+    color: #39ac60;
+    content: '✔';
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.bad {
+    color: #d85a5a;
+}
+
+.bad input {
+    border-color: #d85a5a;
+}
+
+.bad input::after {
+    color: #d85a5a;
+    content: '❌';
+    font-size: 8px;
+    font-weight: bold;
+}
 
 .attendance-banner {
     background-color: #d85a5a;
@@ -694,6 +733,7 @@ i.bad  { color: #d85a5a; }
     right: 0;
     text-align: center;
     top: 3rem;
+    margin-top: .5rem;
     transition: opacity .2s ease-in-out;
     user-select: none;
 }
@@ -703,23 +743,25 @@ i.bad  { color: #d85a5a; }
 }
 
 .attendance-banner h3 {
-    margin-top: .5em;
+    margin-top: 1em;
 }
 
 .attendance-banner p {
     font-size: 12px;
     line-height: 1.2;
-    margin: .5em 0 1.25em;
+    margin: 1em 0 1.25em;
 }
 
-.attendance-messages {
+.attendance-messages,
+.signal-switches {
     color: #333;
     font-weight: 700;
     flex: 1;
     padding: 0 4em;
 }
 
-.attendance-messages .message {
+.attendance-messages .message,
+.signal-switches .switch {
     line-height: 1.25rem;
     padding: .5em 0;
     text-align: right;
@@ -729,8 +771,32 @@ i.bad  { color: #d85a5a; }
     color: #ccc;
 }
 
-.attendance-messages .message i {
+.attendance-messages .message i,
+.signal-switches .switch i {
     font-size: 1.25rem;
+}
+
+.attendance-messages input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid;
+    border-radius: 3px;
+    color: inherit;
+    cursor: pointer;
+    height: 15px;
+    line-height: 9px;
+    outline: 0;
+    text-align: center;
+    width: 15px;
+}
+
+.signal-switches {
+    margin-top: 10vh;
+}
+
+.signal-switches .switch i {
+    margin-top: .5em;
 }
 
 .pulse {
@@ -763,6 +829,16 @@ i.bad  { color: #d85a5a; }
 }
 
 /* Test */
-.students input, .students button {
-    border-radius: 12px!important;
+.students input,
+.students button {
+    border-radius: 12px !important;
+}
+
+/*=============================[Student]========================*/
+/*                         Settings Screen                      */
+/*==============================================================*/
+
+#settings-heading {
+    margin-top: 10vh;
+    text-align: center;
 }
