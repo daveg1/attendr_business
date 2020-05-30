@@ -38,11 +38,11 @@ function disableConnections(id) {
 function switchConnections(id) {
     var e = document.getElementById(id);
     if (e.classList.contains("good")) {
-        console.log("Disabled" + id);
+        console.log("Disabled " + id);
         e.classList.add("bad", "fa-flip-horizontal");
         e.classList.remove("good");
     } else if (e.classList.contains("bad")) {
-        console.log("Enabled" + id);
+        console.log("Enabled " + id);
         e.classList.add("good");
         e.classList.remove("bad", "fa-flip-horizontal");
     }
@@ -117,4 +117,18 @@ function noConnection() {
         bluetoothLogo.classList.add("good");
         document.getElementsByClassName("active")[0].classList.add("good");
     }
+}
+
+// Reset Animate Attendance
+
+function resetSignalPage() {
+    console.log("Reset Signal Page");
+    document.getElementById("bluetooth-send").classList.remove("bad", "okay", "good", "pulse");
+    document.getElementsByClassName("active")[0].classList.remove("active");
+    document.getElementsByClassName("message")[0].classList.add("active");
+    document.getElementsByClassName('attendance-banner')[0].style.opacity = "0";
+    document.getElementsByClassName('attendance-banner')[1].style.opacity = "0";
+    document.getElementsByClassName("message")[0].classList.remove("bad", "good");
+    document.getElementsByClassName("message")[1].classList.remove("bad", "good");
+    document.getElementsByClassName("message")[2].classList.remove("bad", "good");
 }
