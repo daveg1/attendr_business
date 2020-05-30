@@ -17,7 +17,6 @@ function tooltipPage(app, n){
     let pages = document.querySelector(`.tooltip-app[data-app="${app}"]`).children;
 
     for(let p of pages){
-        console.log(p);
         if(+p.dataset.page === n){
             p.setAttribute('rel', 'visible');
         } else {
@@ -64,7 +63,9 @@ function getApp(el){
 
 // Swap between pages a specified app (student or lecturer).
 function setPage(el, n){
-    const app = getApp(el);
+    // If el is an ElementNode (a.k.a. object), use getApp.
+    // Else, leave as is and assume string was given.
+    const app = typeof(el) === "object" ? getApp(el) : el;
 
     if(!app) return;
 
