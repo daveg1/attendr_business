@@ -38,12 +38,11 @@ function disableConnections(id) {
 function switchConnections(id) {
     var e = document.getElementById(id);
     if (e.classList.contains("good")) {
-        console.log("bad added");
-        console.log(e);
+        console.log("Disabled" + id);
         e.classList.add("bad", "fa-flip-horizontal");
         e.classList.remove("good");
     } else if (e.classList.contains("bad")) {
-        console.log("good added");
+        console.log("Enabled" + id);
         e.classList.add("good");
         e.classList.remove("bad", "fa-flip-horizontal");
     }
