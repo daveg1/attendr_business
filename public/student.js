@@ -25,6 +25,17 @@ function simulateMark() {
 
 }
 
+// Hide Tooltip
+
+function hideTooltip() {
+    document.getElementsByClassName("tooltip-box")[0].style.display = "none";
+}
+
+// Show Tooltip()
+function showTooltip() {
+    document.getElementsByClassName("tooltip-box")[0].style.display = "block";
+}
+
 // Disable/Enable Connections (WiFi and Bluetooth)
 
 function disableConnections(id) {
