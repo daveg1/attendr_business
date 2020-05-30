@@ -354,7 +354,7 @@ For example:
 }
 
 .phone-screen .option-bar.space {
-    margin: .5em 0;
+    margin: 1em 0;
 }
 
 .phone-screen .split {
@@ -544,7 +544,7 @@ For example:
     background-color: #81288a;
     color: #fff;
     margin-top: 0.8em;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     position: relative;
 }
 
