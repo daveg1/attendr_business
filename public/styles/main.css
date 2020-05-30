@@ -682,7 +682,7 @@ hr {
 /*================================================================*/
 
 .attendance-status {
-    padding: 8rem 0 4rem;
+    padding: 12.5rem 0 4rem;
     text-align: center;
 }
 
@@ -733,6 +733,7 @@ hr {
     right: 0;
     text-align: center;
     top: 3rem;
+    margin-top: .5rem;
     transition: opacity .2s ease-in-out;
     user-select: none;
 }
@@ -742,13 +743,13 @@ hr {
 }
 
 .attendance-banner h3 {
-    margin-top: .5em;
+    margin-top: 1em;
 }
 
 .attendance-banner p {
     font-size: 12px;
     line-height: 1.2;
-    margin: .5em 0 1.25em;
+    margin: 1em 0 1.25em;
 }
 
 .attendance-messages,
