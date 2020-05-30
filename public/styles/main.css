@@ -3,7 +3,8 @@
 /* idea: have a .theme on .phone or the body for the colours. */
 
 /* Generic */
-*, *::before {
+*,
+*::before {
     box-sizing: border-box;
 }
 
@@ -218,7 +219,8 @@ For example:
     box-shadow: 0 12px 12px -10px #ccc;
 }
 
-.phone-screen h2, .phone-screen h3 {
+.phone-screen h2,
+.phone-screen h3 {
     margin: 0;
     user-select: none;
 }
@@ -517,9 +519,17 @@ For example:
 }
 
 @keyframes flicker {
-      0% { opacity:  1; }
-     50% { opacity: .6; }
-    100% { opacity:  1; }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .6;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /*============================[Student]===========================*/
@@ -680,9 +690,17 @@ hr {
     font-size: 6rem;
 }
 
-.okay { color: #F0C756 }
-.good { color: #39ac60; }
-.bad  { color: #d85a5a; }
+.okay {
+    color: #F0C756;
+}
+
+.good {
+    color: #39ac60;
+}
+
+.bad {
+    color: #d85a5a;
+}
 
 .attendance-banner {
     background-color: #d85a5a;
@@ -711,14 +729,16 @@ hr {
     margin: .5em 0 1.25em;
 }
 
-.attendance-messages, .signal-switches {
+.attendance-messages,
+.signal-switches {
     color: #333;
     font-weight: 700;
     flex: 1;
     padding: 0 4em;
 }
 
-.attendance-messages .message, .signal-switches .switch {
+.attendance-messages .message,
+.signal-switches .switch {
     line-height: 1.25rem;
     padding: .5em 0;
     text-align: right;
@@ -728,7 +748,8 @@ hr {
     color: #ccc;
 }
 
-.attendance-messages .message i, .signal-switches .switch i {
+.attendance-messages .message i,
+.signal-switches .switch i {
     font-size: 1.25rem;
 }
 
@@ -770,8 +791,9 @@ hr {
 }
 
 /* Test */
-.students input, .students button {
-    border-radius: 12px!important;
+.students input,
+.students button {
+    border-radius: 12px !important;
 }
 
 /*=============================[Student]========================*/

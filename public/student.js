@@ -83,9 +83,23 @@ function noSignal() {
 
 function hasSignal() {
     document.getElementsByClassName("active")[0].classList.add("good");
+    document.getElementsByClassName("active")[0].classList.remove("active");
+    document.getElementsByClassName("message")[1].classList.add("active");
+    simulateMark();
+    setTimeout(collectData, 3000);
+}
+
+// Collecting Data
+
+function collectData() {
+    document.getElementsByClassName("active")[0].classList.remove("active");
+    document.getElementsByClassName("message")[1].classList.add("active");
+    document.getElementsByClassName("active")[0].classList.add("good");
     simulateMark();
     setTimeout(noConnection, 3000);
 }
+
+// No WiFi Connection
 
 function noConnection() {
     var e = document.getElementById("wifi-switch");
@@ -93,9 +107,12 @@ function noConnection() {
         console.log("Connection Disabled");
         var bluetoothLogo = document.getElementById("bluetooth-send");
         bluetoothLogo.classList.add("okay");
+        document.getElementsByClassName("active")[0].classList.remove("active");
+        document.getElementsByClassName("message")[2].classList.add("active");
         document.getElementsByClassName("active")[0].classList.add("bad");
         bluetoothLogo.classList.remove("pulse");
         document.getElementsByClassName('attendance-banner')[1].style.opacity = "1";
+        document.getElementsByClassName('attendance-banner')[1].style.background = "#F0C756";
     } else if (e.classList.contains("good")) {
         console.log("Connection Enabled");
     }
