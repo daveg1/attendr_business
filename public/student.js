@@ -75,7 +75,7 @@ function noSignal() {
         document.getElementsByClassName('attendance-banner')[0].style.opacity = "1";
     } else if (e.classList.contains("good")) {
         console.log("Signal Enabled");
-        setTimeout(hasSignal, 3000);
+        setTimeout(hasSignal, 4000);
     }
 }
 
@@ -86,7 +86,7 @@ function hasSignal() {
     document.getElementsByClassName("active")[0].classList.remove("active");
     document.getElementsByClassName("message")[1].classList.add("active");
     simulateMark();
-    setTimeout(collectData, 3000);
+    setTimeout(collectData, 4000);
 }
 
 // Collecting Data
@@ -96,7 +96,7 @@ function collectData() {
     document.getElementsByClassName("message")[1].classList.add("active");
     document.getElementsByClassName("active")[0].classList.add("good");
     simulateMark();
-    setTimeout(noConnection, 3000);
+    setTimeout(noConnection, 4000);
 }
 
 // No WiFi Connection
