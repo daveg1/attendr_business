@@ -102,17 +102,19 @@ function collectData() {
 
 function noConnection() {
     var e = document.getElementById("wifi-switch");
+    var bluetoothLogo = document.getElementById("bluetooth-send");
+    bluetoothLogo.classList.remove("pulse");
+    document.getElementsByClassName("active")[0].classList.remove("active");
+    document.getElementsByClassName("message")[2].classList.add("active");
     if (e.classList.contains("bad")) {
         console.log("Connection Disabled");
-        var bluetoothLogo = document.getElementById("bluetooth-send");
         bluetoothLogo.classList.add("okay");
-        document.getElementsByClassName("active")[0].classList.remove("active");
-        document.getElementsByClassName("message")[2].classList.add("active");
         document.getElementsByClassName("active")[0].classList.add("bad");
-        bluetoothLogo.classList.remove("pulse");
         document.getElementsByClassName('attendance-banner')[1].style.opacity = "1";
         document.getElementsByClassName('attendance-banner')[1].style.background = "#F0C756";
     } else if (e.classList.contains("good")) {
         console.log("Connection Enabled");
+        bluetoothLogo.classList.add("good");
+        document.getElementsByClassName("active")[0].classList.add("good");
     }
 }
