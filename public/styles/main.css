@@ -698,8 +698,30 @@ hr {
     color: #39ac60;
 }
 
+.good input {
+    border-color: #39ac60;
+}
+
+.good input::after {
+    color: #39ac60;
+    content: '✔';
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .bad {
     color: #d85a5a;
+}
+
+.bad input {
+    border-color: #d85a5a;
+}
+
+.bad input::after {
+    color: #d85a5a;
+    content: '❌';
+    font-size: 8px;
+    font-weight: bold;
 }
 
 .attendance-banner {
@@ -751,6 +773,21 @@ hr {
 .attendance-messages .message i,
 .signal-switches .switch i {
     font-size: 1.25rem;
+}
+
+.attendance-messages input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid;
+    border-radius: 3px;
+    color: inherit;
+    cursor: pointer;
+    height: 15px;
+    line-height: 9px;
+    outline: 0;
+    text-align: center;
+    width: 15px;
 }
 
 .signal-switches {
