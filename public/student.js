@@ -64,6 +64,7 @@ function removeSpinner() {
 // No Bluetooth Signal
 
 function noSignal() {
+    simulateMark();
     var e = document.getElementById("bluetooth-switch");
     if (e.classList.contains("bad")) {
         console.log("Signal Disabled");
