@@ -162,7 +162,8 @@ body {
 }
 
 .phone-signal::before {
-    background-image: linear-gradient(90deg, #ccc 110px, transparent 110px, transparent 174px, #ccc 174px);
+    /* background-image: linear-gradient(90deg, #ccc 110px, transparent 110px, transparent 174px, #ccc 174px); */
+    background-color: #ccc;
     content: '';
     height: 4px;
     position: absolute;
@@ -177,13 +178,27 @@ body {
     left: 0;
     opacity: 0;
     position: absolute;
-    transition: 1s ease-in-out;
+    transition: 2s ease-in-out;
     width: 8px;
     z-index: -1;
 }
 
 .phone-signal i {
+    position: relative;
     transition: .3s ease-in;
+    z-index: 100;
+}
+
+.phone-signal i::after {
+    background-image: linear-gradient(90deg, transparent, #fff 25%, #fff 75%, transparent);
+    content: '';
+    height: 4px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 96px;
+    z-index: -1;
 }
 
 .phone-graphic {
@@ -208,6 +223,7 @@ body {
     position: absolute;
     right: 27px;
     top: 25px;
+    z-index: 1;
 }
 
 .phone-colour-bar i {
@@ -228,6 +244,7 @@ body {
 }
 
 .phone-screen {
+    background-color: #fff;
     flex-shrink: 0;
     height: 631px;
     padding-top: 24px;
@@ -522,6 +539,7 @@ For example:
     display: flex;
     justify-content: space-between;
     padding: .5em 2em;
+    transition: opacity .25s ease-in-out;
     user-select: none;
 }
 
@@ -597,7 +615,6 @@ For example:
     background-color: #81288a;
     color: #fff;
     display: flex;
-    margin-top: 0.8em;
     margin-bottom: 1em;
     position: relative;
 }
@@ -713,7 +730,7 @@ i.bad  { color: #d85a5a; }
 
 .pulse::after {
     animation: pulse 1s infinite ease-in-out;
-    background: #4794eb;
+    background-color: #4794eb;
     border-radius: 50%;
     content: '';
     height: 96px;
@@ -734,9 +751,4 @@ i.bad  { color: #d85a5a; }
         transform: translate(-50%, -50%) scale(1.25);
         opacity: 0;
     }
-}
-
-/* Test */
-.students input, .students button {
-    border-radius: 12px!important;
 }
