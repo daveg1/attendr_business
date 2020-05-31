@@ -702,6 +702,7 @@ For example:
     flex: 1;
     padding: 0 4em;
     pointer-events: none;
+    user-select: none;
 }
 
 .attendance-messages .message {
