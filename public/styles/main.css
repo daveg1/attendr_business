@@ -228,7 +228,6 @@ body {
 
 .phone-colour-bar i {
     color: #fff;
-    cursor: pointer;
     font-size: .8em;
 }
 
@@ -258,10 +257,6 @@ body {
 
 .phone-screen .wrap {
     padding: 0 24px;
-}
-
-.wrap-right {
-    padding-right: 24px;
 }
 
 .phone-screen.bottomless {
@@ -309,6 +304,32 @@ For example:
 .phone-screen h2 {
     font-size: 1.25em;
     text-align: center;
+}
+
+.phone-screen input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid currentColor;
+    border-radius: 3px;
+    color: inherit;
+    cursor: pointer;
+    height: 15px;
+    line-height: 9px;
+    outline: 0;
+    text-align: center;
+    width: 15px;
+}
+
+.phone-screen input::after {
+    color: #fff;
+    content: '✔';
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.phone-screen input:checked::after {
+    color: currentColor;
 }
 
 /*===========================[Lecturer]============================*/
@@ -551,34 +572,8 @@ For example:
     pointer-events: none;
 }
 
-.attendee input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: 2px solid currentColor;
-    border-radius: 3px;
-    color: inherit;
-    cursor: pointer;
-    height: 15px;
-    line-height: 9px;
-    outline: 0;
-    text-align: center;
-    width: 15px;
-}
-
 .attendee input:checked {
     color: #6f2377;
-}
-
-.attendee input::after {
-    color: #fff;
-    content: '✔';
-    font-size: 9px;
-    font-weight: bold;
-}
-
-.attendee input:checked::after {
-    color: currentColor;
 }
 
 /*===========================[Lecturer]============================*/
@@ -634,22 +629,24 @@ For example:
 }
 
 .phone-screen .tabs-menu {
+    background-color: #81288a;
     display: flex;
     user-select: none;
 }
 
 .tabs-menu .tabs-option {
-    color: #888;
+    color: #fff;
     cursor: pointer;
     flex-grow: 1;
     font-size: 12px;
-    padding: .5em 0 1.5em;
+    opacity: .6;
+    padding: 1em 0 1.5em;
     text-align: center;
 }
 
 .tabs-menu .tabs-option:hover,
 .tabs-menu .tabs-option[rel] {
-    color: #000;
+    opacity: 1;
 }
 
 .tabs-menu .tabs-option i {
@@ -671,10 +668,6 @@ For example:
     color: #333;
     font-size: 6rem;
 }
-
-i.okay { color: #4794eb; }
-i.good { color: #39ac60; }
-i.bad  { color: #d85a5a; }
 
 .attendance-banner {
     background-color: #d85a5a;
@@ -708,24 +701,27 @@ i.bad  { color: #d85a5a; }
     font-weight: 700;
     flex: 1;
     padding: 0 4em;
+    pointer-events: none;
 }
 
 .attendance-messages .message {
     line-height: 1.25rem;
     padding: .5em 0;
     text-align: right;
+    transition: color .2s ease-in;
 }
 
-.attendance-messages .message.active ~ .message {
+.message ~ .message {
     color: #ccc;
 }
 
-.attendance-messages .message i {
-    font-size: 1.25rem;
-}
+.message.okay { color: #f0c756; }
+.message.good { color: #39ac60; }
+.message.bad  { color: #d85a5a; }
 
 .pulse {
     position: relative;
+    z-index: 1;
 }
 
 .pulse::after {
