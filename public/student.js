@@ -1,32 +1,65 @@
-const signalDot = document.getElementsByClassName('phone-signal-dot')[0];
+function toggleConnection(type){
+    let icon = document.getElementsByClassName(`${type}-connection`)[0];
 
-function simulateMark() {
-    // Signal swipes from left to right.
-    signalDot.style.cssText = "left: 102px; opacity: 1";
-
-    setTimeout(() => {
-        signalDot.style.opacity = '0';
-        signalDot.nextElementSibling.style.color = '#4794eb';
-    }, 500);
-
-    setTimeout(() => {
-        signalDot.nextElementSibling.removeAttribute('style');
-    }, 950);
-
-    setTimeout(() => signalDot.style.cssText = "left: 174px", 1000);
-
-    setTimeout(() => {
-        signalDot.style.cssText = "left: 276px; opacity: 1";
-    }, 1250);
-
-    setTimeout(() => signalDot.removeAttribute('style'), 3000);
-
+    if(icon.getAttribute('rel')){
+        icon.removeAttribute('rel');
+    } else {
+        icon.setAttribute('rel', 'disabled');
+    }
 }
 
-function disableConnections(id) {
-    var e = document.getElementById(id);
-    if (e.style.display == 'block')
-        e.style.display = 'none';
-    else
-        e.style.display = 'block';
+function sendAttendance(){
+    setTimeout(() => {
+        sendSignal();
+
+        setTimeout(() => {
+            messages[2].classList.replace('active', 'good');
+            messages[2].firstElementChild.checked = true;
+
+            signAttendance();
+        }, 1800);
+    }, 1000);
+}
+
+function collectData(){
+    // Complete the "Listening for signal" step and make the next one active.
+    messages[0].classList.replace('active', 'good');
+    messages[0].firstElementChild.checked = true;
+    messages[1].classList.add('active');
+
+    // Stop pulse animation on bluetooth logo.
+    document.querySelector('.attendance-status i').classList.remove('pulse');
+
+    returnSignal();
+
+    // Random delay between 2s and 4s.
+    let r = (Math.random() * 4000) + 2000;
+
+    setTimeout(() => {
+        sendAttendance();
+
+        messages[1].classList.replace('active', 'good');
+        messages[1].firstElementChild.checked = true;
+        messages[2].classList.add('active');
+    }, r);
+}
+
+function listenForSignal(){
+    setPage('student', 3);
+
+    sendSignal();
+    fetchSignal = setInterval(function(){
+        // Global flag.
+        if(markingOpen){
+            clearInterval(fetchSignal);
+            collectData();
+        } else {
+            sendSignal();
+        }
+    }, 2000);
+}
+
+function stopListening(){
+    setPage('student', 2);
+    clearInterval(fetchSignal);
 }

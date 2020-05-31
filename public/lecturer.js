@@ -1,25 +1,51 @@
-function simulateConnection(){
-    const dot = document.getElementsByClassName('phone-signal-dot')[0];
+// These would be global variables in site.js.
+var dot = document.getElementsByClassName('phone-signal-dot')[0],
+    btIcon = document.querySelector('.phone-signal i');
 
-    dot.style.cssText = "left: 276px; opacity: 1";
+// Todo: combine send- and receiveSignal into one function.
+function sendSignal(){
+    let pos = 0, opac = 0;
+    let move = setInterval(moveDot, 5);
 
-    setTimeout(() => {
-        document.querySelector('.phone-signal i').style.color = "#1074e6";
-    }, 500);
+    function moveDot(){
+        if(pos <= 140){
+            opac += .01;
+        } else if(pos >= 140){
+            opac -= .01;
+        }
 
-    setTimeout(() => {
-        dot.removeAttribute('style');
-    }, 2500);
+        if(pos === 100){
+            btIcon.style.color = "#4794eb";
+        } else if(pos === 180){
+            btIcon.removeAttribute('style');
+        }
 
-    setTimeout(() => {
-        document.querySelector('.phone-signal i').style.color = "#1074e6";
-    }, 3250);
+        if(pos === 276) clearInterval(move);
 
-    setTimeout(() => {
-        document.querySelector('.phone-signal i').removeAttribute('style');
-    }, 3750);
+        pos++;
 
+        dot.style.left = pos+"px";
+        dot.style.opacity = opac;
+    }
+}
 
+function returnSignal(){
+    let pos = 276, opac = 0;
+    let move = setInterval(moveDot, 5);
+
+    function moveDot(){
+        if(pos >= 140){
+            opac += .01;
+        } else if(pos <= 140){
+            opac -= .01;
+        }
+        if(pos === 0) clearInterval(move);
+
+        pos--;
+
+        dot.style.left = pos+"px";
+        dot.style.opacity = opac;
+    }
 }
 
 function loadAttendees(){
@@ -49,4 +75,15 @@ function simulateSignIns(){
     }
 
     setPage('lecturer', 4);
+}
+
+function openMarking(){
+    simulateSignIns();
+    markingOpen = true;
+}
+
+function signAttendance(){
+    let attendee = document.querySelectorAll('.signal .attendee input');
+
+    attendee[attendee.length-2].click();
 }

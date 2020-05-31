@@ -4,9 +4,24 @@
 //            Globals           //
 // ---------------------------- //
 
-// Holds a nodelist of attendees on marking screen.
-// I.e. <div class="attendee"></div>
-var markingItems;
+var
+//  Holds a nodelist of attendees on marking screen.
+//  I.e. <div class="attendee"></div>
+    markingItems,
+
+//  Holds the steps on the student's signal page.
+    messages,
+
+//  Holds the animation function interval for searching a signal.
+    fetchSignal,
+
+//  Flag that tells whether the marking page on the lecturer app is open or not.
+    markingOpen = false,
+
+//  Flags that enable and disable bluetooth and wifi on the student's phone.
+    bluetoothOpen = true,
+    wifiOpen = true
+;
 
 // ---------------------------- //
 //           Tooltips           //
@@ -130,8 +145,9 @@ function markStudent(e){
 
 // Runs when page is rendered and sets necessary global variables.
 window.addEventListener('DOMContentLoaded', (e) => {
-    // Assign global variable.
+    // Assign global variables.
     markingItems = document.querySelectorAll('.marking .attendee');
+        messages = document.getElementsByClassName('message');
 
     let studentItems = document.querySelectorAll('.signal .attendee');
 
