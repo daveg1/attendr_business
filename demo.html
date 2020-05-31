@@ -40,8 +40,8 @@
                 <div class="phone">
                     <div class="phone-graphic"></div>
                     <div class="phone-colour-bar">
-                        <i class="fab fa-bluetooth-b" onclick="toggleConn('bluetooth');"></i>
-                        <i class="fas fa-wifi" onclick="toggleConn('wifi');" ></i>
+                        <i class="bluetooth-connection fab fa-bluetooth-b" rel="disabled"></i>
+                        <i class="wifi-connection fas fa-wifi" rel="disabled"></i>
                     </div>
                     <div class="phone-viewport" data-app="student">
                         <!-- Screen 1: Login -->
@@ -102,7 +102,7 @@
                                     </div>
                                 </div>
                                 <div class="tabs-screen" data-tab="schedule" rel="visible">
-                                    <div class="lecture-item" onclick="setPage(this, 3)">
+                                    <div class="lecture-item" onclick="listenForSignal()">
                                         <div class="wrap">
                                             <div class="option-bar split">
                                                 <h3>May 11</h3>
@@ -149,22 +149,21 @@
                                 <p>Make sure you have enabled Bluetooth and your lecturer has opened for sign-ins.</p>
                             </div>
                             <div class="attendance-messages">
-                                <div class="message split active" data-status="listening">
+                                <div class="message split active">
                                     Listening for signal
                                     <input type="checkbox">
                                 </div>
-                                <div class="message split" data-status="collecting">
+                                <div class="message split">
                                     Collecting data
                                     <input type="checkbox">
                                 </div>
-                                <div class="message split" data-status="sending">
+                                <div class="message split">
                                     Sending Attendance
                                     <input type="checkbox">
                                 </div>
                             </div>
                             <div class="button-holder">
-                                <!-- <button onclick="setPage(this, 2)">Cancel</button> -->
-                                <button onclick="simulateMark();">Cancel</button>
+                                <button onclick="stopListening()">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -295,7 +294,7 @@
                                 </aside>
                             </header>
                             <div class="button-holder">
-                                <button onclick="simulateSignIns()">Start Marking</button>
+                                <button onclick="openMarking()">Start Marking</button>
                             </div>
                             <div class="attendee-list bottomless-list">
                                 <label class="attendee">

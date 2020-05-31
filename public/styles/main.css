@@ -162,7 +162,6 @@ body {
 }
 
 .phone-signal::before {
-    /* background-image: linear-gradient(90deg, #ccc 110px, transparent 110px, transparent 174px, #ccc 174px); */
     background-color: #ccc;
     content: '';
     height: 4px;
@@ -174,25 +173,24 @@ body {
 .phone-signal-dot {
     background-color: #4794eb;
     content: '';
-    height: 4px;
+    height: 8px;
     left: 0;
     opacity: 0;
     position: absolute;
-    transition: 2s ease-in-out;
     width: 8px;
     z-index: -1;
 }
 
 .phone-signal i {
     position: relative;
-    transition: .3s ease-in;
+    transition: color .15s ease-in-out;
     z-index: 100;
 }
 
 .phone-signal i::after {
     background-image: linear-gradient(90deg, transparent, #fff 25%, #fff 75%, transparent);
     content: '';
-    height: 4px;
+    height: 8px;
     left: 50%;
     position: absolute;
     top: 50%;
@@ -233,6 +231,10 @@ body {
 
 .phone-colour-bar i:not(:first-child) {
     margin-left: .5em;
+}
+
+.phone-colour-bar i[rel="disabled"] {
+    opacity: .4;
 }
 
 .phone-viewport {
@@ -321,15 +323,16 @@ For example:
     width: 15px;
 }
 
-.phone-screen input::after {
-    color: #fff;
+.phone-screen input[type="checkbox"]::after {
+    color: currentColor;
     content: '✔';
     font-size: 9px;
     font-weight: bold;
+    opacity: 0;
 }
 
-.phone-screen input:checked::after {
-    color: currentColor;
+.phone-screen input[type="checkbox"]:checked::after {
+    opacity: 1;
 }
 
 /*===========================[Lecturer]============================*/
@@ -639,7 +642,7 @@ For example:
     cursor: pointer;
     flex-grow: 1;
     font-size: 12px;
-    opacity: .6;
+    opacity: .4;
     padding: 1em 0 1.5em;
     text-align: center;
 }
@@ -712,13 +715,18 @@ For example:
     transition: color .2s ease-in;
 }
 
-.message ~ .message {
+.active ~ .message {
     color: #ccc;
 }
 
 .message.okay { color: #f0c756; }
 .message.good { color: #39ac60; }
 .message.bad  { color: #d85a5a; }
+
+/* Checboxes */
+.message.bad input::after {
+    content: '✖';
+}
 
 .pulse {
     position: relative;
