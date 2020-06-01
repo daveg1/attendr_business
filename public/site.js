@@ -15,13 +15,15 @@ var
 // Holds the confirm box on the lecturer's marking screen
 // and the confirm button.
     confirmBox,
-    confirmBtn,
 
 //  Holds the animation function interval for searching a signal.
     fetchSignal,
 
 //  Flag that tells whether the marking page on the lecturer app is open or not.
     markingOpen = false,
+
+//  Sign ins loaded.
+    signInsDone,
 
 //  Flags that enable and disable bluetooth and wifi on the student's phone.
     bluetoothOpen = true,
@@ -135,33 +137,27 @@ function selectTab(button, tab){
     document.querySelector(`.tabs-screen[data-tab="${tab}"]`).setAttribute('rel', 'visible');
 }
 
-function markStudent(){
-    let input = markStudent._el.lastElementChild;
-
-    if(input.checked){
-        input.checked = false;
-    } else {
-        input.checked = true;
-    }
-
-    markingItems[confirmBtn.dataset.count].click();
-    closeBox();
-}
-
 function closeBox(){
     confirmBox.removeAttribute('rel');
-    confirmBtn.removeAttribute('data-count');
+    confirmBox.getElementsByTagName('button')[0].removeAttribute('data-n');
+}
+
+function openConfirm(n){
+    confirmBox.setAttribute('rel', 'visible');
+    confirmBox.getElementsByTagName('button')[0].dataset.n = n;
 }
 
 // Signal page attendee items.
-function openConfirm(e){
-    e.preventDefault();
-    confirmBox.setAttribute('rel', 'visible');
-
-    // Grabs custom property, and simulates a click on the equivalent
-    // item on the previous page, concomitantly marking both.
-    confirmBtn.dataset.count = this._count;
-    markStudent._el = this;
+function markStudent(e){
+    if(typeof(e) === "string"){
+        document.querySelectorAll('.signal .attendee')[+e].click();
+        closeBox();
+    } else if(e.screenY){
+        openConfirm(this._count);
+        e.preventDefault();
+    } else {
+        markingItems[this._count].click();
+    }
 }
 
 // ---------------------------- //
@@ -174,15 +170,14 @@ window.addEventListener('DOMContentLoaded', (e) => {
     markingItems = document.querySelectorAll('.marking .attendee');
         messages = document.getElementsByClassName('message');
       confirmBox = document.getElementsByClassName('marking-confirm')[0];
-      confirmBtn = confirmBox.getElementsByTagName('button')[0];
 
-    let studentItems = document.querySelectorAll('.signal .attendee');
+    let studentItems = document.querySelectorAll('.signal .attendee input');
 
     // Index, counter.
     let i, c = 0;
     for(i of studentItems){
         i._count = c; // Custom property to hold index of each item.
-        i.onclick = openConfirm;
+        i.onclick = markStudent;
         c++;
     }
 

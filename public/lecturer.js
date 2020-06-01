@@ -51,18 +51,23 @@ function returnSignal(){
 function loadAttendees(){
     setPage('lecturer', 3);
 
-    const attendee = document.querySelectorAll('.marking .attendee');
-
-    for(let i = 0; i < attendee.length; ++i){
-        attendee[i].style.opacity = "0";
+    for(let i = 0; i < markingItems.length; ++i){
+        markingItems[i].style.opacity = "0";
 
         setTimeout(() => {
-            attendee[i].removeAttribute('style');
+            markingItems[i].removeAttribute('style');
         }, 250*(i+1));
     }
 }
 
 function simulateSignIns(){
+    setPage('lecturer', 4);
+
+    if(signInsDone){
+        return;
+    }
+    signInsDone = true;
+
     const attendee = document.querySelectorAll('.signal .attendee input');
 
     let delay = 0;
@@ -70,11 +75,9 @@ function simulateSignIns(){
         delay = (Math.random() * i * 500) + 500;
 
         setTimeout(() => {
-            attendee[i].checked = true;
+            attendee[i].click();
         }, delay);
     }
-
-    setPage('lecturer', 4);
 }
 
 function openMarking(){

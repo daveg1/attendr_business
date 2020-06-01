@@ -220,8 +220,8 @@ body {
     display: flex;
     height: 24px;
     left: 27px;
-    justify-content: flex-end;
-    padding-right: 18px;
+    justify-content: space-between;
+    padding: 0 2em 0 2.5em;
     position: absolute;
     right: 27px;
     top: 25px;
