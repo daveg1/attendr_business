@@ -12,6 +12,11 @@ var
 //  Holds the steps on the student's signal page.
     messages,
 
+// Holds the confirm box on the lecturer's marking screen
+// and the confirm button.
+    confirmBox,
+    confirmBtn,
+
 //  Holds the animation function interval for searching a signal.
     fetchSignal,
 
@@ -130,13 +135,33 @@ function selectTab(button, tab){
     document.querySelector(`.tabs-screen[data-tab="${tab}"]`).setAttribute('rel', 'visible');
 }
 
+function markStudent(){
+    let input = markStudent._el.lastElementChild;
+
+    if(input.checked){
+        input.checked = false;
+    } else {
+        input.checked = true;
+    }
+
+    markingItems[confirmBtn.dataset.count].click();
+    closeBox();
+}
+
+function closeBox(){
+    confirmBox.removeAttribute('rel');
+    confirmBtn.removeAttribute('data-count');
+}
+
 // Signal page attendee items.
-function markStudent(e){
+function openConfirm(e){
     e.preventDefault();
+    confirmBox.setAttribute('rel', 'visible');
 
     // Grabs custom property, and simulates a click on the equivalent
     // item on the previous page, concomitantly marking both.
-    markingItems[this._count].click();
+    confirmBtn.dataset.count = this._count;
+    markStudent._el = this;
 }
 
 // ---------------------------- //
@@ -148,6 +173,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
     // Assign global variables.
     markingItems = document.querySelectorAll('.marking .attendee');
         messages = document.getElementsByClassName('message');
+      confirmBox = document.getElementsByClassName('marking-confirm')[0];
+      confirmBtn = confirmBox.getElementsByTagName('button')[0];
 
     let studentItems = document.querySelectorAll('.signal .attendee');
 
@@ -155,7 +182,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
     let i, c = 0;
     for(i of studentItems){
         i._count = c; // Custom property to hold index of each item.
-        i.onchange = markStudent;
+        i.onclick = openConfirm;
         c++;
     }
 
