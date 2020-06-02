@@ -228,19 +228,6 @@ body {
     z-index: 1;
 }
 
-.phone-colour-bar i {
-    color: #fff;
-    font-size: .8em;
-}
-
-.phone-colour-bar i:not(:first-child) {
-    margin-left: .5em;
-}
-
-.phone-colour-bar i[rel="disabled"] {
-    opacity: .4;
-}
-
 .phone-viewport {
     display: flex;
     height: 100%;
@@ -772,11 +759,15 @@ For example:
 
 .message.okay { color: #f0c756; }
 .message.good { color: #39ac60; }
-.message.bad  { color: #d85a5a; }
+/* Better to apply to parent, since a bad connection gives an
+   error across all messages anyway. */
+i.bad,
+.bad .message  { color: #d85a5a; }
 
 /* Checboxes */
-.message.bad input::after {
+.bad .message input::after {
     content: '✖';
+    opacity: 1;
 }
 
 .pulse {
@@ -807,4 +798,31 @@ For example:
         transform: translate(-50%, -50%) scale(1.25);
         opacity: 0;
     }
+}
+
+/*================================================================*/
+/*                         Connection Form                        */
+/*================================================================*/
+
+.phone-connections {
+    position: absolute;
+    left: 50%;
+    top: 6em;
+    transform: translateX(-50%);
+}
+
+.phone-connections label {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    cursor: pointer;
+    line-height: 1em;
+    padding: .5em 1em;
+    user-select: none;
+}
+
+.phone-connections input {
+    margin: 0 0 0 .5em;
+    height: 13px;
+    vertical-align: top;
+    width: 13px;
 }

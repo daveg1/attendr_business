@@ -37,10 +37,7 @@
                 </div>
                 <div class="phone">
                     <div class="phone-graphic"></div>
-                    <div class="phone-colour-bar">
-                        <i class="bluetooth-connection fab fa-bluetooth-b" rel="disabled"></i>
-                        <i class="wifi-connection fas fa-wifi" rel="disabled"></i>
-                    </div>
+                    <div class="phone-colour-bar"></div>
                     <div class="phone-viewport" data-app="student">
                         <!-- Screen 1: Login -->
                         <div class="phone-screen">
@@ -147,7 +144,7 @@
                                 <p>Make sure you have enabled Bluetooth and your lecturer has opened for sign-ins.</p>
                             </div>
                             <div class="attendance-messages">
-                                <div class="message split active">
+                                <div class="message split">
                                     Listening for signal
                                     <input type="checkbox">
                                 </div>
@@ -170,6 +167,12 @@
                     <div class="phone-signal-dot"></div>
                     <i class="fab fa-bluetooth-b"></i>
                 </div>
+                <form class="phone-connections">
+                    <label>
+                        <span>Bluetooth Signal</span>
+                        <input type="checkbox" onchange="toggleConnection('bluetooth')">
+                    </label>
+                </form>
                 <div class="phone">
                     <div class="phone-graphic"></div>
                     <div class="phone-viewport" data-app="lecturer">
@@ -379,7 +382,5 @@
             </section>
         </main>
         <script src="./public/site.js"></script>
-        <script src="./public/student.js"></script>
-        <script src="./public/lecturer.js"></script>
     </body>
 </html>
