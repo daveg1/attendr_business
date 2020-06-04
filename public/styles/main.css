@@ -760,7 +760,7 @@ For example:
 }
 
 .message.okay { color: #f0c756; }
-.message.good { color: #39ac60; }
+.message.good, .good { color: #39ac60; }
 /* Better to apply to parent, since a bad connection gives an
    error across all messages anyway. */
 i.bad,

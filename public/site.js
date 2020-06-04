@@ -132,6 +132,7 @@ function showConnectionError() {
 }
 
 function restoreConnection() {
+    console.log("connection restored");
     document.getElementById("bluetooth-btn").style.borderColor = "#1074e6";
     document.querySelector('.attendance-status i').classList.remove('bad');
 
@@ -156,8 +157,11 @@ function returnDataConnection(){
     console.log("Data active");
     messages[2].classList.replace('active', 'good');
     messages[2].firstElementChild.checked = true;
+    document.getElementsByClassName('attendance-messages')[0].classList.add('good');
+    messages[0].classList.replace('active', 'good');
     document.getElementsByClassName('attendance-banner')[2].style.background = '#39ac60';
     document.getElementsByClassName('attendance-banner')[2].setAttribute('rel', 'show');
+    document.querySelector('.attendance-status i').style.color = '#39ac60';
 }
 
 function sendAttendance() {
@@ -179,6 +183,10 @@ function sendAttendance() {
 
 function collectData() {
     // Complete the "Listening for signal" step and make the next one active.
+    document.getElementsByClassName('attendance-messages')[0].classList.remove('bad');
+    document.getElementsByClassName('attendance-banner')[0].removeAttribute('rel');
+    document.getElementsByClassName('attendance-banner')[1].removeAttribute('rel');
+    document.querySelector('.attendance-status i').style.color = '#333';
     messages[0].classList.replace('active', 'good');
     messages[0].firstElementChild.checked = true;
     messages[1].classList.add('active');
@@ -206,6 +214,11 @@ function collectData() {
         if (!signals['wifi']) {
             noDataConnection();
         } else {
+            messages[0].classList.replace('active', 'good');
+            messages[1].classList.replace('active', 'good');
+            messages[0].firstElementChild.checked = true;
+            messages[1].firstElementChild.checked = true;
+            messages[2].classList.add('active');
             returnDataConnection();
             signAttendance();
         }}, r);
