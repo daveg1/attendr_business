@@ -97,6 +97,14 @@ function toggleConnection(type) {
 
     if (type === 'wifi' && signals[type]) {
         console.log("Data Turned On");
+        document.querySelector('.attendance-status i').classList.add('pulse');
+        messages[0].classList.add("good");
+        messages[1].classList.add("good");
+        messages[0].firstElementChild.checked = true;
+        messages[1].firstElementChild.checked = true;
+        messages[2].firstElementChild.checked = false;
+        messages[2].classList.add('active');
+        messages[2].style.color = "#333";
         collectData();
     }
 }
@@ -135,6 +143,7 @@ function restoreConnection() {
     console.log("connection restored");
     document.getElementById("bluetooth-btn").style.borderColor = "#1074e6";
     document.querySelector('.attendance-status i').classList.remove('bad');
+    document.querySelector('.attendance-status i').classList.add('pulse');
 
     document.getElementsByClassName('attendance-messages')[0].classList.remove('bad');
     document.getElementsByClassName('attendance-banner')[0].removeAttribute('rel');
@@ -146,6 +155,7 @@ function restoreConnection() {
 
 function noDataConnection(){
     console.log("No data triggered");
+    document.querySelector('.attendance-status i').classList.remove('pulse');
     messages[2].classList.replace('active', 'bad');
     messages[2].firstElementChild.checked = true;
     document.getElementsByClassName('attendance-banner')[1].style.background = '#f0c756';
@@ -162,6 +172,7 @@ function returnDataConnection(){
     document.getElementsByClassName('attendance-banner')[2].style.background = '#39ac60';
     document.getElementsByClassName('attendance-banner')[2].setAttribute('rel', 'show');
     document.querySelector('.attendance-status i').style.color = '#39ac60';
+    document.querySelector('.attendance-status i').classList.remove('pulse');
 }
 
 function sendAttendance() {
@@ -191,9 +202,6 @@ function collectData() {
     messages[0].firstElementChild.checked = true;
     messages[1].classList.add('active');
 
-    // Stop pulse animation on bluetooth logo.
-    document.querySelector('.attendance-status i').classList.remove('pulse');
-
     returnSignal();
 
     // Random delay between 2s and 4s.
@@ -202,24 +210,18 @@ function collectData() {
     setTimeout(() => {
         if (!signals['bluetooth']) {
             showConnectionError();
-            return;
+        } else {
+            sendAttendance();
+            messages[1].classList.replace('active', 'good');
+            messages[1].firstElementChild.checked = true;
+            messages[2].classList.add('active');
         }
-
-        sendAttendance();
-
-        messages[1].classList.replace('active', 'good');
-        messages[1].firstElementChild.checked = true;
-        messages[2].classList.add('active');
 
         if (!signals['wifi']) {
             noDataConnection();
         } else {
-            messages[0].classList.replace('active', 'good');
-            messages[1].classList.replace('active', 'good');
-            messages[0].firstElementChild.checked = true;
-            messages[1].firstElementChild.checked = true;
-            messages[2].classList.add('active');
             returnDataConnection();
+            messages[2].style.color = "#39ac60";
             signAttendance();
         }}, r);
 }
