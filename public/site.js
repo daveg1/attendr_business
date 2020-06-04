@@ -94,6 +94,11 @@ function toggleConnection(type) {
     } else {
         showConnectionError();
     }
+
+    if (type === 'wifi' && signals[type]) {
+        console.log("Data Turned On");
+        collectData();
+    }
 }
 
 // ---------------------------- //
@@ -138,6 +143,23 @@ function restoreConnection() {
     }
 }
 
+function noDataConnection(){
+    console.log("No data triggered");
+    messages[2].classList.replace('active', 'bad');
+    messages[2].firstElementChild.checked = true;
+    document.getElementsByClassName('attendance-banner')[1].style.background = '#f0c756';
+    document.getElementsByClassName('attendance-banner')[1].setAttribute('rel', 'show');
+    document.querySelector('.attendance-status i').style.color = '#f0c756';
+}
+
+function returnDataConnection(){
+    console.log("Data active");
+    messages[2].classList.replace('active', 'good');
+    messages[2].firstElementChild.checked = true;
+    document.getElementsByClassName('attendance-banner')[2].style.background = '#39ac60';
+    document.getElementsByClassName('attendance-banner')[2].setAttribute('rel', 'show');
+}
+
 function sendAttendance() {
     setTimeout(() => {
         if (!signals['bluetooth']) {
@@ -150,8 +172,6 @@ function sendAttendance() {
         setTimeout(() => {
             messages[2].classList.replace('active', 'good');
             messages[2].firstElementChild.checked = true;
-            document.getElementsByClassName('attendance-banner')[2].style.background = '#39ac60';
-            document.getElementsByClassName('attendance-banner')[2].setAttribute('rel', 'show');
             signAttendance();
         }, 1800);
     }, 1000);
@@ -182,7 +202,13 @@ function collectData() {
         messages[1].classList.replace('active', 'good');
         messages[1].firstElementChild.checked = true;
         messages[2].classList.add('active');
-    }, r);
+
+        if (!signals['wifi']) {
+            noDataConnection();
+        } else {
+            returnDataConnection();
+            signAttendance();
+        }}, r);
 }
 
 function listenForSignal() {

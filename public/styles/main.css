@@ -764,10 +764,10 @@ For example:
 /* Better to apply to parent, since a bad connection gives an
    error across all messages anyway. */
 i.bad,
-.bad .message  { color: #d85a5a; }
+.bad .message, .bad  { color: #d85a5a; }
 
 /* Checboxes */
-.bad .message input::after {
+.bad .message input::after, .bad input:checked::after {
     content: '✖';
     opacity: 1;
 }
