@@ -111,6 +111,7 @@ function selectTab(button, tab) {
 }
 
 function showConnectionError() {
+    document.getElementById("bluetooth-btn").style.borderColor = "#ccc";
     // Stop pulse animation and add red text.
     document.querySelector('.attendance-status i').classList.remove('pulse');
     document.querySelector('.attendance-status i').classList.add('bad');
@@ -126,6 +127,7 @@ function showConnectionError() {
 }
 
 function restoreConnection() {
+    document.getElementById("bluetooth-btn").style.borderColor = "#1074e6";
     document.querySelector('.attendance-status i').classList.remove('bad');
 
     document.getElementsByClassName('attendance-messages')[0].classList.remove('bad');
