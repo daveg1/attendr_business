@@ -150,7 +150,8 @@ function sendAttendance() {
         setTimeout(() => {
             messages[2].classList.replace('active', 'good');
             messages[2].firstElementChild.checked = true;
-
+            document.getElementsByClassName('attendance-banner')[2].style.background = '#39ac60';
+            document.getElementsByClassName('attendance-banner')[2].setAttribute('rel', 'show');
             signAttendance();
         }, 1800);
     }, 1000);
