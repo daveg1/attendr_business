@@ -403,6 +403,7 @@ For example:
     color: #fff;
     padding: .75em 1em;
     width: 100%;
+    font-weight: 600;
 }
 
 .phone-screen input + button {
@@ -680,6 +681,7 @@ For example:
     cursor: pointer;
     flex-grow: 1;
     font-size: 12px;
+    font-weight: 600;
     opacity: .4;
     padding: 1em 0 1.5em;
     text-align: center;
@@ -758,14 +760,14 @@ For example:
 }
 
 .message.okay { color: #f0c756; }
-.message.good { color: #39ac60; }
+.message.good, .good { color: #39ac60; }
 /* Better to apply to parent, since a bad connection gives an
    error across all messages anyway. */
 i.bad,
-.bad .message  { color: #d85a5a; }
+.bad .message, .bad  { color: #d85a5a; }
 
 /* Checboxes */
-.bad .message input::after {
+.bad .message input::after, .bad input:checked::after {
     content: '✖';
     opacity: 1;
 }
