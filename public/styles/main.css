@@ -681,6 +681,7 @@ For example:
     cursor: pointer;
     flex-grow: 1;
     font-size: 12px;
+    font-weight: 600;
     opacity: .4;
     padding: 1em 0 1.5em;
     text-align: center;
