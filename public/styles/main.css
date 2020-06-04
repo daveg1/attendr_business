@@ -3,8 +3,7 @@
 /* idea: have a .theme on .phone or the body for the colours. */
 
 /* Generic */
-*,
-*::before {
+*, *::before {
     box-sizing: border-box;
 }
 
@@ -29,59 +28,118 @@ body {
 }
 
 /*=================================================================*/
-/*                           Annotations                           */
+/*                             Tooltips                            */
 /*=================================================================*/
 
-.annotations {
-    position: absolute;
+.tooltip-holder {
+    bottom: 0;
     left: 0;
-    right: 0;
-}
-
-.annotations-list {
-    display: grid;
-    height: 100%;
-    grid-column-gap: 346px;
-    grid-template-columns: 384px 384px;
-    grid-template-rows: repeat(6, 113px);
-    justify-content: space-between;
+    pointer-events: none;
     position: absolute;
-    transition: opacity .5s ease-in-out;
-    width: 100%;
+    right: 0;
+    top: 0;
+    z-index: 1000;
 }
 
-.annotations-list:not([rel]) {
+.tooltip-page {
+    transition: opacity .3s ease-in .2s;
+}
+
+.tooltip-page:not([rel]) {
     opacity: 0;
+    transition: none;
+}
+
+.tooltip-page:not([rel]) .tooltip-indicator {
     pointer-events: none;
 }
 
-.note {
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    box-shadow: 0 2px 12px transparent;
+.tooltip-indicator {
+    animation: pulsate 2s infinite ease-in-out;
+    border: 3px solid currentColor;
+    border-radius: 50%;
+    color: #1074e6;
     cursor: pointer;
-    display: flex;
-    padding: 2em;
-    position: relative;
-    transition: .3s ease-in-out;
-    width: 384px;
-    z-index: 3;
+    height: 24px;
+    pointer-events: all;
+    position: absolute;
+    width: 24px;
 }
 
-.note:hover {
-    border-color: #1074e7;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, .25);
+.tooltip-indicator:hover,
+.tooltip-indicator.active {
+    animation: pulsateIn forwards .2s ease-in;
 }
 
-.note:nth-child(2n-1) {
-    text-align: right;
-}
-
-.note p {
-    font-size: 16px;
+.tooltip-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px -2px rgba(175,175,175,.5);
     line-height: 1.42;
-    margin: 0;
+    font-size: 12px;
+    opacity: 0;
+    padding: 1em;
+    position: absolute;
+    text-align: center;
+    transition: opacity .3s ease-in-out;
+    width: 256px;
+    user-select: none;
+    z-index: 1;
+}
+
+.tooltip-indicator.active + .tooltip-box {
+    opacity: 1;
+}
+
+.tooltip-box::before,
+.tooltip-box::after {
+    background-color: #ccc;
+    content: '';
+    height: 12px;
+    left: -6px;
+    position: absolute;
+    top: 15px;
+    transform: rotate(45deg);
+    width: 12px;
+}
+
+.tooltip-box::before {
+    box-shadow: inherit;
+}
+
+.tooltip-box::after {
+    background-color: #fff;
+    left: -5px;
+}
+
+@keyframes pulsate {
+    0% {
+        opacity: .8;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: .4;
+        transform: scale(1.25);
+    }
+
+    100% {
+        opacity: .8;
+        transform: scale(.8);
+    }
+}
+
+@keyframes pulsateIn {
+    from {
+        opacity: 0;
+        transform: scale(1.25);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /*=================================================================*/
@@ -108,7 +166,7 @@ body {
 }
 
 .phone-signal::before {
-    background-image: linear-gradient(90deg, #ccc 110px, transparent 110px, transparent 174px, #ccc 174px);
+    background-color: #ccc;
     content: '';
     height: 4px;
     position: absolute;
@@ -119,17 +177,30 @@ body {
 .phone-signal-dot {
     background-color: #4794eb;
     content: '';
-    height: 4px;
+    height: 8px;
     left: 0;
     opacity: 0;
     position: absolute;
-    transition: 1s ease-in-out;
     width: 8px;
     z-index: -1;
 }
 
 .phone-signal i {
-    transition: .3s ease-in;
+    position: relative;
+    transition: color .15s ease-in-out;
+    z-index: 100;
+}
+
+.phone-signal i::after {
+    background-image: linear-gradient(90deg, transparent, #fff 25%, #fff 75%, transparent);
+    content: '';
+    height: 8px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 96px;
+    z-index: -1;
 }
 
 .phone-graphic {
@@ -144,15 +215,17 @@ body {
 }
 
 .phone-colour-bar {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: #81288a;
-    height: 40px;
+    display: flex;
+    height: 24px;
     left: 27px;
+    justify-content: space-between;
+    padding: 0 2em 0 2.5em;
     position: absolute;
     right: 27px;
     top: 25px;
+    z-index: 1;
 }
 
 .phone-viewport {
@@ -163,6 +236,7 @@ body {
 }
 
 .phone-screen {
+    background-color: #fff;
     flex-shrink: 0;
     height: 631px;
     padding-top: 24px;
@@ -176,10 +250,6 @@ body {
 
 .phone-screen .wrap {
     padding: 0 24px;
-}
-
-.wrap-right {
-    padding-right: 24px;
 }
 
 .phone-screen.bottomless {
@@ -228,6 +298,33 @@ For example:
 .phone-screen h2 {
     font-size: 1.25em;
     text-align: center;
+}
+
+.phone-screen input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid currentColor;
+    border-radius: 3px;
+    color: inherit;
+    cursor: pointer;
+    height: 15px;
+    line-height: 9px;
+    outline: 0;
+    text-align: center;
+    width: 15px;
+}
+
+.phone-screen input[type="checkbox"]::after {
+    color: currentColor;
+    content: '✔';
+    font-size: 9px;
+    font-weight: bold;
+    opacity: 0;
+}
+
+.phone-screen input[type="checkbox"]:checked::after {
+    opacity: 1;
 }
 
 /*===========================[Lecturer]============================*/
@@ -306,7 +403,6 @@ For example:
     color: #fff;
     padding: .75em 1em;
     width: 100%;
-    font-weight: 600;
 }
 
 .phone-screen input + button {
@@ -354,7 +450,7 @@ For example:
 }
 
 .phone-screen .option-bar.space {
-    margin: 1em 0;
+    margin: .5em 0;
 }
 
 .phone-screen .split {
@@ -431,7 +527,7 @@ For example:
     /* When and Where */
     background-color: #fafafa;
     border-top: inherit;
-    font-family: 'Fira Code', monospace;
+    font-family: monospace;
     font-size: 12px;
     line-height: 16px;
     padding: 1em;
@@ -459,6 +555,7 @@ For example:
     display: flex;
     justify-content: space-between;
     padding: .5em 2em;
+    transition: opacity .25s ease-in-out;
     user-select: none;
 }
 
@@ -470,34 +567,54 @@ For example:
     pointer-events: none;
 }
 
-.attendee input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: 2px solid currentColor;
-    border-radius: 3px;
-    color: inherit;
-    cursor: pointer;
-    height: 15px;
-    line-height: 9px;
-    outline: 0;
-    text-align: center;
-    width: 15px;
-}
-
 .attendee input:checked {
     color: #6f2377;
 }
 
-.attendee input::after {
-    color: #fff;
-    content: '✔';
-    font-size: 9px;
-    font-weight: bold;
+.marking-confirm {
+    align-items: center;
+    background-color: rgba(0,0,0,.2);
+    bottom: 0;
+    display: flex;
+    left: 0;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
-.attendee input:checked::after {
-    color: currentColor;
+.marking-confirm:not([rel]) {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.confirm-box {
+    background-color: #fff;
+    border: 2px solid #888;
+    border-radius: 3px;
+    box-shadow: 0 4px 12px -2px rgba(175,175,175,.8);
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    padding: 1em;
+    transition: .3s opacity ease-in-out;
+    user-select: none;
+}
+
+.confirm-box h4 {
+    margin: .5em 0;
+}
+
+.confirm-btns.option-bar {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: .5em;
+}
+
+.confirm-btns button {
+    font-size: 12px;
+    padding: .5em 2em;
+    width: auto;
 }
 
 /*===========================[Lecturer]============================*/
@@ -519,17 +636,9 @@ For example:
 }
 
 @keyframes flicker {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: .6;
-    }
-
-    100% {
-        opacity: 1;
-    }
+      0% { opacity:  1; }
+     50% { opacity: .6; }
+    100% { opacity:  1; }
 }
 
 /*============================[Student]===========================*/
@@ -538,108 +647,18 @@ For example:
 
 /* For pages with headers. */
 .phone-screen .header-title {
-    display: flex;
-    justify-content: space-around;
     align-items: center;
     background-color: #81288a;
     color: #fff;
-    margin-top: 0.8em;
-    margin-bottom: 2em;
-    position: relative;
-}
-
-.phone-colour-bar i {
-    display: block;
-    position: relative;
-    color: #fff;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
-.phone-colour-bar i:first-of-type {
-    margin-left: 30px;
-}
-
-.phone-colour-bar i:last-of-type {
-    margin-right: 20px;
-}
-
-hr {
-    display: none;
-    position: absolute;
-    color: red;
-    height: 25px;
-    border: 2px solid red;
-    transform: rotate(50deg);
-    bottom: 0;
-}
-
-#bluetooth-disable {
-    left: 35px;
-}
-
-#wifi-disable {
-    right: 30px;
-}
-
-.flex-container {
     display: flex;
-    justify-content: center;
+    margin-bottom: 1em;
+    position: relative;
 }
 
-#tooltip-line-1 {
+.phone-screen .header-title h3 {
+    left: 50%;
     position: absolute;
-    width: 0;
-    height: 0;
-    animation: line-down 1s;
-    animation-fill-mode: forwards;
-}
-
-#tooltip-line-2 {
-    position: absolute;
-    left: 120px;
-    bottom: -30px;
-    width: 0;
-    height: 0;
-    animation: line-right 1s;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes line-down {
-    100% {
-        height: 30px;
-        border-right: 2px solid #000;
-    }
-}
-
-@keyframes line-right {
-    100% {
-        width: 150px;
-        border-bottom: 2px solid #000;
-    }
-}
-
-.tooltip-box {
-    position: absolute;
-    width: 20%;
-    height: auto;
-    overflow: auto;
-    border: 3px solid #000;
-    margin: 2%;
-    padding: 1%;
-    top: 150px;
-    left: 350px;
-    opacity: 0;
-    animation: show 1s;
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes show {
-    100% {
-        opacity: 1;
-    }
+    transform: translateX(-50%);
 }
 
 .phone-screen .tabs {
@@ -651,24 +670,24 @@ hr {
 }
 
 .phone-screen .tabs-menu {
+    background-color: #81288a;
     display: flex;
     user-select: none;
-    background: #81288a;
-    padding-top: 10px;
 }
 
 .tabs-menu .tabs-option {
-    color: #ccc;
+    color: #fff;
     cursor: pointer;
     flex-grow: 1;
     font-size: 12px;
-    padding: .5em 0 1.5em;
+    opacity: .4;
+    padding: 1em 0 1.5em;
     text-align: center;
 }
 
 .tabs-menu .tabs-option:hover,
 .tabs-menu .tabs-option[rel] {
-    color: #fff;
+    opacity: 1;
 }
 
 .tabs-menu .tabs-option i {
@@ -682,46 +701,13 @@ hr {
 /*================================================================*/
 
 .attendance-status {
-    padding: 12.5rem 0 4rem;
+    padding: 8rem 0 4rem;
     text-align: center;
 }
 
 .attendance-status i {
+    color: #333;
     font-size: 6rem;
-}
-
-.okay {
-    color: #F0C756;
-}
-
-.good {
-    color: #39ac60;
-}
-
-.good input {
-    border-color: #39ac60;
-}
-
-.good input::after {
-    color: #39ac60;
-    content: '✔';
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.bad {
-    color: #d85a5a;
-}
-
-.bad input {
-    border-color: #d85a5a;
-}
-
-.bad input::after {
-    color: #d85a5a;
-    content: '❌';
-    font-size: 8px;
-    font-weight: bold;
 }
 
 .attendance-banner {
@@ -733,7 +719,6 @@ hr {
     right: 0;
     text-align: center;
     top: 3rem;
-    margin-top: .5rem;
     transition: opacity .2s ease-in-out;
     user-select: none;
 }
@@ -743,69 +728,56 @@ hr {
 }
 
 .attendance-banner h3 {
-    margin-top: 1em;
+    margin-top: .5em;
 }
 
 .attendance-banner p {
     font-size: 12px;
     line-height: 1.2;
-    margin: 1em 0 1.25em;
+    margin: .5em 0 1.25em;
 }
 
-.attendance-messages,
-.signal-switches {
+.attendance-messages {
     color: #333;
     font-weight: 700;
     flex: 1;
     padding: 0 4em;
+    pointer-events: none;
+    user-select: none;
 }
 
-.attendance-messages .message,
-.signal-switches .switch {
+.attendance-messages .message {
     line-height: 1.25rem;
     padding: .5em 0;
     text-align: right;
+    transition: color .2s ease-in;
 }
 
-.attendance-messages .message.active ~ .message {
+.active ~ .message {
     color: #ccc;
 }
 
-.attendance-messages .message i,
-.signal-switches .switch i {
-    font-size: 1.25rem;
-}
+.message.okay { color: #f0c756; }
+.message.good { color: #39ac60; }
+/* Better to apply to parent, since a bad connection gives an
+   error across all messages anyway. */
+i.bad,
+.bad .message  { color: #d85a5a; }
 
-.attendance-messages input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: 2px solid;
-    border-radius: 3px;
-    color: inherit;
-    cursor: pointer;
-    height: 15px;
-    line-height: 9px;
-    outline: 0;
-    text-align: center;
-    width: 15px;
-}
-
-.signal-switches {
-    margin-top: 10vh;
-}
-
-.signal-switches .switch i {
-    margin-top: .5em;
+/* Checboxes */
+.bad .message input::after {
+    content: '✖';
+    opacity: 1;
 }
 
 .pulse {
     position: relative;
+    z-index: 1;
 }
 
 .pulse::after {
     animation: pulse 1s infinite ease-in-out;
-    background: #4794eb;
+    background-color: #4794eb;
     border-radius: 50%;
     content: '';
     height: 96px;
@@ -828,17 +800,29 @@ hr {
     }
 }
 
-/* Test */
-.students input,
-.students button {
-    border-radius: 12px !important;
+/*================================================================*/
+/*                         Connection Form                        */
+/*================================================================*/
+
+.phone-connections {
+    position: absolute;
+    left: 50%;
+    top: 6em;
+    transform: translateX(-50%);
 }
 
-/*=============================[Student]========================*/
-/*                         Settings Screen                      */
-/*==============================================================*/
+.phone-connections label {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    cursor: pointer;
+    line-height: 1em;
+    padding: .5em 1em;
+    user-select: none;
+}
 
-#settings-heading {
-    margin-top: 10vh;
-    text-align: center;
+.phone-connections input {
+    margin: 0 0 0 .5em;
+    height: 13px;
+    vertical-align: top;
+    width: 13px;
 }
