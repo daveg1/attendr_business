@@ -96,16 +96,18 @@ function toggleConnection(type) {
     }
 
     if (type === 'wifi' && signals[type]) {
-        console.log("Data Turned On");
-        document.querySelector('.attendance-status i').classList.add('pulse');
-        messages[0].classList.add("good");
-        messages[1].classList.add("good");
-        messages[0].firstElementChild.checked = true;
-        messages[1].firstElementChild.checked = true;
-        messages[2].firstElementChild.checked = false;
-        messages[2].classList.add('active');
-        messages[2].style.color = "#333";
-        collectData();
+        if (type === 'bluetooth' && signals[type]){
+            console.log("Data Turned On");
+            document.querySelector('.attendance-status i').classList.add('pulse');
+            messages[0].classList.add("good");
+            messages[1].classList.add("good");
+            messages[0].firstElementChild.checked = true;
+            messages[1].firstElementChild.checked = true;
+            messages[2].firstElementChild.checked = false;
+            messages[2].classList.add('active');
+            messages[2].style.color = "#333";
+            collectData();
+        }
     }
 }
 
