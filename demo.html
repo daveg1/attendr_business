@@ -13,7 +13,17 @@
         <main>
             <section class="demo">
                 <div class="tooltip-holder">
-                    <div class="tooltip-app" data-app="student"></div>
+                    <div class="tooltip-app" data-app="student">
+                        <div class="tooltip-page" data-page="1" rel="visible">
+                            <div class="tooltip-indicator" style="left: 280px;top: 354px;"></div>
+                            <div class="tooltip-box" style="left: 315px;top: 344px;">Write your details in and click sign in to move to the next screen!</div>
+                        </div>
+                        <div class="tooltip-page" data-page="2">
+                            <div class="tooltip-indicator" style="left: 280px;top: 234px;"></div>
+                            <div class="tooltip-box" style="left: 315px;top: 224px;">Timetable information was provided by a provider like SELCA, or hardcoded when attendr was installed
+	click to start attending for class.</div>
+                        </div>
+                    </div>
                     <div class="tooltip-app" data-app="lecturer">
                         <div class="tooltip-page" data-page="1" rel="visible">
                             <div class="tooltip-indicator" style="left: 960px;top: 154px;"></div>
@@ -172,16 +182,21 @@
                         <span>Bluetooth Signal</span>
                         <input type="checkbox" onchange="toggleConnection('bluetooth')">
                     </label>
+                    <label>
+                        <span>Wi-Fi Signal</span>
+                        <input type="checkbox" onchange="toggleConnection('wifi')">
+                    </label>
                 </form>
                 <div class="phone">
                     <div class="phone-graphic"></div>
                     <div class="phone-viewport" data-app="lecturer">
                         <!-- Screen 1: Login -->
                         <div class="phone-screen">
-                            <header class="wrap">
-                                <div class="logo">Your institution logo here</div>
-                            </header>
                             <form class="phone-form wrap">
+                                <header>
+                                    <div id="dnd-logo" class="logo">Your institution logo here</div>
+                                    <input type="file">
+                                </header>
                                 <input name="username" type="text" autocomplete="off" spellcheck="false" placeholder="Username" autofocus>
                                 <input name="password" type="password" autocomplete="off" spellcheck="false" placeholder="Password">
                                 <button type="submit">Sign In</button>

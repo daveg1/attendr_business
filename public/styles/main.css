@@ -332,14 +332,42 @@ For example:
 /*=================================================================*/
 
 .phone-screen .logo {
+    align-items: center;
     border: 2px dashed #9a9a9a;
     color: #9a9a9a;
-    line-height: 64px;
+    cursor: pointer;
+    display: flex;
     font-size: 16px;
+    height: 64px;
+    justify-content: center;
     margin: 3em 0;
     position: relative;
-    text-align: center;
+    transition: background-color .15s ease-in-out;
     user-select: none;
+}
+
+.phone-screen .logo[style] {
+    background: transparent no-repeat center / contain;
+    border: 0;
+}
+
+.phone-screen .logo.dragging {
+    position: relative;
+}
+
+.phone-screen .logo.dragging::after {
+    align-items: center;
+    background-color: #f3f3f3;
+    content: 'Drop to upload';
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+.logo + input {
+    display: none;
 }
 
 .phone-screen .logo.img {

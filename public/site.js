@@ -355,6 +355,40 @@ function validateSignin(e){
     setPage(this, 2);
 }
 
+function dragStyle(){
+    this.classList.toggle('dragging');
+}
+
+// dndLogo.ondrop
+function changeImage(elem, file){
+    const img = URL.createObjectURL(file);
+
+    // Remove image from memory (spares some memory).
+    elem.onload = function(){
+        URL.revokeObjectURL(img);
+    }
+
+    elem.classList.remove('dragging');
+    elem.style.backgroundImage = `url(${img})`;
+    elem.innerText = '';
+}
+
+function fileDrop(e){
+    e.preventDefault();
+
+    changeImage(this, e.dataTransfer.files[0]);
+}
+
+function fileClick(){
+    const input = this.nextElementSibling;
+
+    input.onchange = (e) => {
+        changeImage(this, e.target.files[0]);
+    }
+
+    input.click();
+}
+
 
 // ---------------------------- //
 //           Tooltips           //
@@ -414,6 +448,16 @@ window.addEventListener('DOMContentLoaded', (e) => {
     for(let form of document.getElementsByClassName('phone-form')){
         form.onsubmit = validateSignin;
     }
+
+    const dndLogo = document.getElementById('dnd-logo');
+
+    dndLogo.addEventListener('dragenter', dragStyle, false);
+    dndLogo.addEventListener('dragleave', dragStyle, false);
+    dndLogo.addEventListener('drop', fileDrop, false);
+    dndLogo.addEventListener('click', fileClick, false);
+
+    // Stops the file from going to a new page.
+    dndLogo.addEventListener('dragover', (e) => e.preventDefault(), false);
 
     // Initialise the tooltips.
     const tips = document.getElementsByClassName('tooltip-indicator');
