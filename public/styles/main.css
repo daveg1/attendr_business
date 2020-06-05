@@ -673,7 +673,8 @@ For example:
     background-color: #81288a;
     color: #fff;
     display: flex;
-    padding-top: 0.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
     margin-bottom: 1em;
     position: relative;
 }
