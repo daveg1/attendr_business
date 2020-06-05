@@ -218,14 +218,19 @@ body {
     align-items: center;
     background-color: #81288a;
     display: flex;
-    height: 24px;
-    left: 27px;
+    height: 35px;
+    left: 18px;
     justify-content: space-between;
     padding: 0 2em 0 2.5em;
     position: absolute;
     right: 27px;
     top: 25px;
     z-index: 1;
+}
+
+.phone-colour-bar i {
+    color: #fff;
+    font-size: 1.3em;
 }
 
 .phone-viewport {
@@ -652,6 +657,7 @@ For example:
     background-color: #81288a;
     color: #fff;
     display: flex;
+    padding-top: 0.5em;
     margin-bottom: 1em;
     position: relative;
 }
