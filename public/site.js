@@ -402,38 +402,61 @@ function validateSignin(e) {
     setPage(this, 2);
 }
 
-// Sync Timer
-
+// Sync Timers
 let lecturetime = 0;
+let studenttime = 0;
 
-function timer() {
+function lectureTimer() {
     setInterval(function() {
     console.log("Timer started");
-    document.getElementsByClassName("time")[0].innerHTML = lecturetime + " seconds ago";
+    document.getElementsByClassName("time")[1].innerHTML = lecturetime + " seconds ago";
     lecturetime++;
     }, 1000);
 }
 
-// Animate spinner
+function studentTimer() {
+    setInterval(function() {
+    console.log("Timer started");
+    document.getElementsByClassName("time")[0].innerHTML = studenttime + " seconds ago";
+    studenttime++;
+    }, 1000);
+}
 
+// Animate spinner
 function addSpinner() {
     var spin = document.getElementById(event.target.id);
     spin.classList.add("fa-spin");
+    // If Lecturer Sync icon
     if (event.target.id == "lecturer-spinner") {
         var sync = document.getElementsByClassName("sync-message")[1];
+        var timeDisplay = document.getElementsByClassName("time")[1];
+        timeDisplay.style.fontWeight = "600";
+        timeDisplay.style.color = "#000";
+        // Start/Stop Lecturer Timer
         if (lecturetime > 0) {
             console.log("Timer stopped");
-            clearInterval(timer);
+            clearInterval(lectureTimer);
             lecturetime = 0;
             } else {
-                timer();
+                lectureTimer();
             }
+    // Student Sync Icon
     } else {
         var sync = document.getElementsByClassName("sync-message")[0];
+        var timeDisplay = document.getElementsByClassName("time")[0];
+        timeDisplay.style.fontWeight = "600";
+        timeDisplay.style.color = "#000";
+        // Start/Stop Student Timer
+        if (studenttime > 0) {
+            console.log("Timer stopped");
+            clearInterval(studentTimer);
+            studenttime = 0;
+            } else {
+                studentTimer();
+            }
     }
-    var timeDisplay = document.getElementsByClassName("time")[0];
-    timeDisplay.style.fontWeight = "600";
-    timeDisplay.style.color = "#000";
+
+    // Remove Sync Animation
     setTimeout(function () {
         spin.classList.remove("fa-spin");
         timeDisplay.style.fontWeight = "normal";
