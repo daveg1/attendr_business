@@ -431,12 +431,13 @@ function addSpinner() {
     } else {
         var sync = document.getElementsByClassName("sync-message")[0];
     }
-    sync.style.fontWeight = "600";
-    sync.style.color = "#000";
+    var timeDisplay = document.getElementsByClassName("time")[0];
+    timeDisplay.style.fontWeight = "600";
+    timeDisplay.style.color = "#000";
     setTimeout(function () {
         spin.classList.remove("fa-spin");
-        sync.style.fontWeight = "normal";
-        sync.style.color = "#888";
+        timeDisplay.style.fontWeight = "normal";
+        timeDisplay.style.color = "#888";
     }, 1000);
 }
 
