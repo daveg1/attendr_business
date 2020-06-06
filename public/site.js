@@ -421,11 +421,12 @@ function addSpinner() {
     spin.classList.add("fa-spin");
     if (event.target.id == "lecturer-spinner") {
         var sync = document.getElementsByClassName("sync-message")[1];
-        if (lecturetime < 1) {
-            timer();
+        if (lecturetime > 0) {
+            console.log("Timer stopped");
+            clearInterval(timer);
+            lecturetime = 0;
             } else {
-                console.log("Timer stopped");
-                clearInterval(timer);
+                timer();
             }
     } else {
         var sync = document.getElementsByClassName("sync-message")[0];
@@ -436,7 +437,7 @@ function addSpinner() {
         spin.classList.remove("fa-spin");
         sync.style.fontWeight = "normal";
         sync.style.color = "#888";
-    }, 3000);
+    }, 1000);
 }
 
 
