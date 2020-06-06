@@ -407,8 +407,17 @@ function validateSignin(e) {
 function addSpinner() {
     var spin = document.getElementById(event.target.id);
     spin.classList.add("fa-spin");
+    if (event.target.id == "lecturer-spinner") {
+        var sync = document.getElementsByClassName("sync-message")[1];
+    } else {
+        var sync = document.getElementsByClassName("sync-message")[0];
+    }
+    sync.style.fontWeight = "600";
+    sync.style.color = "#000";
     setTimeout(function () {
         spin.classList.remove("fa-spin");
+        sync.style.fontWeight = "normal";
+        sync.style.color = "#ccc";
     }, 3000);
 }
 
