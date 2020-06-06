@@ -402,6 +402,18 @@ function validateSignin(e) {
     setPage(this, 2);
 }
 
+// Sync Timer
+
+let lecturetime = 0;
+
+function timer() {
+    setInterval(function() {
+    console.log("Timer started");
+    document.getElementsByClassName("time")[0].innerHTML = lecturetime + " seconds ago";
+    lecturetime++;
+    }, 1000);
+}
+
 // Animate spinner
 
 function addSpinner() {
@@ -409,6 +421,12 @@ function addSpinner() {
     spin.classList.add("fa-spin");
     if (event.target.id == "lecturer-spinner") {
         var sync = document.getElementsByClassName("sync-message")[1];
+        if (lecturetime < 1) {
+            timer();
+            } else {
+                console.log("Timer stopped");
+                clearInterval(timer);
+            }
     } else {
         var sync = document.getElementsByClassName("sync-message")[0];
     }
@@ -417,7 +435,7 @@ function addSpinner() {
     setTimeout(function () {
         spin.classList.remove("fa-spin");
         sync.style.fontWeight = "normal";
-        sync.style.color = "#ccc";
+        sync.style.color = "#888";
     }, 3000);
 }
 
