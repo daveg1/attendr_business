@@ -447,15 +447,11 @@ function addSpinner() {
         timeDisplay.style.fontWeight = "600";
         timeDisplay.style.color = "#000";
         // Add new card
-        var lastCard = document.getElementsByClassName("tabs-screen")[1].lastElementChild;
         var lectureCard = document.getElementsByClassName("lecture-item");
-        if (lastCard = lectureCard[1]) {
-            lastCard.appendChild(lectureCard[0]);
-            console.log("Appended Card 0");
-        } else {
-            lastCard.appendChild(lectureCard[1]);
-            console.log("Appended Card 1");
-        }
+        var lastCard = document.getElementsByClassName("tabs-screen")[1].lastElementChild;
+        var cardNumber = Math.floor(Math.random() * 2);
+        var cloneCard = lectureCard[cardNumber].cloneNode(true);
+        lastCard.appendChild(cloneCard);
         // Start/Stop Student Timer
         if (studenttime > 0) {
             console.log("Timer stopped");
