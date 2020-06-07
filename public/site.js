@@ -424,10 +424,10 @@ function studentTimer() {
 
 // Animate spinner
 function addSpinner() {
-    var spin = document.getElementById(event.target.id);
-    spin.classList.add("fa-spin");
     // If Lecturer Sync icon
-    if (event.target.id == "lecturer-spinner") {
+    if (event.target.id == "lecturer-spinner" || event.target.id == "sync-lecturer") {
+        console.log("Lecturer sync");
+        document.getElementById("lecturer-spinner").classList.add("fa-sync");
         var sync = document.getElementsByClassName("sync-message")[1];
         var timeDisplay = document.getElementsByClassName("time")[1];
         timeDisplay.style.fontWeight = "600";
@@ -438,6 +438,8 @@ function addSpinner() {
         var cardNumber = Math.floor(Math.random() * 3);
         var cloneCard = lectureCard[cardNumber].cloneNode(true);
         lastCard.after(cloneCard);
+        document.getElementById("sync-lecturer").style.display = "none";
+        cloneCard.style.display = "block";
         // Start/Stop Lecturer Timer
         if (lecturetime > 0) {
             console.log("Timer stopped");
@@ -448,6 +450,8 @@ function addSpinner() {
             }
     // Student Sync Icon
     } else {
+        console.log("Student sync");
+        document.getElementById("student-spinner").classList.add("fa-spin");
         var sync = document.getElementsByClassName("sync-message")[0];
         var timeDisplay = document.getElementsByClassName("time")[0];
         timeDisplay.style.fontWeight = "600";
@@ -458,6 +462,8 @@ function addSpinner() {
         var cardNumber = Math.floor(Math.random() * 2);
         var cloneCard = lectureCard[cardNumber].cloneNode(true);
         lastCard.after(cloneCard);
+        document.getElementById("sync-student").style.display = "none";
+        cloneCard.style.display = "block";
         // Start/Stop Student Timer
         if (studenttime > 0) {
             console.log("Timer stopped");
@@ -470,7 +476,8 @@ function addSpinner() {
 
     // Remove Sync Animation
     setTimeout(function () {
-        spin.classList.remove("fa-spin");
+        document.getElementById("student-spinner").classList.remove("fa-spin");
+        document.getElementById("lecturer-spinner").classList.remove("fa-spin");
         timeDisplay.style.fontWeight = "normal";
         timeDisplay.style.color = "#888";
     }, 1000);
