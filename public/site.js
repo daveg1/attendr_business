@@ -432,6 +432,12 @@ function addSpinner() {
         var timeDisplay = document.getElementsByClassName("time")[1];
         timeDisplay.style.fontWeight = "600";
         timeDisplay.style.color = "#000";
+        // Add new card
+        var lectureCard = document.getElementsByClassName("lecture-item");
+        var lastCard = document.getElementsByClassName("lecture-list")[0].lastElementChild;
+        var cardNumber = Math.floor(Math.random() * 3);
+        var cloneCard = lectureCard[cardNumber].cloneNode(true);
+        lastCard.appendChild(cloneCard);
         // Start/Stop Lecturer Timer
         if (lecturetime > 0) {
             console.log("Timer stopped");
