@@ -437,7 +437,7 @@ function addSpinner() {
         var lastCard = document.getElementsByClassName("lecture-list")[0].lastElementChild;
         var cardNumber = Math.floor(Math.random() * 3);
         var cloneCard = lectureCard[cardNumber].cloneNode(true);
-        lastCard.appendChild(cloneCard);
+        lastCard.after(cloneCard);
         // Start/Stop Lecturer Timer
         if (lecturetime > 0) {
             console.log("Timer stopped");
@@ -457,7 +457,7 @@ function addSpinner() {
         var lastCard = document.getElementsByClassName("tabs-screen")[1].lastElementChild;
         var cardNumber = Math.floor(Math.random() * 2);
         var cloneCard = lectureCard[cardNumber].cloneNode(true);
-        lastCard.appendChild(cloneCard);
+        lastCard.after(cloneCard);
         // Start/Stop Student Timer
         if (studenttime > 0) {
             console.log("Timer stopped");
