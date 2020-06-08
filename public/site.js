@@ -352,6 +352,7 @@ function validateSignin(e){
         }
     }
 
+    closeTooltip();
     setPage(this, 2);
 }
 
@@ -408,16 +409,33 @@ function tooltipPage(app, n){
 }
 
 function closeTooltip(){
+    if(!closeTooltip._s){
+        return;
+    }
+
     closeTooltip._s.classList.remove('active');
     closeTooltip._s = null;
+
+    document.getElementsByClassName('walkthrough-overlay')[0].removeAttribute('rel');
+    document.getElementsByClassName('walkthrough-active')[0].classList.remove('walkthrough-active');
+
     window.removeEventListener('click', closeTooltip, true);
 }
 
-function revealTooltip(){
+function checkTooltip(e){
+    if(e.target && e.target.classList.contains('walkthrough-overlay')){
+        closeTooltip();
+    }
+}
+
+function openTooltip(){
     this.classList.add('active');
+    document.getElementsByClassName('walkthrough-overlay')[0].setAttribute('rel', 'visible');
+
+    document.querySelector(`[data-tooltip="${this.dataset.for}"]`).classList.add('walkthrough-active');
 
     closeTooltip._s = this;
-    window.addEventListener('click', closeTooltip, true);
+    window.addEventListener('click', checkTooltip, true);
 }
 
 
@@ -462,6 +480,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
     // Initialise the tooltips.
     const tips = document.getElementsByClassName('tooltip-indicator');
     for(let t of tips){
-        t.onclick = revealTooltip;
+        t.onclick = openTooltip;
     }
 });

@@ -31,6 +31,33 @@ body {
 /*                             Tooltips                            */
 /*=================================================================*/
 
+.walkthrough-overlay {
+    background-color: rgba(0,0,0,.5);
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999;
+}
+
+.walkthrough-overlay[rel] {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.walkthrough-overlay[rel] + .tooltip-holder .tooltip-indicator {
+    display: none;
+}
+
+.walkthrough-active {
+    background-color: #fff;
+    position: relative;
+    z-index: 1000;
+}
+
 .tooltip-holder {
     bottom: 0;
     left: 0;
@@ -73,17 +100,15 @@ body {
 
 .tooltip-box {
     background-color: #fff;
-    border: 1px solid #ccc;
     border-radius: 4px;
-    box-shadow: 0 4px 12px -2px rgba(175,175,175,.5);
     line-height: 1.42;
     font-size: 12px;
     opacity: 0;
-    padding: 1em;
+    padding: 2em;
     position: absolute;
-    text-align: center;
+    transform: translateY(-10px);
     transition: opacity .3s ease-in-out;
-    width: 256px;
+    width: 320px;
     user-select: none;
     z-index: 1;
 }
@@ -111,6 +136,35 @@ body {
 .tooltip-box::after {
     background-color: #fff;
     left: -5px;
+}
+
+.tooltip-box h2 {
+    margin: 0 0 1em;
+}
+
+.tooltip-box p {
+    font-size: 13px;
+}
+
+.tooltip-box .tooltip-step {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5em;
+}
+
+.tooltip-step button {
+    background-color: #4794eb;
+    border: 0;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    padding: .5em 1em;
+    pointer-events: all;
+}
+
+.tooltip-step button:hover {
+    background-color: #5ea1ed;
 }
 
 @keyframes pulsate {
@@ -340,7 +394,7 @@ For example:
     font-size: 16px;
     height: 64px;
     justify-content: center;
-    margin: 3em 0;
+    margin: 3em 0 1.5em;
     position: relative;
     transition: background-color .15s ease-in-out;
     user-select: none;
@@ -392,6 +446,10 @@ For example:
 
 .logo.img .grad-cap {
     transform: translate(35%, -65%) rotate(18deg);
+}
+
+.phone-form {
+    padding: 24px;
 }
 
 /* Input Boxes */
@@ -833,8 +891,9 @@ i.bad,
 /*================================================================*/
 
 .phone-connections {
-    position: absolute;
+    display: flex;
     left: 50%;
+    position: absolute;
     top: 6em;
     transform: translateX(-50%);
 }
@@ -846,6 +905,10 @@ i.bad,
     line-height: 1em;
     padding: .5em 1em;
     user-select: none;
+}
+
+.phone-connections label:not(:last-child) {
+    margin-right: .5em;
 }
 
 .phone-connections input {

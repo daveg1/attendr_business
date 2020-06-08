@@ -12,35 +12,113 @@
     <body dir="ltr">
         <main>
             <section class="demo">
+                <div class="walkthrough-overlay"></div>
                 <div class="tooltip-holder">
                     <div class="tooltip-app" data-app="student">
                         <div class="tooltip-page" data-page="1" rel="visible">
-                            <div class="tooltip-indicator" style="left: 280px;top: 354px;"></div>
-                            <div class="tooltip-box" style="left: 315px;top: 344px;">Write your details in and click sign in to move to the next screen!</div>
+                            <div class="tooltip-indicator" style="left: 278px;top: 243px;" data-for="s-1"></div>
+                            <div class="tooltip-box" style="left: 336px;top: 236px;">
+                                <h2>Student Sign-in</h2>
+                                <p>Students will use their institutional details within this sign-in form to access their lecture timetable.</p>
+                                <p>Once submitted, Attendr will use authentication methods like [name] to verify the sign-in.</p>
+                                <p>(Hint: just type any username and password to continue.)</p>
+                                <div class="tooltip-step">
+                                    <b>Step 1 of 3</b>
+                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="tooltip-page" data-page="2">
-                            <div class="tooltip-indicator" style="left: 280px;top: 234px;"></div>
-                            <div class="tooltip-box" style="left: 315px;top: 224px;">Timetable information was provided by a provider like SELCA, or hardcoded when attendr was installed
-	click to start attending for class.</div>
+                            <div class="tooltip-indicator" style="left: 287px;top: 230px;" data-for="s-2"></div>
+                            <div class="tooltip-box" style="left: 336px;top: 230px;">
+                                <h2>Lecture List</h2>
+                                <p>Timetable information was provided by a provider like SELCA, or hardcoded when attendr was installed.</p>
+                                <p>Click to start attending for class.</p>
+                                <div class="tooltip-step">
+                                    <b>Step 2 of 3</b>
+                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tooltip-page" data-page="3">
+                            <div class="tooltip-indicator" style="left: 272px;top: 368px;" data-for="s-3"></div>
+                            <div class="tooltip-box" style="left: 336px;top: 388px;">
+                                <h2>Attendance Stages</h2>
+                                <p>The student's app will begin scanning for a bluetooth endpoint to connect to.</p>
+                                <ol>
+                                    <li>Step 1</li>
+                                    <li>Step 2</li>
+                                    <li>Step 3</li>
+                                </ol>
+                                <p>Timetable information was provided by a provider like SELCA, or hardcoded when attendr was installed.</p>
+                                <div class="tooltip-step">
+                                    <b>Step 3 of 3</b>
+                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="tooltip-app" data-app="lecturer">
                         <div class="tooltip-page" data-page="1" rel="visible">
-                            <div class="tooltip-indicator" style="left: 960px;top: 154px;"></div>
-                            <div class="tooltip-box" style="left: 994px;top: 144px;">Attendr lets you customise your app with your institution's logo—have a go uploading your own now!</div>
+                            <div class="tooltip-indicator" style="left: 960px;top: 154px;" data-for="l-1"></div>
+                            <div class="tooltip-box" style="left: 990px;top: 149px;">
+                                <h2>Logo Customisation</h2>
+                                <p>Attendr lets you customise your app with your institution's logo—have a go uploading your own now!</p>
+                                <div class="tooltip-step">
+                                    <b>💡 Info</b>
+                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                </div>
+                            </div>
+                            <div class="tooltip-box" style="left: 994px;top: 144px;"></div>
                         </div>
                         <div class="tooltip-page" data-page="2">
-                            <div class="tooltip-indicator" style="left: 960px;top: 196px;"></div>
-                            <div class="tooltip-box" style="left: 994px;top: 186px;">Your upcoming classes will appear here. Tapping one will begin the marking phase.</div>
+                            <div class="tooltip-indicator" style="left: 960px;top: 154px;" data-for="l-2"></div>
+                            <div class="tooltip-box" style="left: 990px;top: 149px;">
+                                <h2>Lecture List</h2>
+                                <p>Just like your students, you will have a list of all your upcoming lectures.</p>
+                                <p>Click on today's lecture to progress.</p>
+                                <div class="tooltip-step">
+                                    <b>Step 1 of 3</b>
+                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="tooltip-page" data-page="3">
-                            <div class="tooltip-indicator" style="left: 960px;top: 246px;"></div>
-                            <div class="tooltip-box" style="left: 994px;top: 236px;">A list of your students is placed below. Tapping this button will allow your students to begin signing in.</div>
+                            <div class="tooltip-indicator" style="left: 960px;top: 246px;" data-for="l-3"></div>
+                            <div class="tooltip-box" style="left: 1014px;top: 236px;">
+                                <h2>Lecture Information</h2>
+                                <p>Your students are listed here. The list is retreived from your institution's network, to verify that only legitimate students are signing into your class.</p>
+                                <p>Once you begin marking, your device will act as the endpoint for your students to connect to.</p>
+                                <p>To see how this works, an animation will play upon clicking Start Marking.</p>
+                                <div class="tooltip-step">
+                                    <b>Step 2 of 3</b>
+                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="tooltip-page" data-page="4">
-                            <div class="tooltip-indicator" style="left: 890px;top: 124px;"></div>
-                            <div class="tooltip-box" style="left: 924px;top: 114px;">Now that marking is open, your students will be able to connect to your device and effectively mark themselves present.</div>
+                            <div class="tooltip-indicator" style="left: 960px;top: 205px;" data-for="l-4"></div>
+                            <div class="tooltip-box" style="left: 1014px;top: 212px;">
+                                <h2>Await Sign-ins</h2>
+                                <p>Once you've opened up for marking, your students will be able to connect to your device and mark themselves present.</p>
+                                <p>If there are any troubles with a phone's connection, and you are certain of their presence, you can mark a student manually by clicking their item in the list.</p>
+                                <p>Have a go now.</p>
+                                <div class="tooltip-step">
+                                    <b>Step 3 of 3</b>
+                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                </div>
+                            </div>
                             <div class="tooltip-indicator" style="left: 956px;top: 468px;"></div>
+                            <div class="tooltip-box" style="left: 1014px;top: 212px;">
+                                <h2>Await Sign-ins</h2>
+                                <p>Once you've opened up for marking, your students will be able to connect to your device and mark themselves present.</p>
+                                <p>If there are any troubles with a phone's connection, and you are certain of their presence, you can mark a student manually by clicking their item in the list.</p>
+                                <p>Have a go now.</p>
+                                <div class="tooltip-step">
+                                    <b>Step 3 of 3</b>
+                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                </div>
+                            </div>
                             <div class="tooltip-box" style="left: 990px;top: 458px;">Your attendees are reflected on the previous page.<br>Tap this button to return to take a look!</div>
                         </div>
                     </div>
@@ -57,7 +135,7 @@
                                     <!-- <i class="fas fa-graduation-cap grad-cap"></i> -->
                                 </div>
                             </header>
-                            <form class="phone-form wrap">
+                            <form class="phone-form" data-tooltip="s-1">
                                 <input name="username" type="text" autocomplete="off" spellcheck="false" placeholder="Username" autofocus>
                                 <input name="password" type="password" autocomplete="off" spellcheck="false" placeholder="Password">
                                 <button type="submit">Sign In</button>
@@ -80,7 +158,7 @@
                                 <div class="sync-message">Lectures synced</div>
                                 <i class="fas fa-sync" onclick="" aria-hidden="true"></i>
                             </div>
-                            <div class="tabs bottomless-list">
+                            <div class="tabs bottomless-list" data-tooltip="s-2">
                                 <div class="tabs-screen" data-tab="recent">
                                     <div class="lecture-item">
                                         <div class="wrap">
@@ -107,7 +185,7 @@
                                     </div>
                                 </div>
                                 <div class="tabs-screen" data-tab="schedule" rel="visible">
-                                    <div class="lecture-item" onclick="listenForSignal()">
+                                    <div class="lecture-item" onclick="closeTooltip(); listenForSignal()">
                                         <div class="wrap">
                                             <div class="option-bar split">
                                                 <h3>May 11</h3>
@@ -153,7 +231,7 @@
                                 <h3>No Signal</h3>
                                 <p>Make sure you have enabled Bluetooth and your lecturer has opened for sign-ins.</p>
                             </div>
-                            <div class="attendance-messages">
+                            <div class="attendance-messages" data-tooltip="s-3">
                                 <div class="message split">
                                     Listening for signal
                                     <input type="checkbox">
@@ -193,7 +271,7 @@
                         <!-- Screen 1: Login -->
                         <div class="phone-screen">
                             <form class="phone-form wrap">
-                                <header>
+                                <header data-tooltip="l-1">
                                     <div id="dnd-logo" class="logo">Your institution logo here</div>
                                     <input type="file">
                                 </header>
@@ -218,8 +296,8 @@
                                     <i class="fas fa-sync" onclick></i>
                                 </div>
                             </header>
-                            <div class="lecture-list bottomless-list">
-                                <div class="lecture-item" onclick="loadAttendees()">
+                            <div class="lecture-list bottomless-list" data-tooltip="l-2">
+                                <div class="lecture-item" onclick="closeTooltip(); loadAttendees()">
                                     <div class="wrap">
                                         <div class="option-bar split">
                                             <h3>May 11</h3>
@@ -242,7 +320,7 @@
                                         </span>
                                     </aside>
                                 </div>
-                                <div class="lecture-item" onclick="loadAttendees()">
+                                <div class="lecture-item">
                                     <div class="wrap">
                                         <div class="option-bar split">
                                             <h3>May 12</h3>
@@ -265,7 +343,7 @@
                                         </span>
                                     </aside>
                                 </div>
-                                <div class="lecture-item" onclick="loadAttendees()">
+                                <div class="lecture-item">
                                     <div class="wrap">
                                         <div class="option-bar split">
                                             <h3>May 15</h3>
@@ -309,47 +387,49 @@
                                     </span>
                                 </aside>
                             </header>
-                            <div class="button-holder">
-                                <button onclick="openMarking()">Start Marking</button>
-                            </div>
-                            <div class="attendee-list bottomless-list">
-                                <label class="attendee">
-                                    <span>1907001</span>
-                                    <input type="checkbox">
-                                </label>
-                                <label class="attendee">
-                                    <span>1907002</span>
-                                    <input type="checkbox">
-                                </label>
-                                <label class="attendee">
-                                    <span>1907003</span>
-                                    <input type="checkbox">
-                                </label>
-                                <label class="attendee">
-                                    <span>1907004</span>
-                                    <input type="checkbox">
-                                </label>
-                                <label class="attendee">
-                                    <span>1907005</span>
-                                    <input type="checkbox">
-                                </label>
-                                <label class="attendee">
-                                    <span>1907006</span>
-                                    <input type="checkbox">
-                                </label>
-                                <label class="attendee">
-                                    <span>1907007</span>
-                                    <input type="checkbox">
-                                </label>
+                            <div data-tooltip="l-3">
+                                <div class="button-holder">
+                                    <button onclick="closeTooltip(); openMarking()">Start Marking</button>
+                                </div>
+                                <div class="attendee-list bottomless-list">
+                                    <label class="attendee">
+                                        <span>1907001</span>
+                                        <input type="checkbox">
+                                    </label>
+                                    <label class="attendee">
+                                        <span>1907002</span>
+                                        <input type="checkbox">
+                                    </label>
+                                    <label class="attendee">
+                                        <span>1907003</span>
+                                        <input type="checkbox">
+                                    </label>
+                                    <label class="attendee">
+                                        <span>1907004</span>
+                                        <input type="checkbox">
+                                    </label>
+                                    <label class="attendee">
+                                        <span>1907005</span>
+                                        <input type="checkbox">
+                                    </label>
+                                    <label class="attendee">
+                                        <span>1907006</span>
+                                        <input type="checkbox">
+                                    </label>
+                                    <label class="attendee">
+                                        <span>1907007</span>
+                                        <input type="checkbox">
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Screen 4:  -->
+                        <!-- Screen 4: Lecture signal -->
                         <div class="phone-screen signal bottomless">
                             <header class="icon-holder">
                                 <i class="fas fa-wifi signal-icon"></i>
                             </header>
-                            <div class="attendee-list bottomless-list">
+                            <div class="attendee-list bottomless-list" data-tooltip="l-4">
                                 <label class="attendee">
                                     <span>1907001</span>
                                     <input type="checkbox">
