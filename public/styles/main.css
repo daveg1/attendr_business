@@ -215,39 +215,17 @@ body {
 }
 
 .phone-colour-bar {
+    align-items: center;
     background-color: #81288a;
-    height: 35px;
-    left: 18px;
+    display: flex;
+    height: 24px;
+    left: 27px;
+    justify-content: space-between;
+    padding: 0 2em 0 2.5em;
+    position: absolute;
     right: 27px;
     top: 25px;
     z-index: 1;
-    padding: 1em 24px;
-}
-
-#login-bar {
-    padding-top: 0.7em;
-}
-
-.fa-sign-out-alt {
-    width: 11.38px;
-}
-
-.phone-colour-bar .fa-bluetooth-b, .phone-screen .header-title h3 {
-    padding-left: 6px;
-}
-
-.phone-screen header .wrap {
-    padding-left: 30px;
-}
-
-.phone-colour-bar .fa-wifi {
-    font-size: 1.2em;
-    float: right;
-}
-
-.phone-colour-bar i {
-    color: #fff;
-    font-size: 1.3em;
 }
 
 .phone-viewport {
@@ -261,6 +239,7 @@ body {
     background-color: #fff;
     flex-shrink: 0;
     height: 631px;
+    padding-top: 24px;
     position: relative;
     width: 292px;
 }
@@ -679,8 +658,6 @@ For example:
     background-color: #81288a;
     color: #fff;
     display: flex;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
     margin-bottom: 1em;
     position: relative;
 }
