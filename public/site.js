@@ -416,7 +416,7 @@ function lectureTimer() {
         document.getElementsByClassName("time")[1].innerHTML = "Few minutes ago";
     }
     if (lecturetime > 240){
-        document.getElementsByClassName("time")[1].innerHTML = "at " + hour + ":" + minutes;
+        document.getElementsByClassName("time")[1].innerHTML = + hour + ":" + minutes;
     }
     lecturetime++;
     }, 1000);
@@ -432,7 +432,7 @@ function studentTimer() {
         document.getElementsByClassName("time")[0].innerHTML = "Few minutes ago";
     }
     if (studenttime > 240){
-        document.getElementsByClassName("time")[0].innerHTML = "at " + hour + ":" + minutes;
+        document.getElementsByClassName("time")[0].innerHTML = + hour + ":" + minutes;
     }
     studenttime++;
     }, 1000);
