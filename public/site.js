@@ -407,17 +407,33 @@ let lecturetime = 0;
 let studenttime = 0;
 
 function lectureTimer() {
+    var time = new Date();
+    var hour = time.getHours();
+    var minutes = time.getMinutes();
     setInterval(function() {
     console.log("Timer started");
-    document.getElementsByClassName("time")[1].innerHTML = lecturetime + " seconds ago";
+    if (lecturetime > 120){
+        document.getElementsByClassName("time")[1].innerHTML = "Few minutes ago";
+    }
+    if (lecturetime > 240){
+        document.getElementsByClassName("time")[1].innerHTML = "at " + hour + ":" + minutes;
+    }
     lecturetime++;
     }, 1000);
 }
 
 function studentTimer() {
+    var time = new Date();
+    var hour = time.getHours();
+    var minutes = time.getMinutes();
     setInterval(function() {
     console.log("Timer started");
-    document.getElementsByClassName("time")[0].innerHTML = studenttime + " seconds ago";
+    if (studenttime > 120){
+        document.getElementsByClassName("time")[0].innerHTML = "Few minutes ago";
+    }
+    if (studenttime > 240){
+        document.getElementsByClassName("time")[0].innerHTML = "at " + hour + ":" + minutes;
+    }
     studenttime++;
     }, 1000);
 }
