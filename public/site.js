@@ -448,6 +448,9 @@ function studentTimer() {
 
 // Animate spinner
 function addSpinner() {
+    // Randomise the lecture types and dates.
+    // Physically rotate the spinner.
+
     var spin = document.getElementById(event.target.id);
     spin.classList.add("fa-spin");
     // If Lecturer Sync icon
