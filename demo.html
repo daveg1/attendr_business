@@ -39,6 +39,15 @@
                                     <button class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
+                            <div class="tooltip-indicator" style="left: 252px;top: 638px;" data-for="si-2"></div>
+                            <div class="tooltip-box bottom" style="left: 336px;top: 499px;">
+                                <h2>Recent and Schedule</h2>
+                                <p>There are two tabs at the bottom of your lecturer list. These show your most recent past timetabled lectures and your upcoming lectures respectively.</p>
+                                <div class="tooltip-step">
+                                    <b>💡 Info</b>
+                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="tooltip-page" data-page="3">
                             <div class="tooltip-indicator" style="left: 272px;top: 368px;" data-for="s-3"></div>
@@ -72,8 +81,8 @@
                             <div class="tooltip-box" style="left: 994px;top: 144px;"></div>
                         </div>
                         <div class="tooltip-page" data-page="2">
-                            <div class="tooltip-indicator" style="left: 960px;top: 154px;" data-for="l-2"></div>
-                            <div class="tooltip-box" style="left: 990px;top: 149px;">
+                            <div class="tooltip-indicator" style="left: 960px;top: 220px;" data-for="l-2"></div>
+                            <div class="tooltip-box" style="left: 1014px;top: 215px;">
                                 <h2>Lecture List</h2>
                                 <p>Just like your students, you will have a list of all your upcoming lectures.</p>
                                 <p>Click on today's lecture to progress.</p>
@@ -108,14 +117,13 @@
                                     <button class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
-                            <div class="tooltip-indicator" style="left: 956px;top: 468px;"></div>
-                            <div class="tooltip-box" style="left: 1014px;top: 212px;">
-                                <h2>Await Sign-ins</h2>
-                                <p>Once you've opened up for marking, your students will be able to connect to your device and mark themselves present.</p>
-                                <p>If there are any troubles with a phone's connection, and you are certain of their presence, you can mark a student manually by clicking their item in the list.</p>
-                                <p>Have a go now.</p>
+                            <div class="tooltip-indicator" style="left: 956px;top: 490px;" data-for="li-4"></div>
+                            <div class="tooltip-box bottom" style="left: 1014px;top: 302px;">
+                                <h2>Finished Marking</h2>
+                                <p>Once you're finished marking, whether from all students marking attendance or otherwise, you can cease the marking and return to the overview of your lecture.</p>
+                                <p>Your lecture's information page should reflect all the sign-ins that occurred.</p>
                                 <div class="tooltip-step">
-                                    <b>Step 3 of 3</b>
+                                    <b>💡 Info</b>
                                     <button class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
@@ -132,7 +140,7 @@
                             <header class="wrap">
                                 <div class="logo img">
                                     <img src="./public/images/rgu.png" alt="RGU Logo">
-                                    <!-- <i class="fas fa-graduation-cap grad-cap"></i> -->
+                                    <i class="fas fa-graduation-cap grad-cap"></i>
                                 </div>
                             </header>
                             <form class="phone-form" data-tooltip="s-1">
@@ -210,7 +218,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tabs-menu wrap">
+                            <div class="tabs-menu wrap" data-tooltip="si-2">
                                 <div class="tabs-option" onclick="selectTab(this, 'recent')">
                                     <i class="fas fa-user-clock"></i>
                                     Recent
@@ -469,8 +477,8 @@
                                     <input type="checkbox">
                                 </label>
                             </div>
-                            <div class="button-holder">
-                                <button onclick="setPage(this, 3)">Close</button>
+                            <div class="button-holder" data-tooltip="li-4">
+                                <button onclick="closeTooltip(); setPage(this, 3)">Close</button>
                             </div>
                             <div class="marking-confirm">
                                 <div class="confirm-box">

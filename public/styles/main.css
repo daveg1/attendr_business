@@ -138,6 +138,12 @@ body {
     left: -5px;
 }
 
+.tooltip-box.bottom::before,
+.tooltip-box.bottom::after {
+    bottom: 30px;
+    top: unset;
+}
+
 .tooltip-box h2 {
     margin: 0 0 1em;
 }
@@ -319,7 +325,7 @@ body {
 .bottomless .bottomless-list {
     box-shadow: inset 0 -2px 12px rgba(255, 255, 255, .5);
     overflow-y: auto;
-    padding: 0 20px .15em 24px;
+    padding: 24px 20px .15em 24px;
 }
 
 .bottomless-list::-webkit-scrollbar {
@@ -389,7 +395,6 @@ For example:
     align-items: center;
     border: 2px dashed #9a9a9a;
     color: #9a9a9a;
-    cursor: pointer;
     display: flex;
     font-size: 16px;
     height: 64px;
@@ -398,6 +403,10 @@ For example:
     position: relative;
     transition: background-color .15s ease-in-out;
     user-select: none;
+}
+
+.phone-form .logo {
+    cursor: pointer;
 }
 
 .phone-screen .logo[style] {
@@ -440,12 +449,8 @@ For example:
     font-size: 24px;
     right: 0;
     top: 0;
-    transform: translate(50%, -65%) rotate(15deg);
+    transform: translate(45%, -40%) rotate(22deg);
     position: absolute;
-}
-
-.logo.img .grad-cap {
-    transform: translate(35%, -65%) rotate(18deg);
 }
 
 .phone-form {
