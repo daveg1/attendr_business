@@ -55,9 +55,9 @@
                                 <h2>Attendance Stages</h2>
                                 <p>The student's app will begin scanning for a bluetooth endpoint to connect to.</p>
                                 <ol>
-                                    <li>Step 1</li>
-                                    <li>Step 2</li>
-                                    <li>Step 3</li>
+                                    <li>Listening for signal</li>
+                                    <li>Collecting data</li>
+                                    <li>Sending attendance</li>
                                 </ol>
                                 <p>Timetable information was provided by a provider like CELCAT, or hardcoded when attendr was installed.</p>
                                 <div class="tooltip-step">
@@ -167,7 +167,7 @@
                                 <i class="fas fa-sync" onclick="" aria-hidden="true"></i>
                             </div>
                             <div class="tabs bottomless-list" data-tooltip="s-2">
-                                <div class="tabs-screen" data-tab="recent">
+                                <div class="tabs-screen" data-tab="profile" rel="visible">
                                     <div class="lecture-item">
                                         <div class="wrap">
                                             <div class="option-bar split">
@@ -192,7 +192,7 @@
                                         </aside>
                                     </div>
                                 </div>
-                                <div class="tabs-screen" data-tab="schedule" rel="visible">
+                                <div class="tabs-screen" data-tab="timetable">
                                     <div class="lecture-item" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">
                                         <div class="wrap">
                                             <div class="option-bar split">
@@ -218,14 +218,17 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="option-bar wrap">
+                                <button onclick="closeTooltip(); setPage('student', 3); listenForSignal()">Start Attending</button>
+                            </div>
                             <div class="tabs-menu wrap" data-tooltip="si-2">
-                                <div class="tabs-option" onclick="selectTab(this, 'recent')">
+                                <div class="tabs-option" onclick="selectTab(this, 'profile')" rel="selected">
                                     <i class="fas fa-user-clock"></i>
-                                    Recent
+                                    Profile
                                 </div>
-                                <div class="tabs-option" onclick="selectTab(this, 'schedule')" rel="selected">
+                                <div class="tabs-option" onclick="selectTab(this, 'timetable')">
                                     <i class="fas fa-calendar-day"></i>
-                                    Schedule
+                                    Timetable
                                 </div>
                             </div>
                         </div>
@@ -242,7 +245,7 @@
                                 </div>
                                 <div class="wifi">
                                     <h3>Server Connection Failed</h3>
-                                    <p>Ensure Wi-Fi has been enabled on your device. Because your attendance data has been saved locally, it will be uploaded upon reconnection.</p>
+                                    <p>Ensure you have a stable internet connection. Because your attendance data has been saved locally, it will be uploaded upon reconnection.</p>
                                 </div>
                                 <div class="done">
                                     <h3>Success</h3>
