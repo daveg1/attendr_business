@@ -797,7 +797,6 @@ For example:
 }
 
 .attendance-banner {
-    background-color: #d85a5a;
     color: #fff;
     left: 0;
     opacity: 0;
@@ -809,8 +808,16 @@ For example:
     user-select: none;
 }
 
+.attendance-banner.bad { background-color: #d85a5a; }
+.attendance-banner.warn { background-color: #f0c756; }
+.attendance-banner.done { background-color: #39ac60; }
+
 .attendance-banner[rel="show"] {
     opacity: 1;
+}
+
+.attendance-banner div:not([rel]) {
+    display: none;
 }
 
 .attendance-banner h3 {
@@ -843,12 +850,15 @@ For example:
     color: #ccc;
 }
 
-.message.okay { color: #f0c756; }
-.message.good { color: #39ac60; }
-/* Better to apply to parent, since a bad connection gives an
-   error across all messages anyway. */
+.message.done { color: #39ac60; }
+
 i.bad,
 .bad .message  { color: #d85a5a; }
+
+i.done,
+.done .message { color: #39ac60; }
+
+i.warn { color: #f0c756; }
 
 /* Checboxes */
 .bad .message input::after {
@@ -912,8 +922,9 @@ i.bad,
 }
 
 .phone-connections input {
-    margin: 0 0 0 .5em;
+    cursor: pointer;
     height: 13px;
+    margin: 0 0 0 .5em;
     vertical-align: top;
     width: 13px;
 }

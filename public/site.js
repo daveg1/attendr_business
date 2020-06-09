@@ -27,6 +27,8 @@ var
 //  Flag that tells whether the marking page on the lecturer app is open or not.
     markingOpen = false,
 
+    markingStep = 1,
+
 //  Holds a nodelist of <div>s which represent the steps on the student's signal page.
     messages,
 
@@ -38,8 +40,8 @@ var
 
 //  Flags that enable and disable bluetooth and wifi on the student's phone.
     signals = {
-        bluetoothSignal: false,
-        wifiSignal: false
+        bluetooth: false,
+        wifi: false
     }
 ;
 
@@ -82,6 +84,72 @@ function getPage(app){
     return currentPage[app];
 }
 
+function showBanner(type){
+    // Stop pulse animation and add red text.
+    const statusLogo = document.querySelector('.attendance-status i'),
+              banner = document.getElementsByClassName('attendance-banner')[0],
+            messages = document.getElementsByClassName('attendance-messages')[0];
+
+    statusLogo.classList.remove('pulse');
+
+    switch(type){
+        case 'bluetooth':
+            statusLogo.classList.add('bad');
+            banner.classList.add('bad');
+            banner.querySelector('.bluetooth').setAttribute('rel', 'visible');
+            messages.classList.add('bad');
+            break;
+        case 'wifi':
+            statusLogo.classList.add('warn');
+            banner.classList.add('warn');
+            banner.querySelector('.wifi').setAttribute('rel', 'visible');
+            break;
+        case 'done':
+            statusLogo.classList.add('done');
+            banner.classList.add('done');
+            banner.querySelector('.done').setAttribute('rel', 'visible');
+            break;
+    }
+
+    document.getElementsByClassName('attendance-banner')[0].setAttribute('rel', 'show');
+}
+
+function closeBanner(){
+    document.querySelector('.attendance-status i').className = "fab fa-bluetooth-b";
+    document.getElementsByClassName('attendance-messages')[0].className = "attendance-messages";
+
+    const banner = document.getElementsByClassName('attendance-banner')[0];
+
+    banner.className = "attendance-banner";
+    banner.querySelector('[rel]').removeAttribute('rel');
+}
+
+function resume(n){
+    closeBanner();
+
+    n = n | markingStep;
+
+    switch(n){
+        case 1:
+            listenForSignal();
+            break;
+        case 2:
+            collectData();
+            break;
+        case 3:
+            sendAttendance();
+            break;
+    }
+}
+
+// Resumes animations where applicable.
+function restoreConnection(type){
+    document.querySelector('.attendance-status i').className = "fab fa-bluetooth-b";
+
+    document.getElementsByClassName('attendance-messages')[0].className = "attendance-messages";
+    document.getElementsByClassName('attendance-banner')[0].removeAttribute('rel');
+}
+
 // Enables/disabled Bluetooth and Wi-Fi.
 function toggleConnection(type){
     if(signals[type]){
@@ -90,12 +158,16 @@ function toggleConnection(type){
         signals[type] = true;
     }
 
-    if(type === 'bluetooth' && signals[type]){
-        restoreConnection();
-    } else {
-        showConnectionError();
+    // When a signal is turned on.
+    if(signals[type]){
+        if(type === 'bluetooth' && markingStep < 3){   // Ignore the third step.
+            resume();
+        } else if(type === 'wifi' && markingStep > 1){ // Ignore the first step.
+            resume();
+        }
     }
 }
+
 
 // ---------------------------- //
 //           Student            //
@@ -111,43 +183,19 @@ function selectTab(button, tab){
     document.querySelector(`.tabs-screen[data-tab="${tab}"]`).setAttribute('rel', 'visible');
 }
 
-function showConnectionError(){
-    // Stop pulse animation and add red text.
-    document.querySelector('.attendance-status i').classList.remove('pulse');
-    document.querySelector('.attendance-status i').classList.add('bad');
-
-    // Revert the steps.
-    messages[0].className = 'message split';
-    messages[1].className = 'message split';
-    messages[2].className = 'message split';
-
-    //
-    document.getElementsByClassName('attendance-messages')[0].classList.add('bad');
-    document.getElementsByClassName('attendance-banner')[0].setAttribute('rel', 'show');
-}
-
-function restoreConnection(){
-    document.querySelector('.attendance-status i').classList.remove('bad');
-
-    document.getElementsByClassName('attendance-messages')[0].classList.remove('bad');
-    document.getElementsByClassName('attendance-banner')[0].removeAttribute('rel');
-
-    if(getPage('student') === 3){
-        listenForSignal();
-    }
-}
-
+// Step 3 of marking.
 function sendAttendance(){
+    markingStep = 3;
+
     setTimeout(() => {
         if(!signals['bluetooth']){
-            showConnectionError();
-            return;
+            return showBanner('bluetooth');
         }
 
         sendSignal();
 
         setTimeout(() => {
-            messages[2].classList.replace('active', 'good');
+            messages[2].classList.replace('active', 'done');
             messages[2].firstElementChild.checked = true;
 
             signAttendance();
@@ -155,9 +203,12 @@ function sendAttendance(){
     }, 1000);
 }
 
+// Step 2 of marking.
 function collectData(){
+    markingStep = 2;
+
     // Complete the "Listening for signal" step and make the next one active.
-    messages[0].classList.replace('active', 'good');
+    messages[0].classList.replace('active', 'done');
     messages[0].firstElementChild.checked = true;
     messages[1].classList.add('active');
 
@@ -171,20 +222,22 @@ function collectData(){
 
     setTimeout(() => {
         if(!signals['bluetooth']){
-            showConnectionError();
-            return;
+            return showBanner('bluetooth');
+        } else if(!signals['wifi']){
+            return showBanner('wifi');
         }
 
         sendAttendance();
 
-        messages[1].classList.replace('active', 'good');
+        messages[1].classList.replace('active', 'done');
         messages[1].firstElementChild.checked = true;
         messages[2].classList.add('active');
     }, r);
 }
 
+// Step 1 of marking.
 function listenForSignal(){
-    setPage('student', 3);
+    markingStep = 1;
 
     if(markingComplete){
         return;
@@ -197,7 +250,7 @@ function listenForSignal(){
         // Global flag.
         if(!signals['bluetooth']){
             clearInterval(fetchSignal);
-            showConnectionError();
+            showBanner('bluetooth');
         } else if(markingOpen){
             clearInterval(fetchSignal);
             collectData();
@@ -329,6 +382,7 @@ function signAttendance(){
     attendee[attendee.length-2].click();
 
     markingComplete = true;
+    showBanner('done');
 }
 
 // ---------------------------- //

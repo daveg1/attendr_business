@@ -185,7 +185,7 @@
                                     </div>
                                 </div>
                                 <div class="tabs-screen" data-tab="schedule" rel="visible">
-                                    <div class="lecture-item" onclick="closeTooltip(); listenForSignal()">
+                                    <div class="lecture-item" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">
                                         <div class="wrap">
                                             <div class="option-bar split">
                                                 <h3>May 11</h3>
@@ -228,8 +228,18 @@
                                 <i class="fab fa-bluetooth-b pulse"></i>
                             </div>
                             <div class="attendance-banner wrap">
-                                <h3>No Signal</h3>
-                                <p>Make sure you have enabled Bluetooth and your lecturer has opened for sign-ins.</p>
+                                <div class="bluetooth">
+                                    <h3>No Signal</h3>
+                                    <p>Make sure you have enabled Bluetooth and your lecturer has opened for sign-ins.</p>
+                                </div>
+                                <div class="wifi">
+                                    <h3>Server Connection Failed</h3>
+                                    <p>Ensure Wi-Fi has been enabled on your device. Because your attendance data has been saved locally, it will be uploaded upon reconnection.</p>
+                                </div>
+                                <div class="done">
+                                    <h3>Success</h3>
+                                    <p>Your attendance has been registered.</p>
+                                </div>
                             </div>
                             <div class="attendance-messages" data-tooltip="s-3">
                                 <div class="message split">
