@@ -794,6 +794,12 @@ For example:
     margin-bottom: .25em;
 }
 
+#start-attending {
+    padding: 2em;
+    margin-top: 3em;
+    font-weight: 600;
+}
+
 /*=============================[Student]==========================*/
 /*                         Attendance Screen                      */
 /*================================================================*/
