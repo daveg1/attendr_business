@@ -191,6 +191,7 @@
                                             </span>
                                         </aside>
                                     </div>
+                                    <button id="start-attending" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">Start Attending</button>
                                 </div>
                                 <div class="tabs-screen" data-tab="timetable">
                                     <div class="lecture-item" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">
@@ -217,9 +218,6 @@
                                         </aside>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="option-bar wrap">
-                                <button onclick="closeTooltip(); setPage('student', 3); listenForSignal()">Start Attending</button>
                             </div>
                             <div class="tabs-menu wrap" data-tooltip="si-2">
                                 <div class="tabs-option" onclick="selectTab(this, 'profile')" rel="selected">
