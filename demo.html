@@ -159,41 +159,24 @@
                                 </div>
                                 <h3>Attend Student</h3>
                             </header>
-                            <h2>
-                                <time datetime="2020-04-11">May 11, 2020</time>
-                            </h2>
-                            <div class="option-bar split wrap space">
-                                <div class="sync-message">Lectures synced: <span class="time">Just Now</span></div>
-                                <i id="student-spinner" class="fas fa-sync" onclick="addSpinner();" aria-hidden="true"></i>
-                            </div>
                             <div class="tabs bottomless-list" data-tooltip="s-2">
                                 <div class="tabs-screen" data-tab="profile" rel="visible">
-                                    <div class="lecture-item">
-                                        <div class="wrap">
-                                            <div class="option-bar split">
-                                                <h3>May 10</h3>
-                                                <b class="day">Yesterday</b>
-                                            </div>
-                                            <div class="lecture-type lecture">Lecture</div>
-                                            <div class="lecture-info">
-                                                <h3>CM1100 Introduction to Computing</h3>
-                                                <h4 class="teacher">Wiratunga, Nirmalie</h4>
-                                            </div>
-                                        </div>
-                                        <aside class="lecture-waw split">
-                                            <span class="when">
-                                                <i class="fas fa-clock" aria-hidden="true"></i>
-                                                09:00–11:30
-                                            </span>
-                                            <span class="where">
-                                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                                N519
-                                            </span>
-                                        </aside>
+                                    <div id="profile-welcome">
+                                        <h2>Hello, <span id="username"></span> Last Name</h2>
+                                        <h2>ID: <span id="student-number"></span></h2>
+                                        <hr>
                                     </div>
+                                    <p>Recent Activity</p>
+                                    <time datetime="2020-12-10">10/12/20 15:22:54:</time>
+                                    <p>You attended CMM530 Systems Programming and Security</p>
                                     <button id="start-attending" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">Start Attending</button>
                                 </div>
                                 <div class="tabs-screen" data-tab="timetable">
+                                    <h2><time datetime="2020-04-11">May 11, 2020</time></h2>
+                                    <div class="option-bar split wrap space">
+                                        <div class="sync-message">Lectures synced: <span class="time">Just Now</span></div>
+                                        <i id="student-spinner" class="fas fa-sync" onclick="addSpinner();" aria-hidden="true"></i>
+                                    </div>
                                     <div class="lecture-item" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">
                                         <div class="wrap">
                                             <div class="option-bar split">
