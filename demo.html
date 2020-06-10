@@ -162,14 +162,15 @@
                             <div class="tabs bottomless-list" data-tooltip="s-2">
                                 <div class="tabs-screen" data-tab="profile" rel="visible">
                                     <div id="profile-welcome">
-                                        <h2>Hello, <span id="username"></span> Last Name</h2>
+                                        <h2>Hello, <span id="username"></span></h2>
                                         <h2>ID: <span id="student-number"></span></h2>
                                         <hr>
                                     </div>
-                                    <p>Recent Activity</p>
-                                    <time datetime="2020-12-10">10/12/20 15:22:54:</time>
-                                    <p>You attended CMM530 Systems Programming and Security</p>
-                                    <button id="start-attending" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">Start Attending</button>
+                                    <div id="recent-activity">
+                                        <h4>Recent Activity</h4>
+                                        <p><time datetime="2020-12-10">10/12/20 15:22:54:</time> You attended CMM530 Systems Programming and Security</p>
+                                        <button id="start-attending" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">Start Attending</button>
+                                    </div>
                                 </div>
                                 <div class="tabs-screen" data-tab="timetable">
                                     <h2><time datetime="2020-04-11">May 11, 2020</time></h2>
