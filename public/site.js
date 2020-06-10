@@ -265,6 +265,13 @@ function stopListening(){
     clearInterval(fetchSignal);
 }
 
+// Fill in user details
+function fillUser(){
+    var username = document.querySelector('[name="username"]').value;
+    document.getElementById("username").innerHTML = username;
+    // Generate random ID
+    document.getElementById("student-number").innerHTML = Math.floor(100000 + Math.random() * 900000);
+}
 
 // ---------------------------- //
 //           Lecturer           //
@@ -407,6 +414,7 @@ function validateSignin(e){
     }
 
     closeTooltip();
+    fillUser();
     setPage(this, 2);
 }
 
