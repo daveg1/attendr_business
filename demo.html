@@ -159,47 +159,55 @@
                                 </div>
                                 <h3>Attend Student</h3>
                             </header>
-                            <div class="tabs bottomless-list" data-tooltip="s-2">
-                                <div class="tabs-screen" data-tab="profile" rel="visible">
-                                    <div id="profile-welcome">
+                            <div class="tabs">
+                                <div class="tabs-screen bottomless" data-tab="profile" rel="visible">
+                                    <header>
                                         <h2>Hello, <span id="username"></span></h2>
-                                        <h2>ID: <span id="student-number"></span></h2>
-                                        <hr>
+                                        <div class="option-bar">
+                                            <b id="student-number"></b>
+                                        </div>
+                                    </header>
+                                    <div class="recent-activity" data-tooltip="s-2">
+                                        <h3>Recent Activity</h3>
+                                        <div class="date-bar"><time datetime="2020-04-10">10th May</time></div>
+                                        <p><time datetime="2020-12-10">15:22</time> You attended CMM530 Systems Programming and Security</p>
+                                        <div class="date-bar"><time datetime="2020-04-11">Today</time></div>
+                                        <p><time datetime="2020-12-10">15:22</time> You attended CMM530 Systems Programming and Security</p>
                                     </div>
-                                    <div id="recent-activity">
-                                        <h4>Recent Activity</h4>
-                                        <p><time datetime="2020-12-10">10/12/20 15:22:54:</time> You attended CMM530 Systems Programming and Security</p>
+                                    <div class="wrap">
                                         <button id="start-attending" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">Start Attending</button>
                                     </div>
                                 </div>
                                 <div class="tabs-screen" data-tab="timetable">
                                     <h2><time datetime="2020-04-11">May 11, 2020</time></h2>
                                     <div class="option-bar split wrap space">
-                                        <div class="sync-message">Lectures synced: <span class="time">Just Now</span></div>
-                                        <i id="student-spinner" class="fas fa-sync" onclick="addSpinner();" aria-hidden="true"></i>
+                                        <span class="sync-message">Lectures synced</span>
+                                        <i class="fas fa-sync" aria-hidden="true"></i>
                                     </div>
-                                    <div class="lecture-item" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">
-                                        <div class="wrap">
-                                            <div class="option-bar split">
-                                                <h3>May 11</h3>
-                                                <b class="day">Today</b>
+                                    <div class="wrap">
+                                        <div class="lecture-item" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">
+                                            <div class="wrap">
+                                                <div class="option-bar split">
+                                                    <h3>May 11</h3>
+                                                    <b class="day">Today</b>
+                                                </div>
+                                                <div class="lecture-type lab">Laboratory</div>
+                                                <div class="lecture-info">
+                                                    <h3>CM1100 Introduction to Computing</h3>
+                                                    <h4 class="teacher">Wiratunga, Nirmalie</h4>
+                                                </div>
                                             </div>
-                                            <div class="lecture-type lab">Laboratory</div>
-                                            <div class="lecture-info">
-                                                <h3>CM1100 Introduction to Computing</h3>
-                                                <h4 class="teacher">Wiratunga, Nirmalie</h4>
-                                            </div>
+                                            <aside class="lecture-waw split">
+                                                <span class="when">
+                                                    <i class="fas fa-clock" aria-hidden="true"></i>
+                                                    16:00–17:00
+                                                </span>
+                                                <span class="where">
+                                                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                                    No room
+                                                </span>
+                                            </aside>
                                         </div>
-                                        <aside class="lecture-waw split">
-                                            <span class="when">
-                                                <i class="fas fa-clock" aria-hidden="true"></i>
-                                                16:00–17:00
-                                            </span>
-                                            <span class="where">
-                                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                                No room
-                                            </span>
-                                        </aside>
                                     </div>
                                 </div>
                             </div>
@@ -254,20 +262,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="phone-signal">
-                    <div class="phone-signal-dot"></div>
-                    <i class="fab fa-bluetooth-b"></i>
-                </div>
                 <form class="phone-connections">
                     <label>
+                        <i class="fab fa-bluetooth" aria-hidden="true"></i>
                         <span>Bluetooth Signal</span>
                         <input type="checkbox" onchange="toggleConnection('bluetooth')">
                     </label>
                     <label>
+                        <i class="fas fa-wifi" aria-hidden="true"></i>
                         <span>Internet Signal</span>
                         <input type="checkbox" onchange="toggleConnection('wifi')">
                     </label>
                 </form>
+                <div class="phone-signal">
+                    <div class="phone-signal-dot"></div>
+                    <i class="fab fa-bluetooth-b"></i>
+                </div>
                 <div class="phone">
                     <div class="phone-graphic"></div>
                     <div class="phone-viewport" data-app="lecturer">
@@ -378,7 +388,7 @@
                                 <div class="option-bar wrap">
                                     <i class="fas fa-arrow-left" onclick="setPage(this, 2)"></i>
                                 </div>
-                                <h2>CM1100 Introduction to Computing</h2>
+                                <h2 class="wrap">CM1100 Introduction to Computing</h2>
                                 <aside class="lecture-waw split">
                                     <span class="when">
                                         <i class="fas fa-clock"></i>
