@@ -142,14 +142,6 @@ function resume(n){
     }
 }
 
-// Resumes animations where applicable.
-function restoreConnection(type){
-    document.querySelector('.attendance-status i').className = "fab fa-bluetooth-b";
-
-    document.getElementsByClassName('attendance-messages')[0].className = "attendance-messages";
-    document.getElementsByClassName('attendance-banner')[0].removeAttribute('rel');
-}
-
 // Enables/disabled Bluetooth and Wi-Fi.
 function toggleConnection(type){
     if(signals[type]){
@@ -159,7 +151,7 @@ function toggleConnection(type){
     }
 
     // When a signal is turned on.
-    if(signals[type]){
+    if(signals[type] && getPage('student') === 3){
         if(type === 'bluetooth' && markingStep < 3){   // Ignore the third step.
             resume();
         } else if(type === 'wifi' && markingStep > 1){ // Ignore the first step.
@@ -183,6 +175,17 @@ function selectTab(button, tab){
     document.querySelector(`.tabs-screen[data-tab="${tab}"]`).setAttribute('rel', 'visible');
 }
 
+// Briefly show a marking arrow next to where the student was marked.
+function blinkMarkingArrow(){
+    const arrow = document.getElementsByClassName('marking-arrow')[0];
+
+    arrow.classList.add('active');
+
+    setTimeout(() => {
+        arrow.classList.remove('active');
+    }, 4500);
+}
+
 // Step 3 of marking.
 function sendAttendance(){
     markingStep = 3;
@@ -199,6 +202,7 @@ function sendAttendance(){
             messages[2].firstElementChild.checked = true;
 
             signAttendance();
+            blinkMarkingArrow();
         }, 1800);
     }, 1000);
 }
@@ -218,7 +222,7 @@ function collectData(){
     returnSignal();
 
     // Random delay between 2s and 4s.
-    let r = (Math.random() * 4000) + 2000;
+    let r = (Math.random() * 2000) + 2000;
 
     setTimeout(() => {
         if(!signals['bluetooth']){

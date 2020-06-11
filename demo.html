@@ -239,7 +239,7 @@
                                 </div>
                                 <div class="done">
                                     <h3>Success</h3>
-                                    <p>Your attendance has been registered.</p>
+                                    <p>Your attendance has been marked.</p>
                                 </div>
                             </div>
                             <div class="attendance-messages" data-tooltip="s-3">
@@ -475,6 +475,7 @@
                             <div class="button-holder" data-tooltip="li-4">
                                 <button onclick="closeTooltip(); setPage(this, 3)">Close</button>
                             </div>
+                            <i class="fas fa-long-arrow-alt-left marking-arrow"></i>
                             <div class="marking-confirm">
                                 <div class="confirm-box">
                                     <h4>Manually mark this student?</h4>
@@ -490,5 +491,6 @@
             </section>
         </main>
         <script src="./public/site.js"></script>
+        <script>setPage('lecturer', 4)</script>
     </body>
 </html>

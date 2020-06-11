@@ -174,7 +174,7 @@ body {
 }
 
 @keyframes pulsate {
-    0% {
+    0%, 100% {
         opacity: .8;
         transform: scale(.8);
     }
@@ -182,11 +182,6 @@ body {
     50% {
         opacity: .4;
         transform: scale(1.25);
-    }
-
-    100% {
-        opacity: .8;
-        transform: scale(.8);
     }
 }
 
@@ -668,6 +663,31 @@ For example:
     color: #6f2377;
 }
 
+/* Blinks briefly when animation has finished. */
+.marking-arrow {
+    animation: lookHere infinite 1.25s ease-in-out;
+    bottom: 267px;
+    color: #39ac60;
+    color: #1074e6;
+    font-size: 1.5em;
+    opacity: 0;
+    position: absolute;
+    right: 24px;
+    transition: opacity .75s ease-in-out;
+    transform: translateX(3px);
+}
+
+.marking-arrow.active {
+    opacity: 1;
+}
+
+@keyframes lookHere {
+    0%, 100% {
+        transform: translateX(3px);
+    }
+    50% { transform: translateX(-3px); }
+}
+
 .marking-confirm {
     align-items: center;
     background-color: rgba(0,0,0,.2);
@@ -678,6 +698,7 @@ For example:
     position: absolute;
     right: 0;
     top: 0;
+    z-index: 1002;
 }
 
 .marking-confirm:not([rel]) {
@@ -733,9 +754,10 @@ For example:
 }
 
 @keyframes flicker {
-      0% { opacity:  1; }
+      0%, 100% {
+        opacity:  1;
+      }
      50% { opacity: .6; }
-    100% { opacity:  1; }
 }
 
 /*============================[Student]===========================*/
