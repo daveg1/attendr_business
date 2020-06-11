@@ -24,19 +24,19 @@
                                 <p>(Hint: just type any username and password to continue.)</p>
                                 <div class="tooltip-step">
                                     <b>Step 1 of 3</b>
-                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                    <button tabindex="-1" class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
                         </div>
                         <div class="tooltip-page" data-page="2">
-                            <div class="tooltip-indicator" style="left: 287px;top: 230px;" data-for="s-2"></div>
+                            <div class="tooltip-indicator" style="left: 287px;top: 218px;" data-for="s-2"></div>
                             <div class="tooltip-box" style="left: 336px;top: 230px;">
                                 <h2>Lecture List</h2>
                                 <p>Timetable information was provided by a provider like CELCAT, or hardcoded when attendr was installed.</p>
                                 <p>Click to start attending for class.</p>
                                 <div class="tooltip-step">
                                     <b>Step 2 of 3</b>
-                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                    <button tabindex="-1" class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
                             <div class="tooltip-indicator" style="left: 252px;top: 638px;" data-for="si-2"></div>
@@ -45,7 +45,7 @@
                                 <p>There are two tabs at the bottom of your lecturer list. These show your most recent past timetabled lectures and your upcoming lectures respectively.</p>
                                 <div class="tooltip-step">
                                     <b>💡 Info</b>
-                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                    <button tabindex="-1" class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                 <p>Timetable information was provided by a provider like CELCAT, or hardcoded when attendr was installed.</p>
                                 <div class="tooltip-step">
                                     <b>Step 3 of 3</b>
-                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                    <button tabindex="-1" class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                                 <p>Attendr lets you customise your app with your institution's logo—have a go uploading your own now!</p>
                                 <div class="tooltip-step">
                                     <b>💡 Info</b>
-                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                    <button tabindex="-1" class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
                             <div class="tooltip-box" style="left: 994px;top: 144px;"></div>
@@ -88,7 +88,7 @@
                                 <p>Click on today's lecture to progress.</p>
                                 <div class="tooltip-step">
                                     <b>Step 1 of 3</b>
-                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                    <button tabindex="-1" class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                                 <p>To see how this works, an animation will play upon clicking Start Marking.</p>
                                 <div class="tooltip-step">
                                     <b>Step 2 of 3</b>
-                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                    <button tabindex="-1" class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@
                                 <p>Have a go now.</p>
                                 <div class="tooltip-step">
                                     <b>Step 3 of 3</b>
-                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                    <button tabindex="-1" class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
                             <div class="tooltip-indicator" style="left: 956px;top: 490px;" data-for="li-4"></div>
@@ -124,7 +124,7 @@
                                 <p>Your lecture's information page should reflect all the sign-ins that occurred.</p>
                                 <div class="tooltip-step">
                                     <b>💡 Info</b>
-                                    <button class="tooltip-close" onclick="closeTooltip()">Close</button>
+                                    <button tabindex="-1" class="tooltip-close" onclick="closeTooltip()">Close</button>
                                 </div>
                             </div>
                             <div class="tooltip-box" style="left: 990px;top: 458px;">Your attendees are reflected on the previous page.<br>Tap this button to return to take a look!</div>
@@ -144,9 +144,9 @@
                                 </div>
                             </header>
                             <form class="phone-form" data-tooltip="s-1">
-                                <input name="username" type="text" autocomplete="off" spellcheck="false" placeholder="Username" autofocus>
-                                <input name="password" type="password" autocomplete="off" spellcheck="false" placeholder="Password">
-                                <button type="submit">Sign In</button>
+                                <input tabindex="-1" name="username" type="text" autocomplete="off" spellcheck="false" placeholder="Username" autofocus>
+                                <input tabindex="-1" name="password" type="password" autocomplete="off" spellcheck="false" placeholder="Password">
+                                <button tabindex="-1" type="submit">Sign In</button>
                             </form>
                             <div class="phone-form-output">The username cannot be blank.</div>
                         </div>
@@ -159,47 +159,55 @@
                                 </div>
                                 <h3>Attend Student</h3>
                             </header>
-                            <div class="tabs bottomless-list" data-tooltip="s-2">
-                                <div class="tabs-screen" data-tab="profile" rel="visible">
-                                    <div id="profile-welcome">
+                            <div class="tabs">
+                                <div class="tabs-screen bottomless" data-tab="profile" rel="visible">
+                                    <header>
                                         <h2>Hello, <span id="username"></span></h2>
-                                        <h2>ID: <span id="student-number"></span></h2>
-                                        <hr>
+                                        <div class="option-bar">
+                                            <b id="student-number"></b>
+                                        </div>
+                                    </header>
+                                    <div class="recent-activity" data-tooltip="s-2">
+                                        <h3>Recent Activity</h3>
+                                        <div class="date-bar"><time datetime="2020-04-10">10th May</time></div>
+                                        <p><time datetime="2020-12-10">15:22</time> You attended CMM530 Systems Programming and Security</p>
+                                        <div class="date-bar"><time datetime="2020-04-11">Today</time></div>
+                                        <p><time datetime="2020-12-10">15:22</time> You attended CMM530 Systems Programming and Security</p>
                                     </div>
-                                    <div id="recent-activity">
-                                        <h4>Recent Activity</h4>
-                                        <p><time datetime="2020-12-10">10/12/20 15:22:54:</time> You attended CMM530 Systems Programming and Security</p>
-                                        <button id="start-attending" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">Start Attending</button>
+                                    <div class="wrap">
+                                        <button tabindex="-1" id="start-attending" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">Start Attending</button>
                                     </div>
                                 </div>
                                 <div class="tabs-screen" data-tab="timetable">
                                     <h2><time datetime="2020-04-11">May 11, 2020</time></h2>
                                     <div class="option-bar split wrap space">
-                                        <div class="sync-message">Lectures synced: <span class="time">Just Now</span></div>
-                                        <i id="student-spinner" class="fas fa-sync" onclick="addSpinner();" aria-hidden="true"></i>
+                                        <span class="sync-message">Lectures synced</span>
+                                        <i class="fas fa-sync" aria-hidden="true"></i>
                                     </div>
-                                    <div class="lecture-item" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">
-                                        <div class="wrap">
-                                            <div class="option-bar split">
-                                                <h3>May 11</h3>
-                                                <b class="day">Today</b>
+                                    <div class="wrap">
+                                        <div class="lecture-item" onclick="closeTooltip(); setPage('student', 3); listenForSignal()">
+                                            <div class="wrap">
+                                                <div class="option-bar split">
+                                                    <h3>May 11</h3>
+                                                    <b class="day">Today</b>
+                                                </div>
+                                                <div class="lecture-type lab">Laboratory</div>
+                                                <div class="lecture-info">
+                                                    <h3>CM1100 Introduction to Computing</h3>
+                                                    <h4 class="teacher">Wiratunga, Nirmalie</h4>
+                                                </div>
                                             </div>
-                                            <div class="lecture-type lab">Laboratory</div>
-                                            <div class="lecture-info">
-                                                <h3>CM1100 Introduction to Computing</h3>
-                                                <h4 class="teacher">Wiratunga, Nirmalie</h4>
-                                            </div>
+                                            <aside class="lecture-waw split">
+                                                <span class="when">
+                                                    <i class="fas fa-clock" aria-hidden="true"></i>
+                                                    16:00–17:00
+                                                </span>
+                                                <span class="where">
+                                                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                                    No room
+                                                </span>
+                                            </aside>
                                         </div>
-                                        <aside class="lecture-waw split">
-                                            <span class="when">
-                                                <i class="fas fa-clock" aria-hidden="true"></i>
-                                                16:00–17:00
-                                            </span>
-                                            <span class="where">
-                                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                                No room
-                                            </span>
-                                        </aside>
                                     </div>
                                 </div>
                             </div>
@@ -231,43 +239,45 @@
                                 </div>
                                 <div class="done">
                                     <h3>Success</h3>
-                                    <p>Your attendance has been registered.</p>
+                                    <p>Your attendance has been marked.</p>
                                 </div>
                             </div>
                             <div class="attendance-messages" data-tooltip="s-3">
                                 <div class="message split">
                                     Listening for signal
-                                    <input type="checkbox">
+                                    <input tabindex="-1" type="checkbox">
                                 </div>
                                 <div class="message split">
                                     Collecting data
-                                    <input type="checkbox">
+                                    <input tabindex="-1" type="checkbox">
                                 </div>
                                 <div class="message split">
                                     Sending Attendance
-                                    <input type="checkbox">
+                                    <input tabindex="-1" type="checkbox">
                                 </div>
                             </div>
                             <div class="button-holder">
-                                <button onclick="stopListening()">Close</button>
+                                <button tabindex="-1" onclick="stopListening()">Close</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="phone-signal">
-                    <div class="phone-signal-dot"></div>
-                    <i class="fab fa-bluetooth-b"></i>
-                </div>
                 <form class="phone-connections">
                     <label>
+                        <i class="fab fa-bluetooth" aria-hidden="true"></i>
                         <span>Bluetooth Signal</span>
                         <input type="checkbox" onchange="toggleConnection('bluetooth')">
                     </label>
                     <label>
+                        <i class="fas fa-wifi" aria-hidden="true"></i>
                         <span>Internet Signal</span>
                         <input type="checkbox" onchange="toggleConnection('wifi')">
                     </label>
                 </form>
+                <div class="phone-signal">
+                    <div class="phone-signal-dot"></div>
+                    <i class="fab fa-bluetooth-b"></i>
+                </div>
                 <div class="phone">
                     <div class="phone-graphic"></div>
                     <div class="phone-viewport" data-app="lecturer">
@@ -278,9 +288,9 @@
                                     <div id="dnd-logo" class="logo">Your institution logo here</div>
                                     <input type="file">
                                 </header>
-                                <input name="username" type="text" autocomplete="off" spellcheck="false" placeholder="Username" autofocus>
-                                <input name="password" type="password" autocomplete="off" spellcheck="false" placeholder="Password">
-                                <button type="submit">Sign In</button>
+                                <input tabindex="-1" name="username" type="text" autocomplete="off" spellcheck="false" placeholder="Username" autofocus>
+                                <input tabindex="-1" name="password" type="password" autocomplete="off" spellcheck="false" placeholder="Password">
+                                <button tabindex="-1" type="submit">Sign In</button>
                             </form>
                             <div class="phone-form-output">The username cannot be blank.</div>
                         </div>
@@ -378,7 +388,7 @@
                                 <div class="option-bar wrap">
                                     <i class="fas fa-arrow-left" onclick="setPage(this, 2)"></i>
                                 </div>
-                                <h2>CM1100 Introduction to Computing</h2>
+                                <h2 class="wrap">CM1100 Introduction to Computing</h2>
                                 <aside class="lecture-waw split">
                                     <span class="when">
                                         <i class="fas fa-clock"></i>
@@ -392,36 +402,36 @@
                             </header>
                             <div data-tooltip="l-3">
                                 <div class="button-holder">
-                                    <button onclick="closeTooltip(); openMarking()">Start Marking</button>
+                                    <button tabindex="-1" onclick="closeTooltip(); openMarking()">Start Marking</button>
                                 </div>
                                 <div class="attendee-list bottomless-list">
                                     <label class="attendee">
                                         <span>1907001</span>
-                                        <input type="checkbox">
+                                        <input tabindex="-1" type="checkbox">
                                     </label>
                                     <label class="attendee">
                                         <span>1907002</span>
-                                        <input type="checkbox">
+                                        <input tabindex="-1" type="checkbox">
                                     </label>
                                     <label class="attendee">
                                         <span>1907003</span>
-                                        <input type="checkbox">
+                                        <input tabindex="-1" type="checkbox">
                                     </label>
                                     <label class="attendee">
                                         <span>1907004</span>
-                                        <input type="checkbox">
+                                        <input tabindex="-1" type="checkbox">
                                     </label>
                                     <label class="attendee">
                                         <span>1907005</span>
-                                        <input type="checkbox">
+                                        <input tabindex="-1" type="checkbox">
                                     </label>
                                     <label class="attendee">
                                         <span>1907006</span>
-                                        <input type="checkbox">
+                                        <input tabindex="-1" type="checkbox">
                                     </label>
                                     <label class="attendee">
                                         <span>1907007</span>
-                                        <input type="checkbox">
+                                        <input tabindex="-1" type="checkbox">
                                     </label>
                                 </div>
                             </div>
@@ -435,42 +445,43 @@
                             <div class="attendee-list bottomless-list" data-tooltip="l-4">
                                 <label class="attendee">
                                     <span>1907001</span>
-                                    <input type="checkbox">
+                                    <input tabindex="-1" type="checkbox">
                                 </label>
                                 <label class="attendee">
                                     <span>1907002</span>
-                                    <input type="checkbox">
+                                    <input tabindex="-1" type="checkbox">
                                 </label>
                                 <label class="attendee">
                                     <span>1907003</span>
-                                    <input type="checkbox">
+                                    <input tabindex="-1" type="checkbox">
                                 </label>
                                 <label class="attendee">
                                     <span>1907004</span>
-                                    <input type="checkbox">
+                                    <input tabindex="-1" type="checkbox">
                                 </label>
                                 <label class="attendee">
                                     <span>1907005</span>
-                                    <input type="checkbox">
+                                    <input tabindex="-1" type="checkbox">
                                 </label>
                                 <label class="attendee">
                                     <span>1907006</span>
-                                    <input type="checkbox">
+                                    <input tabindex="-1" type="checkbox">
                                 </label>
                                 <label class="attendee">
                                     <span>1907007</span>
-                                    <input type="checkbox">
+                                    <input tabindex="-1" type="checkbox">
                                 </label>
                             </div>
                             <div class="button-holder" data-tooltip="li-4">
-                                <button onclick="closeTooltip(); setPage(this, 3)">Close</button>
+                                <button tabindex="-1" onclick="closeTooltip(); setPage(this, 3)">Close</button>
                             </div>
+                            <i class="fas fa-long-arrow-alt-left marking-arrow"></i>
                             <div class="marking-confirm">
                                 <div class="confirm-box">
                                     <h4>Manually mark this student?</h4>
                                     <div class="confirm-btns option-bar">
-                                        <button onclick="markStudent(this.dataset.n)">Yes</button>
-                                        <button onclick="closeBox()">No</button>
+                                        <button tabindex="-1" onclick="markStudent(this.dataset.n)">Yes</button>
+                                        <button tabindex="-1" onclick="closeBox()">No</button>
                                     </div>
                                 </div>
                             </div>

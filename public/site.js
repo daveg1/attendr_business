@@ -142,14 +142,6 @@ function resume(n){
     }
 }
 
-// Resumes animations where applicable.
-function restoreConnection(type){
-    document.querySelector('.attendance-status i').className = "fab fa-bluetooth-b";
-
-    document.getElementsByClassName('attendance-messages')[0].className = "attendance-messages";
-    document.getElementsByClassName('attendance-banner')[0].removeAttribute('rel');
-}
-
 // Enables/disabled Bluetooth and Wi-Fi.
 function toggleConnection(type){
     if(signals[type]){
@@ -159,7 +151,7 @@ function toggleConnection(type){
     }
 
     // When a signal is turned on.
-    if(signals[type]){
+    if(signals[type] && getPage('student') === 3){
         if(type === 'bluetooth' && markingStep < 3){   // Ignore the third step.
             resume();
         } else if(type === 'wifi' && markingStep > 1){ // Ignore the first step.
@@ -183,6 +175,17 @@ function selectTab(button, tab){
     document.querySelector(`.tabs-screen[data-tab="${tab}"]`).setAttribute('rel', 'visible');
 }
 
+// Briefly show a marking arrow next to where the student was marked.
+function blinkMarkingArrow(){
+    const arrow = document.getElementsByClassName('marking-arrow')[0];
+
+    arrow.classList.add('active');
+
+    setTimeout(() => {
+        arrow.classList.remove('active');
+    }, 4500);
+}
+
 // Step 3 of marking.
 function sendAttendance(){
     markingStep = 3;
@@ -199,6 +202,7 @@ function sendAttendance(){
             messages[2].firstElementChild.checked = true;
 
             signAttendance();
+            blinkMarkingArrow();
         }, 1800);
     }, 1000);
 }
@@ -218,7 +222,7 @@ function collectData(){
     returnSignal();
 
     // Random delay between 2s and 4s.
-    let r = (Math.random() * 4000) + 2000;
+    let r = (Math.random() * 2000) + 2000;
 
     setTimeout(() => {
         if(!signals['bluetooth']){
@@ -267,7 +271,7 @@ function stopListening(){
 
 // Fill in user details
 function fillUser(){
-    var username = document.querySelector('[name="username"]').value;
+    const username = document.getElementsByName('username')[0].value;
     document.getElementById("username").innerHTML = username;
     // Generate random ID
     document.getElementById("student-number").innerHTML = Math.floor(100000 + Math.random() * 900000);
@@ -392,6 +396,7 @@ function signAttendance(){
     showBanner('done');
 }
 
+
 // ---------------------------- //
 //           Generic            //
 // ---------------------------- //
@@ -416,99 +421,6 @@ function validateSignin(e){
     closeTooltip();
     fillUser();
     setPage(this, 2);
-}
-
-// Sync Timers
-let lecturetime = 0;
-let studenttime = 0;
-
-function lectureTimer() {
-    var time = new Date();
-    var hour = time.getHours();
-    var minutes = time.getMinutes();
-    setInterval(function() {
-    console.log("Timer started");
-    if (lecturetime > 120){
-        document.getElementsByClassName("time")[1].innerHTML = "Few minutes ago";
-    }
-    if (lecturetime > 240){
-        document.getElementsByClassName("time")[1].innerHTML = + hour + ":" + minutes;
-    }
-    lecturetime++;
-    }, 1000);
-}
-
-function studentTimer() {
-    var time = new Date();
-    var hour = time.getHours();
-    var minutes = time.getMinutes();
-    setInterval(function() {
-    console.log("Timer started");
-    if (studenttime > 120){
-        document.getElementsByClassName("time")[0].innerHTML = "Few minutes ago";
-    }
-    if (studenttime > 240){
-        document.getElementsByClassName("time")[0].innerHTML = + hour + ":" + minutes;
-    }
-    studenttime++;
-    }, 1000);
-}
-
-// Animate spinner
-function addSpinner() {
-    // Randomise the lecture types and dates.
-    // Physically rotate the spinner.
-
-    var spin = document.getElementById(event.target.id);
-    spin.classList.add("fa-spin");
-    // If Lecturer Sync icon
-    if (event.target.id == "lecturer-spinner") {
-        var sync = document.getElementsByClassName("sync-message")[1];
-        var timeDisplay = document.getElementsByClassName("time")[1];
-        timeDisplay.style.fontWeight = "600";
-        timeDisplay.style.color = "#000";
-        // Add new card
-        var lectureCard = document.getElementsByClassName("lecture-item");
-        var lastCard = document.getElementsByClassName("lecture-list")[0].lastElementChild;
-        var cardNumber = Math.floor(Math.random() * 3);
-        var cloneCard = lectureCard[cardNumber].cloneNode(true);
-        lastCard.after(cloneCard);
-        // Start/Stop Lecturer Timer
-        if (lecturetime > 0) {
-            console.log("Timer stopped");
-            clearInterval(lectureTimer);
-            lecturetime = 0;
-            } else {
-                lectureTimer();
-            }
-    // Student Sync Icon
-    } else {
-        var sync = document.getElementsByClassName("sync-message")[0];
-        var timeDisplay = document.getElementsByClassName("time")[0];
-        timeDisplay.style.fontWeight = "600";
-        timeDisplay.style.color = "#000";
-        // Add new card
-        var lectureCard = document.getElementsByClassName("lecture-item");
-        var lastCard = document.getElementsByClassName("tabs-screen")[1].lastElementChild;
-        var cardNumber = Math.floor(Math.random() * 2);
-        var cloneCard = lectureCard[cardNumber].cloneNode(true);
-        lastCard.after(cloneCard);
-        // Start/Stop Student Timer
-        if (studenttime > 0) {
-            console.log("Timer stopped");
-            clearInterval(studentTimer);
-            studenttime = 0;
-            } else {
-                studentTimer();
-            }
-    }
-
-    // Remove Sync Animation
-    setTimeout(function () {
-        spin.classList.remove("fa-spin");
-        timeDisplay.style.fontWeight = "normal";
-        timeDisplay.style.color = "#888";
-    }, 1000);
 }
 
 function dragStyle(){

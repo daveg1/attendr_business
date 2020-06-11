@@ -174,7 +174,7 @@ body {
 }
 
 @keyframes pulsate {
-    0% {
+    0%, 100% {
         opacity: .8;
         transform: scale(.8);
     }
@@ -182,11 +182,6 @@ body {
     50% {
         opacity: .4;
         transform: scale(1.25);
-    }
-
-    100% {
-        opacity: .8;
-        transform: scale(.8);
     }
 }
 
@@ -312,14 +307,15 @@ body {
     padding: 0 24px;
 }
 
-.phone-screen.bottomless {
-    display: flex;
-    flex-direction: column;
-}
-
 .phone-screen .button-holder {
     margin: 1em 0;
     padding: .75em 2em;
+}
+
+/* .phone-screen.bottomless, */
+.bottomless {
+    display: flex;
+    flex-direction: column;
 }
 
 .bottomless .bottomless-list {
@@ -554,8 +550,7 @@ For example:
 }
 
 .sync-message {
-    color: #000;
-    font-weight: 600;
+    color: #888;
 }
 
 .time {
@@ -668,6 +663,31 @@ For example:
     color: #6f2377;
 }
 
+/* Blinks briefly when animation has finished. */
+.marking-arrow {
+    animation: lookHere infinite 1.25s ease-in-out;
+    bottom: 267px;
+    color: #39ac60;
+    color: #1074e6;
+    font-size: 1.5em;
+    opacity: 0;
+    position: absolute;
+    right: 24px;
+    transition: opacity .75s ease-in-out;
+    transform: translateX(3px);
+}
+
+.marking-arrow.active {
+    opacity: 1;
+}
+
+@keyframes lookHere {
+    0%, 100% {
+        transform: translateX(3px);
+    }
+    50% { transform: translateX(-3px); }
+}
+
 .marking-confirm {
     align-items: center;
     background-color: rgba(0,0,0,.2);
@@ -678,6 +698,7 @@ For example:
     position: absolute;
     right: 0;
     top: 0;
+    z-index: 1002;
 }
 
 .marking-confirm:not([rel]) {
@@ -733,9 +754,10 @@ For example:
 }
 
 @keyframes flicker {
-      0% { opacity:  1; }
+      0%, 100% {
+        opacity:  1;
+      }
      50% { opacity: .6; }
-    100% { opacity:  1; }
 }
 
 /*============================[Student]===========================*/
@@ -760,6 +782,8 @@ For example:
 
 .phone-screen .tabs {
     flex: 1;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .tabs .tabs-screen:not([rel]) {
@@ -794,8 +818,75 @@ For example:
     margin-bottom: .25em;
 }
 
-.phone-screen time {
-    font-weight: bold;
+.tabs-screen {
+    height: 100%;
+}
+
+.tabs-screen header {
+    text-align: center;
+}
+
+.tabs-screen #student-number {
+}
+
+.tabs-screen #student-number::before {
+    content: 'ID # ';
+}
+
+.tabs .recent-activity {
+    flex: 1;
+    padding: 1em 24px;
+}
+
+.recent-activity h3 {
+    color: #81288a;
+    display: block;
+    margin: 0 0 1em;
+    text-align: center;
+}
+
+.recent-activity .date-bar {
+    align-items: center;
+    color: #555;
+    display: flex;
+    font-size: 12px;
+    margin-top: 2em;
+}
+
+.recent-activity p {
+    font-size: 12px;
+    line-height: 1.42;
+}
+
+.recent-activity p time {
+    color: #888;
+    font-weight: 700;
+    margin-right: .25em;
+}
+
+.recent-activity .date-bar::before {
+    background-color: #ccc;
+    content: '';
+    height: 1px;
+    opacity: .5;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.date-bar time {
+    background-color: #fff;
+    font-weight: 700;
+    padding: 0 .5em;
+    user-select: none;
+    z-index: 1;
+}
+
+.tabs-screen button {
+    border-radius: 30px;
+    font-weight: 500;
+    margin: 2em 0;
+    padding: 1.25em 1em;
 }
 
 #profile-welcome h2 {
@@ -805,21 +896,6 @@ For example:
 
 #profile-welcome h2:first-of-type {
     margin-top: 0;
-}
-
-#recent-activity h4 {
-    color: #81288a;
-    text-align: center;
-}
-
-#start-attending {
-    padding: 2em;
-    margin-top: 12.5em;
-    font-weight: 600;
-}
-
-#student-number {
-    font-weight: normal;
 }
 
 /*=============================[Student]==========================*/
@@ -941,7 +1017,9 @@ i.warn { color: #f0c756; }
 /*================================================================*/
 
 .phone-connections {
+    align-items: center;
     display: flex;
+    flex-direction: column;
     left: 50%;
     position: absolute;
     top: 6em;
@@ -949,22 +1027,35 @@ i.warn { color: #f0c756; }
 }
 
 .phone-connections label {
+    align-items: center;
     border: 1px solid #ccc;
     border-radius: 12px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
     line-height: 1em;
-    padding: .5em 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    padding-bottom: .5em;
+    position: relative;
     user-select: none;
+    width: 132px;
 }
 
-.phone-connections label:not(:last-child) {
-    margin-right: .5em;
+.phone-connections label i {
+    font-size: 2em;
+}
+
+.phone-connections span {
+    font-size: 12px;
+    margin: .75em 0 .25em;
 }
 
 .phone-connections input {
     cursor: pointer;
-    height: 13px;
-    margin: 0 0 0 .5em;
-    vertical-align: top;
-    width: 13px;
+    height: 14px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 14px;
 }
